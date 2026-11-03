@@ -1,0 +1,255 @@
+{
+  "id": "3-7",
+  "chapter": 3,
+  "type": "main",
+  "name": "병원 봉쇄",
+  "note": "동생 이서가 입원한 병원. 민간인 4명이 경로 위에 있다 [H06].",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XHHXXXXXXHHPX",
+      "SGGGGGGGGGGPX",
+      "XHHXXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 18,
+  "dp_regen": 0.75,
+  "deploy_limit": 8,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "C": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 15.0,
+      "enemy": "E11",
+      "route": "B",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 27.0,
+      "enemy": "E04",
+      "route": "C",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 30,
+      "enemy": "E09",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 33,
+      "enemy": "E11",
+      "route": "C",
+      "count": 5,
+      "interval": 1.8
+    },
+    {
+      "t": 36,
+      "enemy": "E02",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 55,
+      "enemy": "E11_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 58,
+      "enemy": "E09",
+      "route": "C",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 60,
+      "enemy": "E11",
+      "route": "A",
+      "count": 3,
+      "interval": 1.8
+    },
+    {
+      "t": 80,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 1.8
+    },
+    {
+      "t": 83,
+      "enemy": "E09",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 85,
+      "enemy": "E04",
+      "route": "C",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 100,
+      "enemy": "E11_elite",
+      "route": "C",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 102,
+      "enemy": "E11",
+      "route": "A",
+      "count": 2,
+      "interval": 1.5
+    }
+  ],
+  "enemy_total": 35,
+  "scale": {
+    "hp": 1.33,
+    "atk": 1.27,
+    "def": 1.18
+  },
+  "npc_units": [
+    {
+      "id": "CIV_01",
+      "unit": "CIVILIAN",
+      "tile": [
+        3,
+        6
+      ],
+      "dir": "E",
+      "level": 1,
+      "role": "survivor"
+    },
+    {
+      "id": "CIV_02",
+      "unit": "CIVILIAN",
+      "tile": [
+        7,
+        4
+      ],
+      "dir": "E",
+      "level": 1,
+      "role": "survivor"
+    },
+    {
+      "id": "CIV_03",
+      "unit": "CIVILIAN",
+      "tile": [
+        5,
+        2
+      ],
+      "dir": "E",
+      "level": 1,
+      "role": "survivor"
+    },
+    {
+      "id": "CIV_04",
+      "unit": "CIVILIAN",
+      "tile": [
+        9,
+        2
+      ],
+      "dir": "E",
+      "level": 1,
+      "role": "survivor"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 799,
+    "gold": 527,
+    "drops": [
+      [
+        "T3_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": {
+    "id": "SC-H06",
+    "condition": "npc_alive_all:CIV_*",
+    "unit": "L_MEDIC_YERIN",
+    "hint": "병원 환자 4명을 모두 지킬 것"
+  },
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 3007
+}

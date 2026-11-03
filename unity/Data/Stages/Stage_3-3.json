@@ -1,0 +1,165 @@
+{
+  "id": "3-3",
+  "chapter": 3,
+  "type": "main",
+  "name": "술사의 시험",
+  "note": "고DEF 용병 · 스켈레톤을 유나 NPC의 마법이 뚫는다 → SC-06.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XHHHXXXXXHHHX",
+      "XHHHXXXXXHHHX",
+      "XHHHXXXXXHHHX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 15,
+  "dp_regen": 0.75,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      2
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 28,
+      "enemy": "E11",
+      "route": "B",
+      "count": 5,
+      "interval": 1.8
+    },
+    {
+      "t": 32,
+      "enemy": "E04",
+      "route": "A",
+      "count": 4,
+      "interval": 2.5
+    },
+    {
+      "t": 55,
+      "enemy": "E09",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 58,
+      "enemy": "E04",
+      "route": "B",
+      "count": 4,
+      "interval": 2.5
+    },
+    {
+      "t": 80,
+      "enemy": "E11_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 82,
+      "enemy": "E04",
+      "route": "A",
+      "count": 4,
+      "interval": 2.5
+    },
+    {
+      "t": 85,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 1.5
+    }
+  ],
+  "enemy_total": 30,
+  "scale": {
+    "hp": 1.33,
+    "atk": 1.27,
+    "def": 1.18
+  },
+  "npc_units": [
+    {
+      "id": "NPC_YUNA",
+      "unit": "L_CASTER_YUNA",
+      "tile": [
+        2,
+        4
+      ],
+      "dir": "E",
+      "level": 25,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 576,
+    "gold": 403,
+    "drops": [
+      [
+        "T3_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10,
+    "scenario": "SC-06"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 3003
+}

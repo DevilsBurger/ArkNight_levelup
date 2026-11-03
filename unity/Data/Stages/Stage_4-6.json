@@ -1,0 +1,221 @@
+{
+  "id": "4-6",
+  "chapter": 4,
+  "type": "main",
+  "name": "엘프 전초",
+  "note": "비행 파도 2경로. 에이르 NPC(대공)가 없으면 못 막는 구성 → SC-09.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "SXXXXXXXXXXXD",
+      "SGGGGGGGGGGPD",
+      "XXHHXXXXXHHXX",
+      "XXXXXXXXXXXXX",
+      "XXHHXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "SXXXXXXXXXXXD",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {
+    "F1": [
+      [
+        0,
+        7
+      ],
+      [
+        12,
+        7
+      ]
+    ],
+    "F2": [
+      [
+        0,
+        1
+      ],
+      [
+        12,
+        1
+      ]
+    ]
+  },
+  "lives": 5,
+  "initial_dp": 18,
+  "dp_regen": 0.8,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E12",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E14",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 20.0,
+      "enemy": "E07",
+      "route": "F1",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 24.0,
+      "enemy": "E07",
+      "route": "F2",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 35,
+      "enemy": "E07_swarm",
+      "route": "F1",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 38,
+      "enemy": "E07_swarm",
+      "route": "F2",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 42,
+      "enemy": "E13",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 60,
+      "enemy": "E07",
+      "route": "F1",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 62,
+      "enemy": "E07",
+      "route": "F2",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 65,
+      "enemy": "E12",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 85,
+      "enemy": "E07_swarm",
+      "route": "F1",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 88,
+      "enemy": "E07_swarm",
+      "route": "F2",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 90,
+      "enemy": "E14_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 92,
+      "enemy": "E12",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    }
+  ],
+  "enemy_total": 39,
+  "scale": {
+    "hp": 1.54,
+    "atk": 1.45,
+    "def": 1.27
+  },
+  "npc_units": [
+    {
+      "id": "NPC_EIR",
+      "unit": "L_SNIPER_EIR",
+      "tile": [
+        9,
+        3
+      ],
+      "dir": "S",
+      "level": 40,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 912,
+    "gold": 608,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10,
+    "scenario": "SC-09"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 4006
+}

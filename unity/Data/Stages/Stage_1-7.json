@@ -18,6 +18,7 @@
       "XXXXXXXXXXXXX"
     ]
   },
+  "routes_air": {},
   "lives": 5,
   "initial_dp": 10,
   "dp_regen": 0.7,
@@ -87,7 +88,7 @@
       "interval": 2.0
     },
     {
-      "t": 8,
+      "t": 5,
       "enemy": "E01",
       "route": "B",
       "count": 4,
@@ -108,24 +109,24 @@
       "interval": 2.0
     },
     {
-      "t": 38,
+      "t": 36,
       "enemy": "E02",
       "route": "A",
       "count": 2,
       "interval": 3.0
     },
     {
-      "t": 45,
+      "t": 36,
       "enemy": "E01_scout",
       "route": "B",
       "count": 1,
       "interval": 0
     },
     {
-      "t": 47,
+      "t": 38,
       "enemy": "E01",
       "route": "B",
-      "count": 3,
+      "count": 2,
       "interval": 2.0
     },
     {
@@ -143,21 +144,21 @@
       "interval": 3.0
     },
     {
-      "t": 80,
+      "t": 66,
       "enemy": "E02",
       "route": "A",
       "count": 3,
       "interval": 2.5
     },
     {
-      "t": 82,
+      "t": 67,
       "enemy": "E01",
       "route": "B",
-      "count": 4,
+      "count": 3,
       "interval": 1.5
     }
   ],
-  "enemy_total": 30,
+  "enemy_total": 28,
   "scale": {
     "hp": 1.0,
     "atk": 1.0,

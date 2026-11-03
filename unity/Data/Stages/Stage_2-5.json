@@ -1,0 +1,196 @@
+{
+  "id": "2-5",
+  "chapter": 2,
+  "type": "main",
+  "name": "구조 요청",
+  "note": "고립된 구조대의 하율 NPC가 치유한다 → SC-05.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XXGGGGGGGGGPD",
+      "XXPXHHHHHXXXX",
+      "SPPXHXXXHXXXX",
+      "XXPXHHHHHXGXX",
+      "XXGGGGGGGGGGX",
+      "XXXXXXXXXXGPD",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 12,
+  "dp_regen": 0.7,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      5,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        12,
+        1
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E05",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 30,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 35,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 1.5
+    },
+    {
+      "t": 55,
+      "enemy": "E05",
+      "route": "A",
+      "count": 2,
+      "interval": 3.5
+    },
+    {
+      "t": 60,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 80,
+      "enemy": "E04_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 82,
+      "enemy": "E05",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 85,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 88,
+      "enemy": "E01",
+      "route": "A",
+      "count": 3,
+      "interval": 1.5
+    }
+  ],
+  "enemy_total": 24,
+  "scale": {
+    "hp": 1.15,
+    "atk": 1.12,
+    "def": 1.09
+  },
+  "npc_units": [
+    {
+      "id": "NPC_HAYUL",
+      "unit": "L_MEDIC_HAYUL",
+      "tile": [
+        6,
+        3
+      ],
+      "dir": "N",
+      "level": 20,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 555,
+    "gold": 375,
+    "drops": [
+      [
+        "T2_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10,
+    "scenario": "SC-05"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 2005
+}

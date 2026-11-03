@@ -1,0 +1,183 @@
+{
+  "id": "3-5",
+  "chapter": 3,
+  "type": "main",
+  "name": "길드 창고",
+  "note": "봉인(L) · 통로(P) 혼합. 낙인 연구 자료 발견.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGLLGGGGGPD",
+      "XXHHXXXXXHHXX",
+      "SGGGPPGGGGGPD",
+      "XXHHXXXXXHHXX",
+      "SGGGLLGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 18,
+  "dp_regen": 0.75,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      7,
+      4
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "C": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 15.0,
+      "enemy": "E11",
+      "route": "B",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 27.0,
+      "enemy": "E04",
+      "route": "C",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 30,
+      "enemy": "E09",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 33,
+      "enemy": "E11",
+      "route": "C",
+      "count": 5,
+      "interval": 1.8
+    },
+    {
+      "t": 36,
+      "enemy": "E02",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 58,
+      "enemy": "E11_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 60,
+      "enemy": "E04",
+      "route": "B",
+      "count": 4,
+      "interval": 2.5
+    },
+    {
+      "t": 62,
+      "enemy": "E09",
+      "route": "C",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 85,
+      "enemy": "E11",
+      "route": "A",
+      "count": 4,
+      "interval": 1.8
+    },
+    {
+      "t": 88,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 1.8
+    },
+    {
+      "t": 90,
+      "enemy": "E09",
+      "route": "C",
+      "count": 2,
+      "interval": 4.0
+    }
+  ],
+  "enemy_total": 37,
+  "scale": {
+    "hp": 1.33,
+    "atk": 1.27,
+    "def": 1.18
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 688,
+    "gold": 465,
+    "drops": [
+      [
+        "T3_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 3005
+}

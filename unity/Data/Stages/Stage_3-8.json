@@ -1,0 +1,209 @@
+{
+  "id": "3-8",
+  "chapter": 3,
+  "type": "main",
+  "name": "배신 길드장",
+  "note": "은신 보스 + 분신(B 경로). 분신은 저지 전엔 원거리로 못 맞춘다 → 지상 저지 후 사격.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XHHXXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXLLLLLXXXX",
+      "SGGGGGGGGGGPD",
+      "XHHXXXXXXHHXX",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 3,
+  "initial_dp": 18,
+  "dp_regen": 0.75,
+  "deploy_limit": 8,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      9,
+      5
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        5
+      ],
+      [
+        12,
+        5
+      ]
+    ],
+    "B": [
+      [
+        0,
+        3
+      ],
+      [
+        12,
+        3
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 20,
+      "enemy": "B03",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 35,
+      "enemy": "B03_clone",
+      "route": "B",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 50,
+      "enemy": "E09",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 65,
+      "enemy": "E11",
+      "route": "A",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 80,
+      "enemy": "B03_clone",
+      "route": "B",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 95,
+      "enemy": "E09_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 96,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 110,
+      "enemy": "E11",
+      "route": "A",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 125,
+      "enemy": "B03_clone",
+      "route": "B",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 140,
+      "enemy": "E09",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 155,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 2.0
+    }
+  ],
+  "enemy_total": 31,
+  "scale": {
+    "hp": 1.33,
+    "atk": 1.27,
+    "def": 1.18
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": {
+    "id": "B03",
+    "name": "배신 길드장",
+    "route": "A",
+    "spawn_t": 20,
+    "phases": [
+      {
+        "hp_above": 0.66,
+        "sealed": []
+      },
+      {
+        "hp_above": 0.33,
+        "sealed": [],
+        "on_enter": [
+          "invuln_2s"
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "sealed": [],
+        "on_enter": [
+          "invuln_2s"
+        ]
+      }
+    ],
+    "enrage_unblocked_speed_mult": 2.0
+  },
+  "script": [],
+  "rewards": {
+    "xp": 855,
+    "gold": 558,
+    "drops": [
+      [
+        "T3_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 30,
+    "skill_point": 1,
+    "rank": "B",
+    "level_cap": 45
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-2",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 3008
+}

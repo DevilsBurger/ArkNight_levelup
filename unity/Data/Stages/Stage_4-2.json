@@ -1,0 +1,171 @@
+{
+  "id": "4-2",
+  "chapter": 4,
+  "type": "main",
+  "name": "정령의 숲",
+  "note": "치유 타일(R) 소개. 박쥐 군단(E07_swarm)은 지상 경로를 날아온다.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGRRGGGGGPD",
+      "XXHHXXXXXHHXX",
+      "XXXXXXXXXXXXX",
+      "XXHHXXXXXHHXX",
+      "SGGGRRGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 18,
+  "dp_regen": 0.8,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      7,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E14",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E12",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 28,
+      "enemy": "E07_swarm",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 32,
+      "enemy": "E14",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 52,
+      "enemy": "E12",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 55,
+      "enemy": "E07_swarm",
+      "route": "B",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 75,
+      "enemy": "E14_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 77,
+      "enemy": "E14",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 80,
+      "enemy": "E12",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 95,
+      "enemy": "E14",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 97,
+      "enemy": "E12",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    }
+  ],
+  "enemy_total": 23,
+  "scale": {
+    "hp": 1.54,
+    "atk": 1.45,
+    "def": 1.27
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 638,
+    "gold": 456,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": {
+    "id": "SC-H08",
+    "condition": "tile_hold:R,3,20",
+    "unit": "L_SUPPORT_MOSS",
+    "hint": "치유 타일 위에 군단원 3명을 20초 유지"
+  },
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 4002
+}

@@ -10,19 +10,21 @@ OUT = os.path.join(os.path.dirname(__file__), "..", "unity", "Data", "Stages")
 
 def stage(id_, name, rows, routes, waves, *, lives=5, initial_dp=10, dp_regen=0.7, deploy_limit=6,
           hero=None, hero_mode="awakened", sealed=None, npc=None, dispatch=None, script=None,
-          rewards=None, first_clear=None, unlock=None, challenge=None, seed=None, boss=None, note=""):
+          rewards=None, first_clear=None, unlock=None, challenge=None, seed=None, boss=None, note="",
+          chapter=1, routes_air=None, scale=None):
     assert len(rows) == 8 and all(len(r) == 13 for r in rows), id_
     total = sum(w["count"] for w in waves)
     return {
-        "id": id_, "chapter": 1, "type": "main", "name": name, "note": note,
+        "id": id_, "chapter": chapter, "type": "main", "name": name, "note": note,
         "grid": {"w": 13, "h": 8, "rows": rows},
+        "routes_air": routes_air or {},
         "lives": lives, "initial_dp": initial_dp, "dp_regen": dp_regen, "deploy_limit": deploy_limit,
         "hero": {"mode": hero_mode, "default_tile": hero},
         "sealed_tiles": sealed or [],
         "routes": routes,
         "waves": waves,
         "enemy_total": total,
-        "scale": {"hp": 1.0, "atk": 1.0, "def": 1.0},
+        "scale": scale or {"hp": 1.0, "atk": 1.0, "def": 1.0},
         "npc_units": npc or [],
         "dispatch_units": dispatch or [],
         "boss": boss,
@@ -31,7 +33,7 @@ def stage(id_, name, rows, routes, waves, *, lives=5, initial_dp=10, dp_regen=0.
         "first_clear": first_clear or {"gem": 10},
         "unlock_scenario": unlock,
         "challenge": challenge or {"mods": ["deploy_limit-1", "enemy_hp+30"]},
-        "seed": seed if seed is not None else 1000 + int(id_.split("-")[1]),
+        "seed": seed if seed is not None else 1000 * chapter + int(id_.split("-")[1]),
     }
 
 def W(t, enemy, route, count, interval=2.0):
@@ -163,9 +165,9 @@ rows_16 = [
 ]
 STAGES.append(stage("1-6", "깊은 곳", rows_16,
     {"A": [[0, 6], [11, 6], [11, 4], [12, 4]], "B": [[0, 2], [11, 2], [11, 4], [12, 4]]},
-    [W(3, "E01", "A", 5, 2.0), W(10, "E01", "B", 5, 2.0), W(30, "E01_elite", "A", 1, 0), W(31, "E02", "A", 2, 3.0),
-     W(40, "E03", "B", 2, 3.0), W(45, "E02", "A", 3, 2.5), W(60, "E03_elite", "A", 1, 0), W(62, "E01", "B", 5, 1.5), W(70, "E02", "B", 2, 3.0),
-     W(90, "E01_elite", "A", 1, 0), W(90, "E01_elite", "B", 1, 0), W(100, "E03", "A", 2, 3.0), W(102, "E02", "B", 2, 3.0)],
+    [W(3, "E01", "A", 5, 2.0), W(6, "E01", "B", 5, 2.0), W(30, "E01_elite", "A", 1, 0), W(31, "E02", "A", 2, 3.0),
+     W(31, "E03", "B", 2, 3.0), W(45, "E02", "A", 3, 2.5), W(60, "E03_elite", "A", 1, 0), W(60, "E01", "B", 5, 1.5), W(66, "E02", "B", 2, 3.0),
+     W(90, "E01_elite", "A", 1, 0), W(90, "E01_elite", "B", 1, 0), W(100, "E03", "A", 2, 3.0), W(100, "E02", "B", 2, 3.0)],
     lives=5, deploy_limit=5, hero=[6, 6],
     dispatch=["DSP_SPEAR", "DSP_SNIPER"],
     script=[{"t": 0, "event": "unlock", "key": "ult_flash_slash"},
@@ -188,9 +190,9 @@ rows_17 = [
 ]
 STAGES.append(stage("1-7", "예속", rows_17,
     {"A": [[0, 6], [12, 6]], "B": [[0, 2], [12, 2]], "C": [[0, 6], [1, 6], [1, 4], [11, 4], [11, 2], [12, 2]]},
-    [W(3, "E01", "A", 4, 2.0), W(8, "E01", "B", 4, 2.0), W(25, "E02", "C", 3, 3.0), W(35, "E01", "A", 3, 2.0),
-     W(38, "E02", "A", 2, 3.0), W(45, "E01_scout", "B", 1, 0), W(47, "E01", "B", 3, 2.0), W(65, "E01_elite", "C", 1, 0),
-     W(66, "E02", "C", 2, 3.0), W(80, "E02", "A", 3, 2.5), W(82, "E01", "B", 4, 1.5)],
+    [W(3, "E01", "A", 4, 2.0), W(5, "E01", "B", 4, 2.0), W(25, "E02", "C", 3, 3.0), W(35, "E01", "A", 3, 2.0),
+     W(36, "E02", "A", 2, 3.0), W(36, "E01_scout", "B", 1, 0), W(38, "E01", "B", 2, 2.0), W(65, "E01_elite", "C", 1, 0),
+     W(66, "E02", "C", 2, 3.0), W(66, "E02", "A", 3, 2.5), W(67, "E01", "B", 3, 1.5)],
     lives=5, deploy_limit=6, hero=[6, 6],
     dispatch=["DSP_SPEAR", "DSP_SNIPER"],
     script=[{"t": 0, "event": "tutorial", "key": "crossing_route"},
@@ -247,9 +249,7 @@ def main():
             json.dump(s, f, ensure_ascii=False, indent=2)
         index.append({"id": s["id"], "name": s["name"], "file": os.path.basename(path), "enemy_total": s["enemy_total"],
                       "lives": s["lives"], "deploy_limit": s["deploy_limit"], "routes": len(s["routes"])})
-    with open(os.path.join(OUT, "..", "StageIndex.json"), "w", encoding="utf-8") as f:
-        json.dump({"chapter": 1, "stages": index}, f, ensure_ascii=False, indent=2)
-    print(f"wrote {len(STAGES)} stages to {os.path.normpath(OUT)}")
+    print(f"wrote {len(STAGES)} stages to {os.path.normpath(OUT)} (index: tools/build_stage_index.py)")
 
 if __name__ == "__main__":
     main()

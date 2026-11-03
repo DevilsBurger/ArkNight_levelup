@@ -1,0 +1,188 @@
+{
+  "id": "4-5",
+  "chapter": 4,
+  "type": "main",
+  "name": "암살자의 숲",
+  "note": "은신 엘프가 3경로로 온다. 저지 후 고지대 사격으로만 잡히는 잠복 사수 [H07].",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XHHXXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XHHXXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 21,
+  "dp_regen": 0.8,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      4
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "C": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E12",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 15.0,
+      "enemy": "E12_hidden",
+      "route": "B",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 27.0,
+      "enemy": "E14",
+      "route": "C",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 30,
+      "enemy": "E13",
+      "route": "A",
+      "count": 2,
+      "interval": 3.5
+    },
+    {
+      "t": 33,
+      "enemy": "E12_hidden",
+      "route": "C",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 36,
+      "enemy": "E12",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 58,
+      "enemy": "E13",
+      "route": "B",
+      "count": 2,
+      "interval": 3.5
+    },
+    {
+      "t": 60,
+      "enemy": "E12_hidden",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 62,
+      "enemy": "E14",
+      "route": "C",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 85,
+      "enemy": "E13_elite",
+      "route": "C",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 87,
+      "enemy": "E13",
+      "route": "A",
+      "count": 2,
+      "interval": 3.5
+    },
+    {
+      "t": 90,
+      "enemy": "E12",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    }
+  ],
+  "enemy_total": 25,
+  "scale": {
+    "hp": 1.54,
+    "atk": 1.45,
+    "def": 1.27
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 843,
+    "gold": 570,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": {
+    "id": "SC-H07",
+    "condition": "kill_by_highground_all:E12_hidden",
+    "unit": "L_SPECIAL_SILVA",
+    "hint": "잠복 사수를 전부 고지대 사격으로 처치"
+  },
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 4005
+}

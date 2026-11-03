@@ -1,0 +1,321 @@
+{
+  "id": "4-8",
+  "chapter": 4,
+  "type": "main",
+  "name": "붉은 게이트 수호수",
+  "note": "비행 → 착지(33~66%) → 비행. 날 때는 사수 · 술사만 유효, 착지 30초 동안 주인공이 집중. 문이 열린다.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XHHXXXXXXHHXX",
+      "XGGGGGGGGGGGX",
+      "SPGGLLLLLGGPD",
+      "XGGGGGGGGGGGX",
+      "SXXXXXXXXXXXD",
+      "XHHXXXXXXHHXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {
+    "F": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "lives": 3,
+  "initial_dp": 21,
+  "dp_regen": 0.8,
+  "deploy_limit": 8,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      9,
+      4
+    ]
+  },
+  "sealed_tiles": [
+    [
+      4,
+      4
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      7,
+      4
+    ],
+    [
+      8,
+      4
+    ]
+  ],
+  "routes": {
+    "A": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E12",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 20,
+      "enemy": "B04",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 35,
+      "enemy": "E07",
+      "route": "F",
+      "count": 3,
+      "interval": 1.5
+    },
+    {
+      "t": 50,
+      "enemy": "E14",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 65,
+      "enemy": "E07",
+      "route": "F",
+      "count": 4,
+      "interval": 1.5
+    },
+    {
+      "t": 80,
+      "enemy": "E12",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 95,
+      "enemy": "E07_swarm",
+      "route": "F",
+      "count": 3,
+      "interval": 1.5
+    },
+    {
+      "t": 110,
+      "enemy": "E14_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 125,
+      "enemy": "E07",
+      "route": "F",
+      "count": 4,
+      "interval": 1.5
+    },
+    {
+      "t": 140,
+      "enemy": "E12",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 155,
+      "enemy": "E07_swarm",
+      "route": "F",
+      "count": 4,
+      "interval": 1.5
+    },
+    {
+      "t": 170,
+      "enemy": "E14",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 185,
+      "enemy": "E07",
+      "route": "F",
+      "count": 3,
+      "interval": 1.5
+    }
+  ],
+  "enemy_total": 36,
+  "scale": {
+    "hp": 1.54,
+    "atk": 1.45,
+    "def": 1.27
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": {
+    "id": "B04",
+    "name": "붉은 게이트 수호수",
+    "route": "A",
+    "spawn_t": 20,
+    "phases": [
+      {
+        "hp_above": 0.66,
+        "sealed": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        "flying": true,
+        "speed_mult": 0.0,
+        "summon_every": 15,
+        "summon": [
+          "E07",
+          3
+        ]
+      },
+      {
+        "hp_above": 0.33,
+        "sealed": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        "flying": false,
+        "speed_mult": 1.0,
+        "on_enter": [
+          "invuln_2s"
+        ],
+        "summon_every": 15,
+        "summon": [
+          "E07",
+          3
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "sealed": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ]
+        ],
+        "flying": true,
+        "speed_mult": 0.0,
+        "on_enter": [
+          "invuln_2s"
+        ],
+        "summon_every": 10,
+        "summon": [
+          "E07_swarm",
+          4
+        ]
+      }
+    ]
+  },
+  "script": [],
+  "rewards": {
+    "xp": 1048,
+    "gold": 684,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 30,
+    "skill_point": 1,
+    "level_cap": 45
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-2",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 4008
+}

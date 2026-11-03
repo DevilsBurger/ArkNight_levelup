@@ -1,0 +1,157 @@
+{
+  "id": "3-2",
+  "chapter": 3,
+  "type": "main",
+  "name": "그림자 거리",
+  "note": "은신(E09): 저지 전엔 원거리 표적 불가. 통로(P) 구간에서는 주인공이 설 수 없어 군단 저지가 필요.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGPPGGGGGPD",
+      "XXHHXXXXHHXXX",
+      "XXXXXXXXXXXXX",
+      "XXHHXXXXHHXXX",
+      "SGGGPPGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 15,
+  "dp_regen": 0.75,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      7,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 25,
+      "enemy": "E09",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 30,
+      "enemy": "E11",
+      "route": "B",
+      "count": 4,
+      "interval": 1.8
+    },
+    {
+      "t": 50,
+      "enemy": "E09",
+      "route": "B",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 55,
+      "enemy": "E02",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 75,
+      "enemy": "E09",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 78,
+      "enemy": "E11",
+      "route": "B",
+      "count": 4,
+      "interval": 1.8
+    },
+    {
+      "t": 80,
+      "enemy": "E09",
+      "route": "B",
+      "count": 2,
+      "interval": 4.0
+    }
+  ],
+  "enemy_total": 26,
+  "scale": {
+    "hp": 1.33,
+    "atk": 1.27,
+    "def": 1.18
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 520,
+    "gold": 372,
+    "drops": [
+      [
+        "T3_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": {
+    "id": "SC-H05",
+    "condition": "kill_while_blocked_all:E09",
+    "unit": "L_SPEAR_HANSOL",
+    "hint": "배신 헌터를 저지한 상태에서만 쓰러뜨릴 것"
+  },
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 3002
+}

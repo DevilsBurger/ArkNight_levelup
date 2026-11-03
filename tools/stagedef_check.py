@@ -32,11 +32,14 @@ def check(path, enemy_ids):
             for x in xs:
                 for y in ys:
                     if tile(g, x, y) not in WALK: errs.append(f"route {rid}: tile {(x,y)}={tile(g,x,y)} not walkable")
+    for rid, pts in s.get("routes_air", {}).items():
+        for x, y in pts:
+            if not (0 <= x < w and 0 <= y < h): errs.append(f"air route {rid}: {(x,y)} outside")
     # waves
     total = 0
     for i, wv in enumerate(s["waves"]):
         if wv["enemy"] not in enemy_ids: errs.append(f"wave {i}: unknown enemy {wv['enemy']}")
-        if wv["route"] not in s["routes"]: errs.append(f"wave {i}: unknown route {wv['route']}")
+        if wv["route"] not in s["routes"] and wv["route"] not in s.get("routes_air", {}): errs.append(f"wave {i}: unknown route {wv['route']}")
         if wv["count"] < 1: errs.append(f"wave {i}: count < 1")
         total += wv["count"]
     if total != s["enemy_total"]: errs.append(f"enemy_total {s['enemy_total']} != sum(waves) {total}")
@@ -57,13 +60,13 @@ def check(path, enemy_ids):
     ground = sum(r.count("G") + r.count("L") + r.count("T") + r.count("A") + r.count("R") for r in g["rows"])
     high = sum(r.count("H") for r in g["rows"])
     if s["deploy_limit"] > ground + high: errs.append("deploy_limit exceeds deployable tiles")
-    stats = f"{s['id']} {s['name']}: enemies {total}, routes {len(s['routes'])}, ground {ground}, high {high} ({high/(ground+high):.0%})"
+    stats = f"{s['id']} {s['name']}: enemies {total}, routes {len(s['routes'])}+air {len(s.get('routes_air', {}))}, ground {ground}, high {high} ({high/(ground+high):.0%})"
     return errs, stats
 
 def main():
     ids = load_enemies()
     bad = 0
-    for p in sorted(glob.glob(os.path.join(ROOT, "Stages", "*.json"))):
+    for p in sorted(glob.glob(os.path.join(ROOT, "Stages", "*.json")), key=lambda q: tuple(int(v) for v in os.path.basename(q)[6:-5].split("-"))):
         errs, stats = check(p, ids)
         print(("FAIL " if errs else "ok   ") + stats)
         for e in errs: print("     -", e)

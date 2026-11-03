@@ -38,6 +38,7 @@ def run_cell(args):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--stages", default="all")
+    ap.add_argument("--chapters", default="all")
     ap.add_argument("--runs", type=int, default=300)
     ap.add_argument("--policies", default="S,A,B,C,D,E")
     ap.add_argument("--growth", default="G0,G1,G2")
@@ -50,12 +51,16 @@ def main(argv=None):
     a = ap.parse_args(argv)
     P = load_params(); POL = load_policies(); table = load_enemy_table(P)
     stages = load_stages(ids=None if a.stages == "all" else set(a.stages.split(",")))
+    if a.chapters != "all":
+        want = {int(c) for c in a.chapters.split(",")}
+        stages = [s for s in stages if s.chapter in want]
     ov = parse_set(a.set)
     jobs = []
     for sd in stages:
         for pk in a.policies.split(","):
             for gk in a.growth.split(","):
-                jobs.append((sd, P, pk, POL[pk], gk, P["growth_states"][gk], table, a.runs, cell_seed(a.seed, f"{sd.id}|{pk}|{gk}"), ov, a.tag))
+                growth = P.get("growth_by_chapter", {}).get(sd.chapter, P["growth_states"])[gk]
+                jobs.append((sd, P, pk, POL[pk], gk, growth, table, a.runs, cell_seed(a.seed, f"{sd.id}|{pk}|{gk}"), ov, a.tag))
     t0 = time.time()
     if a.jobs > 1:
         with Pool(a.jobs) as pool: rows = pool.map(run_cell, jobs)

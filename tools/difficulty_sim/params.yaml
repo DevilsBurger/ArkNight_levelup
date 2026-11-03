@@ -115,3 +115,82 @@ squads:
   "1-6": {hero: awakened, legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, DSP_SPEAR, DSP_SNIPER], optional: [L_SUPPORT_JOY]}
   "1-7": {hero: awakened, legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, DSP_SPEAR, DSP_SNIPER], optional: [L_SUPPORT_JOY, L_SPEAR_GROL]}
   "1-8": {hero: awakened, legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, DSP_SPEAR, DSP_SNIPER], optional: [L_SUPPORT_JOY, L_SPEAR_GROL]}
+
+# ---------- 2~5장 ----------
+# 챕터별 성장 상태 (G0 하한 · G1 권장 · G2 상한) — GDD §5.9 레벨 상한 15/25/35/45/60, §6.5 각성
+growth_by_chapter:
+  1:
+    G0: {name: 하한, hero_level: 7,  stats: {str: 9, vit: 6, agi: 3},             tree: [musang1],                                   legion_level: 10, awaken: 0, skill_rank: 1, include_optional: false}
+    G1: {name: 권장, hero_level: 10, stats: {str: 14, vit: 8, agi: 5},            tree: [musang1],                                   legion_level: 15, awaken: 0, skill_rank: 3, include_optional: false}
+    G2: {name: 상한, hero_level: 15, stats: {str: 20, vit: 12, agi: 10},          tree: [musang1, musang2, musang3],                 legion_level: 30, awaken: 0, skill_rank: 4, include_optional: true}
+  2:
+    G0: {name: 하한, hero_level: 15, stats: {str: 20, vit: 12, agi: 10},          tree: [musang1, musang2],                          legion_level: 25, awaken: 0, skill_rank: 3, include_optional: false}
+    G1: {name: 권장, hero_level: 20, stats: {str: 25, vit: 15, agi: 12, cmd: 5},  tree: [musang1, musang2, musang3],                 legion_level: 30, awaken: 0, skill_rank: 3, include_optional: false}
+    G2: {name: 상한, hero_level: 25, stats: {str: 30, vit: 20, agi: 15, cmd: 7},  tree: [musang1, musang2, musang3, bulgul1],        legion_level: 35, awaken: 1, skill_rank: 4, include_optional: true}
+  3:
+    G0: {name: 하한, hero_level: 25, stats: {str: 30, vit: 20, agi: 15, cmd: 7},  tree: [musang1, musang2, musang3],                 legion_level: 30, awaken: 0, skill_rank: 3, include_optional: false}
+    G1: {name: 권장, hero_level: 30, stats: {str: 35, vit: 25, agi: 17, cmd: 10}, tree: [musang1, musang2, musang3, bulgul1],        legion_level: 35, awaken: 1, skill_rank: 4, include_optional: false}
+    G2: {name: 상한, hero_level: 35, stats: {str: 40, vit: 30, agi: 20, cmd: 12}, tree: [musang1, musang2, musang3, bulgul1, bulgul2], legion_level: 50, awaken: 1, skill_rank: 5, include_optional: true}
+  4:
+    G0: {name: 하한, hero_level: 35, stats: {str: 40, vit: 30, agi: 20, cmd: 12}, tree: [musang1, musang2, musang3, bulgul1],        legion_level: 35, awaken: 1, skill_rank: 4, include_optional: false}
+    G1: {name: 권장, hero_level: 40, stats: {str: 45, vit: 35, agi: 22, cmd: 15}, tree: [musang1, musang2, musang3, bulgul1, bulgul2], legion_level: 45, awaken: 1, skill_rank: 5, include_optional: false}
+    G2: {name: 상한, hero_level: 45, stats: {str: 50, vit: 40, agi: 25, cmd: 17}, tree: [musang1, musang2, musang3, bulgul1, bulgul2, bulgul3], legion_level: 55, awaken: 2, skill_rank: 5, include_optional: true}
+  5:
+    G0: {name: 하한, hero_level: 45, stats: {str: 50, vit: 40, agi: 25, cmd: 17}, tree: [musang1, musang2, musang3, bulgul1, bulgul2], legion_level: 45, awaken: 1, skill_rank: 5, include_optional: false}
+    G1: {name: 권장, hero_level: 50, stats: {str: 55, vit: 45, agi: 27, cmd: 20}, tree: [musang1, musang2, musang3, bulgul1, bulgul2, bulgul3], legion_level: 50, awaken: 2, skill_rank: 5, include_optional: false}
+    G2: {name: 상한, hero_level: 60, stats: {str: 65, vit: 55, agi: 30, cmd: 27}, tree: [musang1, musang2, musang3, bulgul1, bulgul2, bulgul3], legion_level: 65, awaken: 2, skill_rank: 6, include_optional: true}
+
+# 로스터 24 (04 문서 §4) — 1장 유닛은 위 units 에, 나머지는 여기
+units_more:
+  L_CASTER_YUNA:     {class: caster,  rarity: 4}
+  L_SPECIAL_TAEO:    {class: special, rarity: 5}
+  L_SPEAR_GRUSH:     {class: spear,   rarity: 5, block: 3}
+  L_SNIPER_EIR:      {class: sniper,  rarity: 5}
+  L_SUPPORT_RIN:     {class: support, rarity: 5}
+  L_SNIPER_BONE:     {class: sniper,  rarity: 3}
+  L_SPEAR_MORS:      {class: spear,   rarity: 5}
+  L_SPEAR_HANSOL:    {class: spear,   rarity: 4}
+  L_MEDIC_YERIN:     {class: medic,   rarity: 5}
+  L_SPECIAL_SILVA:   {class: special, rarity: 5}
+  L_SUPPORT_MOSS:    {class: support, rarity: 4}
+  L_SHIELD_GUARDION: {class: shield,  rarity: 6}
+  L_SHIELD_ATLAS:    {class: shield,  rarity: 5}
+  L_SPEAR_RAY:       {class: spear,   rarity: 5}
+  L_SNIPER_HANA:     {class: sniper,  rarity: 5}
+  L_SPECIAL_BORA:    {class: special, rarity: 4}
+  L_CASTER_YUKI:     {class: caster,  rarity: 6}
+
+# 2~5장 스테이지별 기본 편성 (진행상 보유 가능한 8명) · optional 은 숨은 · 이벤트 합류 (G2에서 희귀도 순으로 교체)
+squads_more:
+  "2-1": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK], optional: [L_SUPPORT_JOY, L_SPEAR_GROL]}
+  "2-2": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK], optional: [L_SUPPORT_JOY, L_SPEAR_GROL]}
+  "2-3": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE], optional: [L_SUPPORT_JOY, L_SPEAR_GROL]}
+  "2-4": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE], optional: [L_SUPPORT_JOY, L_SPEAR_GROL]}
+  "2-5": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE]}
+  "2-6": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE]}
+  "2-7": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE]}
+  "2-8": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE]}
+  "3-1": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS]}
+  "3-2": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS]}
+  "3-3": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS, L_SPEAR_HANSOL]}
+  "3-4": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS, L_SPEAR_HANSOL]}
+  "3-5": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS, L_SPEAR_HANSOL]}
+  "3-6": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS, L_SPEAR_HANSOL]}
+  "3-7": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS, L_SPEAR_HANSOL]}
+  "3-8": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO], optional: [L_SUPPORT_JOY, L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS, L_SPEAR_HANSOL, L_MEDIC_YERIN]}
+  "4-1": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO], optional: [L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS, L_SPEAR_HANSOL, L_MEDIC_YERIN]}
+  "4-2": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO], optional: [L_SPEAR_GROL, L_SNIPER_BONE, L_SPEAR_MORS, L_SPEAR_HANSOL, L_MEDIC_YERIN]}
+  "4-3": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO], optional: [L_SPEAR_GROL, L_SPEAR_MORS, L_SPEAR_HANSOL, L_MEDIC_YERIN, L_SUPPORT_MOSS]}
+  "4-4": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH], optional: [L_SPEAR_MORS, L_SPEAR_HANSOL, L_MEDIC_YERIN, L_SUPPORT_MOSS]}
+  "4-5": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH], optional: [L_SPEAR_MORS, L_SPEAR_HANSOL, L_MEDIC_YERIN, L_SUPPORT_MOSS]}
+  "4-6": {legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA]}
+  "4-7": {legion: [L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA]}
+  "4-8": {legion: [L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA]}
+  "5-1": {legion: [L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA]}
+  "5-2": {legion: [L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA]}
+  "5-3": {legion: [L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA]}
+  "5-4": {legion: [L_SHIELD_MUJIN, L_SPECIAL_KICK, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA]}
+  "5-5": {legion: [L_SHIELD_MUJIN, L_SUPPORT_RIN, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA]}
+  "5-6": {legion: [L_SHIELD_MUJIN, L_SUPPORT_RIN, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA]}
+  "5-7": {legion: [L_SHIELD_MUJIN, L_SUPPORT_RIN, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA, L_SHIELD_ATLAS]}
+  "5-8": {legion: [L_SHIELD_MUJIN, L_SUPPORT_RIN, L_SNIPER_YUNCHAE, L_MEDIC_HAYUL, L_CASTER_YUNA, L_SPECIAL_TAEO, L_SPEAR_GRUSH, L_SNIPER_EIR], optional: [L_SPEAR_MORS, L_MEDIC_YERIN, L_SUPPORT_MOSS, L_SPECIAL_SILVA, L_SHIELD_ATLAS]}

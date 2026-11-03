@@ -17,7 +17,10 @@ RANGED_ORDER = ["sniper", "caster"]
 
 def load_params(path: Path | None = None) -> dict:
     with open(path or HERE / "params.yaml", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+        P = yaml.safe_load(f)
+    P["units"].update(P.get("units_more", {}))
+    P["squads"].update({k: dict(hero="awakened", **v) for k, v in P.get("squads_more", {}).items()})
+    return P
 
 
 def load_policies(path: Path | None = None) -> dict:
@@ -115,10 +118,13 @@ def build_enemy_stats(table: dict, eid: str, scale: dict, ov: dict) -> dict:
     hp_m = ov.get("boss_hp_mult", 1.0) if boss else ov.get("enemy_hp_mult", 1.0)
     atk_m = ov.get("boss_atk_mult", 1.0) if boss else ov.get("enemy_atk_mult", 1.0)
     sp_m = ov.get("boss_speed_mult", 1.0) if boss else ov.get("enemy_speed_mult", 1.0)
+    if boss: scale = {}   # 보스 수치는 챕터 배율 미적용 최종값
+    m = ov.get("chapter_scale_mult", 1.0)
+    scale = {k: 1.0 + (v - 1.0) * m for k, v in scale.items()}   # 배율의 초과분만 조절
     enrage = 1.0
     for tok in ab.split(","):
         if tok.strip().startswith("enrage_unblocked:"): enrage = float(tok.split(":")[1])
-    return dict(id=eid, kind=e["kind"], enrage=enrage, hp=e["hp"] * scale.get("hp", 1.0) * hp_m,
+    return dict(id=eid, kind=e["kind"], enrage=enrage, def_mult=1.0, interval=e.get("interval", 1.0), hp=e["hp"] * scale.get("hp", 1.0) * hp_m,
                 atk=e["atk"] * scale.get("atk", 1.0) * atk_m, **{"def": e["def"] * scale.get("def", 1.0)},
                 res=e["res"], speed=e["speed"] * sp_m, flying=bool(e.get("flying")), ranged=ranged,
                 arts="arts" in ab, charge="charge" in ab, stealth="stealth" in ab, revive="revive" in ab,
@@ -194,7 +200,7 @@ class Sim:
     # ---------- 준비
     def setup(self):
         sd, P = self.sd, self.P
-        self.t = 0.0; self.lives = sd.lives; self.dp = float(sd.initial_dp)
+        self.t = 0.0; self.lives = sd.lives; self.dp = float(sd.initial_dp) + self.ov.get("initial_dp_add", 0.0)
         self.dp_regen = sd.dp_regen * self.ov.get("dp_regen_mult", 1.0)
         self.deploy_limit = sd.deploy_limit + self.ov.get("deploy_limit_add", 0)
         self.sealed = set(sd.sealed)
@@ -224,7 +230,11 @@ class Sim:
             self.npcs[n["id"]] = u
         # 카드
         legion = list(self.squad.get("legion", []))
-        if self.growth.get("include_optional"): legion += list(self.squad.get("optional", []))
+        if self.growth.get("include_optional"):
+            merged = legion + [u for u in self.squad.get("optional", []) if u not in legion]
+            order = {uid: i for i, uid in enumerate(merged)}
+            merged.sort(key=lambda uid: (-P["units"][uid].get("rarity", 4), order[uid]))
+            legion = merged[:8]
         if self.pol.get("deploy") == "none": legion = []
         self.cards = [Card(build_unit_stats(P, uid, self.growth, self.hero_stats.get("cmd_legion", 0.0), self.ov)) for uid in legion]
         self.scripts = [s for s in sd.script if s.get("event") == "npc_down"]
@@ -235,6 +245,7 @@ class Sim:
         self.leaks = 0; self.knockdowns = 0; self.legion_deaths = 0; self.relocates = 0; self.ult_uses = 0
         self.hero_kills = 0; self.kills = 0; self.dp_spent = 0.0; self.dp_earned_kill = 0.0; self.fail = None
         self.next_decision = 0.0; self.deploys = 0; self.retreats = 0; self.skill_uses = 0; self.leak_log = []
+        self.traps_used = set()
         self.spawned = 0
 
     # ---------- 배치
@@ -293,6 +304,7 @@ class Sim:
 
     def open_threat(self, lid: str) -> tuple[float, float]:
         """(열린 위협 가중치, 열린 적 중 최대 p). 앞에 저지 가능한 아군이 없는 지상 적."""
+        if self.sd.lanes[lid].air: return 0.0, -1.0
         blk = self.ground_blockers(lid)
         w = 0.0; maxp = -1.0; L = self.sd.lanes[lid].length
         for e in self.lane_enemies(lid):
@@ -301,6 +313,14 @@ class Sim:
             if idx_ahead: continue
             w += KIND_W[e.st["kind"]] * (1.0 + e.p / max(1, L)); maxp = max(maxp, e.p)
         return w, maxp
+
+    def incoming_flying(self, lid: str, horizon: float) -> int:
+        n = 0
+        for i in range(self.spawn_i, len(self.spawn_q)):
+            tt, eid, lane = self.spawn_q[i]
+            if tt > self.t + horizon: break
+            if lane == lid and self.table.get(eid, {}).get("flying"): n += 1
+        return n
 
     def incoming_soon(self, lid: str, horizon: float) -> int:
         n = 0
@@ -330,9 +350,11 @@ class Sim:
         cands = self.lane_ground_candidates(lid, hero, min_idx=maxp if maxp >= 0 else -1)
         if not cands: return None
         ln = self.sd.lanes[lid]
+        hero_idx = self.hero.lanes.get(lid) if (self.hero_present and not hero) else None
         def score(t):
             nl = len(self.sd.lanes_at(t)); idx = ln.index_of[t]
-            return 3.0 * nl + 1.0 * self.ranged_cov_at(lid, idx) + 0.02 * idx
+            front = 1.5 if (hero_idx is not None and idx < hero_idx) else 0.0   # 주인공 앞에서 받는 자리 선호
+            return 3.0 * nl + 1.0 * self.ranged_cov_at(lid, idx) + 0.02 * idx + front
         cands.sort(key=score, reverse=True)
         return cands[0] if self.rng.random() < self.pol.get("post_quality", 1.0) else self.rng.choice(cands)
 
@@ -343,6 +365,8 @@ class Sim:
             if u.alive and u.is_ground and u.kind != "civilian":
                 for lid in u.lanes: weights[lid] = weights.get(lid, 1.0) + 1.0
         if target_lane: weights[target_lane] = weights.get(target_lane, 1.0) + 2.0
+        for lid in self.sd.lanes:
+            if self.sd.lanes[lid].air: weights[lid] = weights.get(lid, 1.0) + 1.0
         best, bscore, bfacing = None, -1.0, "E"
         for t in self.sd.high_tiles:
             if t in self.occ: continue
@@ -429,7 +453,8 @@ class Sim:
         if self.hero.ult_sp < U["sp"]: return
         tg = self.hero_front_targets(U["tiles"])
         need = pol.get("ult_min_enemies", 1)
-        if len(tg) >= need:
+        weight = sum(3 if e.st["is_boss"] else 1 for e in tg)
+        if tg and weight >= need:
             atk = self.hero_atk()
             for e in tg:
                 self.damage_enemy(e, eff_damage(atk * U["atk_mult"], "phys", e.st["def"], e.st["res"], self.R["min_damage_ratio"]), self.hero)
@@ -462,6 +487,11 @@ class Sim:
             here_w = sum(KIND_W[e.st["kind"]] for e in h.blocked) + sum(KIND_W[e.st["kind"]] for lid in h.lanes for e in self.lane_enemies(lid) if e.blocked_by is None and 0 <= h.lanes[lid] - e.p <= 4)
             L = self.sd.lanes[best].length
             imminent = bmax >= L - 5          # 5칸 안에 누수
+            if not imminent:
+                for lid in h.lanes:
+                    others = [u for u in self.ground_blockers(lid) if u is not h]
+                    if not others and (self.incoming_soon(lid, 12.0) > 0 or any(e.blocked_by is None for e in self.lane_enemies(lid) if not e.st["flying"])):
+                        return   # 내 경로에 곧 적이 오는데 대신 막을 아군이 없다
             blocked_remaining = min((self.sd.lanes[lid].length - h.lanes[lid] for lid in h.lanes), default=99)
             if imminent and blocked_remaining >= 6:
                 self.move_hero_to(best, bmax); return
@@ -527,6 +557,7 @@ class Sim:
         # priority (B · D · E)
         needs = []
         for lid in self.sd.lanes:
+            if self.sd.lanes[lid].air: continue
             n_now = sum(1 for e in self.lane_enemies(lid) if not e.st["flying"])
             soon = self.incoming_soon(lid, 15.0) if pol.get("predeploy") else 0
             if (n_now + soon) == 0: continue
@@ -540,6 +571,14 @@ class Sim:
                     if c.st["cls"] == cls and self.dp >= c.current_cost(self.R["redeploy_mult"]):
                         if self.try_deploy(c, lid): return
             return
+        # 비행 적이 오는 레인에 대공 커버가 없으면 사수 우선
+        air_lanes = [lid for lid in self.sd.lanes if (self.sd.lanes[lid].air or any(e.st["flying"] for e in self.lane_enemies(lid)) or self.incoming_flying(lid, 20.0))]
+        for lid in air_lanes:
+            if not any(u.alive and not u.is_ground and u.st["dmg"] in ("phys", "arts") and lid in u.cov for u in self.units):
+                for cls in ("sniper", "caster", "support"):
+                    for c in avail:
+                        if c.st["cls"] == cls and self.dp >= c.current_cost(self.R["redeploy_mult"]):
+                            if self.try_deploy(c, lid): return
         # 사격 커버가 없는 저지 포스트
         for cls in RANGED_ORDER:
             for c in avail:
@@ -556,6 +595,7 @@ class Sim:
         # 곧(40s) 적이 올 레인에 저지가 없으면 DP를 아낀다 (추가 소집 금지)
         if pol.get("predeploy"):
             for lid in self.sd.lanes:
+                if self.sd.lanes[lid].air: continue   # 비행 경로는 저지 대상이 아니다
                 if self.incoming_soon(lid, 40.0) > 0 and not self.ground_blockers(lid):
                     return
         # 여유 DP → 저지가 가장 얇은 레인(주인공이 선 레인은 후순위)에 추가 저지
@@ -613,7 +653,7 @@ class Sim:
         if e.blocked_by is not None and e in e.blocked_by.blocked: e.blocked_by.blocked.remove(e)
         self.kills += 1; kind = e.st["kind"]
         if self.hero_present: self.hero.ult_sp += self.R["sp_per_kill"][kind]
-        if src is self.hero:
+        if src is not None and src is self.hero:
             self.hero_kills += 1
             gain = self.R["hero_kill_dp"][kind] * self.hero_stats.get("cmd_dp", 1.0) * self.ov.get("hero_kill_dp_mult", 1.0)
             self.dp = min(self.R["dp_cap"], self.dp + gain); self.dp_earned_kill += gain
@@ -698,7 +738,7 @@ class Sim:
                             if best is None or d < best[0]: best = (d, u)
                 target = best[1] if best else None
             if target is not None:
-                dmg = eff_damage(e.st["atk"], dtype, target.def_eff(), target.st["res"], mr) * dt / ivl
+                dmg = eff_damage(e.st["atk"], dtype, target.def_eff(), target.st["res"], mr) * dt / (e.st.get("interval", 1.0) * ivl)
                 if e.charge_pending and e.blocked_by is target:
                     dmg += eff_damage(e.st["atk"], dtype, target.def_eff(), target.st["res"], mr); e.charge_pending = False
                 self.damage_unit(target, dmg)
@@ -752,9 +792,19 @@ class Sim:
             if not e.alive: continue
             if e.stun > 0: e.stun = max(0.0, e.stun - dt); continue
             if e.blocked_by is not None: continue
-            prev = e.p; e.p += e.st["speed"] * e.st.get("enrage", 1.0) * (1.0 - e.slow) * dt; e.slow = 0.0   # 저지되지 않은 동안만 광폭화 배율
+            prev = e.p
+            code_here = sd.tile(*sd.lanes[e.lane].tiles[min(int(prev), sd.lanes[e.lane].length)])
+            accel = 1.5 if (code_here == "A" and not e.st["flying"]) else 1.0
+            e.p += e.st["speed"] * e.st.get("enrage", 1.0) * accel * (1.0 - e.slow) * dt; e.slow = 0.0   # 저지되지 않은 동안만 광폭화 배율
             L = sd.lanes[e.lane].length
-            if not e.st["flying"]:
+            if not e.st["flying"] and not sd.lanes[e.lane].air:
+                # 함정 타일: 처음 밟는 적에게 고정 피해 1회
+                for ti in range(int(prev) + 1, min(int(e.p), L) + 1):
+                    tl = sd.lanes[e.lane].tiles[ti]
+                    if sd.tile(*tl) == "T" and tl not in self.traps_used:
+                        self.traps_used.add(tl); self.damage_enemy(e, 300.0 * sd.scale.get("hp", 1.0), self.hero if self.hero_present else None)
+                        if not e.alive: break
+                if not e.alive: continue
                 blockers = sorted((u for u in self.ground_blockers(e.lane)), key=lambda u: u.lanes[e.lane])
                 for u in blockers:
                     idx = u.lanes[e.lane]
@@ -780,6 +830,9 @@ class Sim:
             if u.skill_t > 0: u.skill_t = max(0.0, u.skill_t - dt)
             sk = u.st.get("skill", {})
             if sk.get("charge") == "natural" and u.active: u.sp = min(sk["sp"], u.sp + self.R["natural_sp_per_s"] * dt)
+        for u in self.units:
+            if u.alive and u.kd <= 0 and sd.tile(*u.tile) == "R" and u.hp < u.max_hp:
+                u.hp = min(u.max_hp, u.hp + 0.02 * u.max_hp * dt)
         h = self.hero
         if self.hero_present and h.momentum > 0:
             M = self.P["hero"]["momentum"]
@@ -801,9 +854,18 @@ class Sim:
             if frac <= ph["hp_above"] + 1e-9 and i + 1 < len(b["phases"]): continue
             if frac > ph["hp_above"]: phase = i; break
         if phase != self.boss_phase:
+            first = self.boss_phase < 0
             self.boss_phase = phase; ph = b["phases"][phase]
             self.sealed = {tuple(t) for t in ph["sealed"]}
             if "invuln_2s" in ph.get("on_enter", []): boss.invuln = 2.0
+            if "def_mult" in ph: boss.st["def"] = boss.st["def"] / boss.st.get("def_mult", 1.0) * ph["def_mult"]; boss.st["def_mult"] = ph["def_mult"]
+            if "base_speed" not in boss.st: boss.st["base_speed"] = boss.st["speed"]
+            boss.st["speed"] = boss.st["base_speed"] * ph.get("speed_mult", 1.0)   # 비행 선회 등
+            if "flying" in ph:
+                boss.st["flying"] = bool(ph["flying"])
+                if boss.st["flying"] and boss.blocked_by is not None:
+                    boss.blocked_by.blocked.remove(boss); boss.blocked_by = None
+            if not first and self.hero_present: self.hero.ult_sp += self.R["sp_per_kill"]["boss"]   # 페이즈 전환 SP +5
             if self.hero_present and self.hero.tile in self.sealed:
                 c = self.lane_ground_candidates(next(iter(self.hero.lanes)) if self.hero.lanes else "A", hero=True)
                 if c:

@@ -26,6 +26,7 @@ class Lane:
     id: str
     tiles: list              # [(x,y)] 출현 → 방어, 인접 타일 연속
     index_of: dict           # (x,y) → index
+    air: bool = False        # 비행 전용 경로(지상 저지 없음)
     @property
     def length(self) -> int:
         return len(self.tiles) - 1
@@ -35,6 +36,7 @@ class Lane:
 class StageDef:
     id: str
     name: str
+    chapter: int
     w: int
     h: int
     rows: list
@@ -62,9 +64,9 @@ class StageDef:
         if not (0 <= x < self.w and 0 <= y < self.h): return "X"
         return self.rows[self.h - 1 - y][x]
 
-    def lanes_at(self, xy) -> dict:
-        """타일이 속한 레인 → 인덱스"""
-        return {lid: ln.index_of[xy] for lid, ln in self.lanes.items() if xy in ln.index_of}
+    def lanes_at(self, xy, include_air: bool = False) -> dict:
+        """타일이 속한 레인 → 인덱스 (지상 레인만; include_air=True면 비행 레인 포함)"""
+        return {lid: ln.index_of[xy] for lid, ln in self.lanes.items() if xy in ln.index_of and (include_air or not ln.air)}
 
     def last_spawn_time(self) -> float:
         return max(w["t"] + max(w["count"] - 1, 0) * w.get("interval", 0) for w in self.waves)
@@ -91,8 +93,11 @@ def load_stage(path: Path) -> StageDef:
     for lid, pts in d["routes"].items():
         tiles = expand_route([tuple(p) for p in pts])
         lanes[lid] = Lane(lid, tiles, {t: i for i, t in enumerate(tiles)})
+    for lid, pts in d.get("routes_air", {}).items():
+        tiles = expand_route([tuple(p) for p in pts])
+        lanes[lid] = Lane(lid, tiles, {t: i for i, t in enumerate(tiles)}, air=True)
     sd = StageDef(
-        id=d["id"], name=d["name"], w=g["w"], h=g["h"], rows=g["rows"], lives=d["lives"],
+        id=d["id"], name=d["name"], chapter=d.get("chapter", 1), w=g["w"], h=g["h"], rows=g["rows"], lives=d["lives"],
         initial_dp=d["initial_dp"], dp_regen=d.get("dp_regen", 0.7), deploy_limit=d["deploy_limit"],
         hero_mode=d["hero"]["mode"], hero_default=tuple(d["hero"]["default_tile"]) if d["hero"]["default_tile"] else None,
         sealed={tuple(t) for t in d.get("sealed_tiles", [])}, lanes=lanes, waves=d["waves"], enemy_total=d["enemy_total"],
@@ -122,7 +127,7 @@ def coverage(sd: StageDef, xy: tuple, facing: str, template: list) -> dict:
     for dx, dy in template:
         rx, ry = rotate(dx, dy, facing)
         t = (x0 + rx, y0 + ry)
-        for lid, idx in sd.lanes_at(t).items():
+        for lid, idx in sd.lanes_at(t, include_air=True).items():
             cov.setdefault(lid, set()).add(idx)
     return cov
 

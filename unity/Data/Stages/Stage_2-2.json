@@ -1,0 +1,189 @@
+{
+  "id": "2-2",
+  "chapter": 2,
+  "type": "main",
+  "name": "무너진 회랑",
+  "note": "윤채 NPC가 중앙 고지대에서 양쪽 길을 쏜다 → SC-04.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XXGGGGGGGGGPD",
+      "XXPXHHHHHXXXX",
+      "SPPXHXXXHXXXX",
+      "XXPXHHHHHXGXX",
+      "XXGGGGGGGGGGX",
+      "XXXXXXXXXXGPD",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 12,
+  "dp_regen": 0.7,
+  "deploy_limit": 5,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      5,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        10,
+        2
+      ],
+      [
+        10,
+        1
+      ],
+      [
+        12,
+        1
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 30,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 35,
+      "enemy": "E02",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 55,
+      "enemy": "E01",
+      "route": "A",
+      "count": 5,
+      "interval": 1.5
+    },
+    {
+      "t": 60,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 85,
+      "enemy": "E04_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 86,
+      "enemy": "E02",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 90,
+      "enemy": "E01",
+      "route": "B",
+      "count": 2,
+      "interval": 1.5
+    }
+  ],
+  "enemy_total": 26,
+  "scale": {
+    "hp": 1.15,
+    "atk": 1.12,
+    "def": 1.09
+  },
+  "npc_units": [
+    {
+      "id": "NPC_YUNCHAE",
+      "unit": "L_SNIPER_YUNCHAE",
+      "tile": [
+        6,
+        5
+      ],
+      "dir": "S",
+      "level": 20,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 420,
+    "gold": 300,
+    "drops": [
+      [
+        "T2_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10,
+    "scenario": "SC-04"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 2002
+}

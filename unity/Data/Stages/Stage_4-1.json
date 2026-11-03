@@ -1,0 +1,170 @@
+{
+  "id": "4-1",
+  "chapter": 4,
+  "type": "main",
+  "name": "붉은 문",
+  "note": "비행(E07) 소개 — 비행 경로(F)는 지상 저지 불가, 사수 필수. 폐쇄형 게이트.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XXHHXXXXXHHXX",
+      "SXXXXXXXXXXXD",
+      "XXHHXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {
+    "F": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ]
+  },
+  "lives": 5,
+  "initial_dp": 18,
+  "dp_regen": 0.8,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E14",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E01",
+      "route": "B",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 20,
+      "enemy": "E07",
+      "route": "F",
+      "count": 4,
+      "interval": 1.5
+    },
+    {
+      "t": 35,
+      "enemy": "E14",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 40,
+      "enemy": "E07",
+      "route": "F",
+      "count": 5,
+      "interval": 1.5
+    },
+    {
+      "t": 45,
+      "enemy": "E12",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 65,
+      "enemy": "E14",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 68,
+      "enemy": "E07",
+      "route": "F",
+      "count": 4,
+      "interval": 1.5
+    },
+    {
+      "t": 85,
+      "enemy": "E14_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 87,
+      "enemy": "E07",
+      "route": "F",
+      "count": 2,
+      "interval": 1.5
+    }
+  ],
+  "enemy_total": 30,
+  "scale": {
+    "hp": 1.54,
+    "atk": 1.45,
+    "def": 1.27
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 570,
+    "gold": 418,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 4001
+}

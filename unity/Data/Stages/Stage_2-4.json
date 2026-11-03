@@ -1,0 +1,188 @@
+{
+  "id": "2-4",
+  "chapter": 2,
+  "type": "main",
+  "name": "뼈의 창고",
+  "note": "3경로. 주술사 전원을 주인공이 처치하면 H03(본).",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XGXXHHHHHXXXX",
+      "SGGGGGGGGGGPD",
+      "XGXXHHHHHXXXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 15,
+  "dp_regen": 0.7,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      4
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "C": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 15.0,
+      "enemy": "E01",
+      "route": "B",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 27.0,
+      "enemy": "E04",
+      "route": "C",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 30,
+      "enemy": "E05",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 35,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 40,
+      "enemy": "E01",
+      "route": "C",
+      "count": 4,
+      "interval": 1.5
+    },
+    {
+      "t": 60,
+      "enemy": "E05",
+      "route": "C",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 62,
+      "enemy": "E04_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 65,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 85,
+      "enemy": "E05",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 88,
+      "enemy": "E01",
+      "route": "A",
+      "count": 3,
+      "interval": 1.5
+    },
+    {
+      "t": 90,
+      "enemy": "E04",
+      "route": "C",
+      "count": 2,
+      "interval": 2.5
+    }
+  ],
+  "enemy_total": 28,
+  "scale": {
+    "hp": 1.15,
+    "atk": 1.12,
+    "def": 1.09
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 509,
+    "gold": 350,
+    "drops": [
+      [
+        "T2_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": {
+    "id": "SC-H03",
+    "condition": "hero_kill_all:E05",
+    "unit": "L_SNIPER_BONE",
+    "hint": "주술사를 전부 직접 쓰러뜨릴 것"
+  },
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 2004
+}

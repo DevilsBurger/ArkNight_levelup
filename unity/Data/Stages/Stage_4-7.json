@@ -1,0 +1,222 @@
+{
+  "id": "4-7",
+  "chapter": 4,
+  "type": "main",
+  "name": "설원 횡단",
+  "note": "가속 타일(A) · 비행 + 지상 혼합. 붉은 게이트의 심장으로.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGAAGGGGGGPD",
+      "XHHXXXXXXHHXX",
+      "SGGGGGAAGGGPD",
+      "XHHXXXXXXHHXX",
+      "SGGGGGGGGAAPD",
+      "SXXXXXXXXXXXD",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {
+    "F": [
+      [
+        0,
+        1
+      ],
+      [
+        12,
+        1
+      ]
+    ]
+  },
+  "lives": 5,
+  "initial_dp": 21,
+  "dp_regen": 0.8,
+  "deploy_limit": 8,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      4
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "C": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E14",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 15.0,
+      "enemy": "E12",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 27.0,
+      "enemy": "E13",
+      "route": "C",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 35,
+      "enemy": "E14",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 38,
+      "enemy": "E12",
+      "route": "C",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 40,
+      "enemy": "E07_swarm",
+      "route": "F",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 42.0,
+      "enemy": "E07",
+      "route": "F",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 43,
+      "enemy": "E13",
+      "route": "A",
+      "count": 2,
+      "interval": 3.5
+    },
+    {
+      "t": 62,
+      "enemy": "E14_elite",
+      "route": "C",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 64,
+      "enemy": "E12",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 66,
+      "enemy": "E07",
+      "route": "F",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 68,
+      "enemy": "E13",
+      "route": "B",
+      "count": 2,
+      "interval": 3.5
+    },
+    {
+      "t": 90,
+      "enemy": "E14",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 92,
+      "enemy": "E13_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 94,
+      "enemy": "E12",
+      "route": "C",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 96,
+      "enemy": "E07",
+      "route": "F",
+      "count": 3,
+      "interval": 2.5
+    }
+  ],
+  "enemy_total": 41,
+  "scale": {
+    "hp": 1.54,
+    "atk": 1.45,
+    "def": 1.27
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 980,
+    "gold": 646,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 4007
+}

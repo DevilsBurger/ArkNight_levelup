@@ -1,0 +1,366 @@
+{
+  "id": "5-8",
+  "chapter": 5,
+  "type": "main",
+  "name": "사원의 군단주",
+  "note": "봉인이 페이즈마다 넓어져(5 → 7 → 9칸) 주인공 활동 영역이 줄고, 마법 원거리로 고지대를 노린다. 1막의 모든 기믹을 군단이 대신한다 [H09].",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XXHHXXXXXHHXX",
+      "XGGGGGGGGGGGX",
+      "SPGGLLLLLGGPD",
+      "XGGGGGGGGGGGX",
+      "SGGGGGGGGGGGX",
+      "XXHHXXXXXHHXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 3,
+  "initial_dp": 23,
+  "dp_regen": 0.85,
+  "deploy_limit": 8,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      9,
+      4
+    ]
+  },
+  "sealed_tiles": [
+    [
+      4,
+      4
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      7,
+      4
+    ],
+    [
+      8,
+      4
+    ]
+  ],
+  "routes": {
+    "A": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E16",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 20,
+      "enemy": "B05",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 35,
+      "enemy": "E17",
+      "route": "B",
+      "count": 3,
+      "interval": 1.0
+    },
+    {
+      "t": 50,
+      "enemy": "E16",
+      "route": "B",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 65,
+      "enemy": "E17",
+      "route": "A",
+      "count": 3,
+      "interval": 1.0
+    },
+    {
+      "t": 80,
+      "enemy": "E17",
+      "route": "B",
+      "count": 4,
+      "interval": 1.0
+    },
+    {
+      "t": 95,
+      "enemy": "E16_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 96,
+      "enemy": "E05",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 110,
+      "enemy": "E17",
+      "route": "A",
+      "count": 3,
+      "interval": 1.0
+    },
+    {
+      "t": 125,
+      "enemy": "E16",
+      "route": "B",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 140,
+      "enemy": "E17",
+      "route": "B",
+      "count": 5,
+      "interval": 1.0
+    },
+    {
+      "t": 155,
+      "enemy": "E16_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 156,
+      "enemy": "E17",
+      "route": "A",
+      "count": 3,
+      "interval": 1.0
+    },
+    {
+      "t": 170,
+      "enemy": "E05",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 185,
+      "enemy": "E17",
+      "route": "B",
+      "count": 4,
+      "interval": 1.0
+    },
+    {
+      "t": 200,
+      "enemy": "E16",
+      "route": "A",
+      "count": 3,
+      "interval": 2.0
+    }
+  ],
+  "enemy_total": 45,
+  "scale": {
+    "hp": 1.84,
+    "atk": 1.66,
+    "def": 1.39
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": {
+    "id": "B05",
+    "name": "사원의 군단주",
+    "route": "A",
+    "spawn_t": 20,
+    "phases": [
+      {
+        "hp_above": 0.66,
+        "sealed": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        "summon_every": 15,
+        "summon": [
+          "E17",
+          3
+        ]
+      },
+      {
+        "hp_above": 0.33,
+        "sealed": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ]
+        ],
+        "on_enter": [
+          "invuln_2s"
+        ],
+        "summon_every": 12,
+        "summon": [
+          "E17",
+          4
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "sealed": [
+          [
+            2,
+            4
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            10,
+            4
+          ]
+        ],
+        "on_enter": [
+          "invuln_2s"
+        ],
+        "summon_every": 10,
+        "summon": [
+          "E17",
+          5
+        ]
+      }
+    ],
+    "enrage_unblocked_speed_mult": 1.5
+  },
+  "script": [],
+  "rewards": {
+    "xp": 1324,
+    "gold": 864,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 50,
+    "skill_point": 1,
+    "rank": "A",
+    "level_cap": 60
+  },
+  "unlock_scenario": {
+    "id": "SC-H09",
+    "condition": "stars:3 & knockdowns:0",
+    "unit": "L_SHIELD_GUARDION",
+    "hint": "넉다운 없이 ★3"
+  },
+  "challenge": {
+    "mods": [
+      "deploy_limit-2",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 5008
+}

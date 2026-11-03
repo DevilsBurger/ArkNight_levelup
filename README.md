@@ -15,9 +15,9 @@
 | 07 | [난이도 시뮬레이션 계획](docs/07_난이도_시뮬레이션_계획.md) | 난이도 파라미터 인벤토리(주인공 · 군단원 · 편성 · 스테이지 · 적 · 정책), 상태 변수, 행동 정책 6종, 등가 모델 명세(레인 · 포스트 · DPS 흐름), 실험 설계, 목표 곡선, 검증 · 구현 구조 |
 | 08 | [난이도 시뮬레이션 결과](docs/08_난이도_시뮬레이션_결과.md) | 1차 실행 발견(1장 과도하게 쉬움 · StageDef 결함 · 보스 DPS 경주), 보정 1차, 정책 × 성장 승률표, 민감도 15축, 정책별 결과 모델링, 목표 편차, 한계 · 다음 보정 |
 
-도구: `tools/mermaid_check/` — 문서 내 Mermaid 다이어그램 검증 · PNG 렌더링 · `tools/gen_ch1_stagedefs.py` — 1장 StageDef 생성(원본) · `tools/stagedef_check.py` — StageDef 검증 · `tools/difficulty_sim/` — 난이도 시뮬레이터(등가 모델 · 정책 · 전수 실행 · 민감도)
+도구: `tools/mermaid_check/` — 문서 내 Mermaid 다이어그램 검증 · PNG 렌더링 · `tools/gen_ch1_stagedefs.py` · `tools/gen_ch2_5_stagedefs.py` — 1~5장 StageDef 생성(원본) · `tools/build_stage_index.py` — 인덱스 · `tools/stagedef_check.py` — StageDef 검증 · `tools/difficulty_sim/` — 난이도 시뮬레이터(등가 모델 · 정책 · 전수 실행 · 민감도)
 
-데이터: `unity/Data/Stages/Stage_1-*.json`(1장 8스테이지) · `unity/Data/Enemies.json`(적 10종 + 변형 · 보스) · `unity/Data/StageIndex.json`
+데이터: `unity/Data/Stages/Stage_{1..5}-*.json`(1~5장 40스테이지) · `unity/Data/Enemies.json`(적 17종 + 변형 13 · 보스 5) · `unity/Data/StageIndex.json`
 
 ## 한 줄 요약
 

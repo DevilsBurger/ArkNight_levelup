@@ -1,0 +1,186 @@
+{
+  "id": "5-4",
+  "chapter": 5,
+  "type": "main",
+  "name": "무녀",
+  "note": "린 NPC의 지원 버프. 낙인을 알아본다 → SC-10 (1막 미스터리 첫 단서).",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XXHHXLLXXHHXX",
+      "XXXXXLLXXXXXX",
+      "XXHHXLLXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 20,
+  "dp_regen": 0.85,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E16",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E16",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 28,
+      "enemy": "E16_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 30,
+      "enemy": "E05",
+      "route": "B",
+      "count": 3,
+      "interval": 3.5
+    },
+    {
+      "t": 50,
+      "enemy": "E16",
+      "route": "B",
+      "count": 4,
+      "interval": 2.5
+    },
+    {
+      "t": 53,
+      "enemy": "E15",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 75,
+      "enemy": "E16_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 77,
+      "enemy": "E16",
+      "route": "A",
+      "count": 4,
+      "interval": 2.5
+    },
+    {
+      "t": 80,
+      "enemy": "E05",
+      "route": "A",
+      "count": 2,
+      "interval": 3.5
+    },
+    {
+      "t": 100,
+      "enemy": "E16",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 102,
+      "enemy": "E15",
+      "route": "B",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 104,
+      "enemy": "E16",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    }
+  ],
+  "enemy_total": 30,
+  "scale": {
+    "hp": 1.84,
+    "atk": 1.66,
+    "def": 1.39
+  },
+  "npc_units": [
+    {
+      "id": "NPC_RIN",
+      "unit": "L_SUPPORT_RIN",
+      "tile": [
+        9,
+        3
+      ],
+      "dir": "N",
+      "level": 45,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 979,
+    "gold": 672,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10,
+    "scenario": "SC-10"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 5004
+}

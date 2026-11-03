@@ -1,0 +1,232 @@
+{
+  "id": "5-3",
+  "chapter": 5,
+  "type": "main",
+  "name": "제단",
+  "note": "제단(맵 중앙 출현 지점)이 소환물(E17)을 B · C 경로 중간에 뿜는다.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XHHXXSXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XHHXXSXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 23,
+  "dp_regen": 0.85,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      4
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "C": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ],
+    "P1": [
+      [
+        5,
+        5
+      ],
+      [
+        5,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "P2": [
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E16",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 15.0,
+      "enemy": "E16",
+      "route": "C",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 25,
+      "enemy": "E17",
+      "route": "P1",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 27.0,
+      "enemy": "E15",
+      "route": "B",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 28,
+      "enemy": "E17",
+      "route": "P2",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 40,
+      "enemy": "E05",
+      "route": "A",
+      "count": 2,
+      "interval": 3.5
+    },
+    {
+      "t": 43,
+      "enemy": "E16",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 50,
+      "enemy": "E17",
+      "route": "P1",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 53,
+      "enemy": "E17",
+      "route": "P2",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 65,
+      "enemy": "E16_elite",
+      "route": "C",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 68,
+      "enemy": "E15",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 75,
+      "enemy": "E17",
+      "route": "P1",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 78,
+      "enemy": "E17",
+      "route": "P2",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 95,
+      "enemy": "E16",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 98,
+      "enemy": "E05",
+      "route": "C",
+      "count": 2,
+      "interval": 3.5
+    }
+  ],
+  "enemy_total": 32,
+  "scale": {
+    "hp": 1.84,
+    "atk": 1.66,
+    "def": 1.39
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 892,
+    "gold": 624,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 5003
+}

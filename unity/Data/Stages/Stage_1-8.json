@@ -18,6 +18,7 @@
       "XXXXXXXXXXXXX"
     ]
   },
+  "routes_air": {},
   "lives": 3,
   "initial_dp": 15,
   "dp_regen": 0.7,

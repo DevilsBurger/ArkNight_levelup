@@ -1,0 +1,203 @@
+{
+  "id": "4-3",
+  "chapter": 4,
+  "type": "main",
+  "name": "오크 요새",
+  "note": "엘프가 오크 마을을 친다. 그루쉬 NPC가 아래 길을 막고 주인공이 오크 편에 선다 → SC-08.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XHHXXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XHHXXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 21,
+  "dp_regen": 0.8,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      4
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "C": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E12",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 15.0,
+      "enemy": "E12",
+      "route": "C",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 27.0,
+      "enemy": "E14",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 30,
+      "enemy": "E13",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 33,
+      "enemy": "E12",
+      "route": "B",
+      "count": 4,
+      "interval": 2.5
+    },
+    {
+      "t": 36,
+      "enemy": "E14",
+      "route": "C",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 58,
+      "enemy": "E12",
+      "route": "A",
+      "count": 4,
+      "interval": 2.5
+    },
+    {
+      "t": 60,
+      "enemy": "E13",
+      "route": "C",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 62,
+      "enemy": "E14_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 85,
+      "enemy": "E12",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 88,
+      "enemy": "E13",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 90,
+      "enemy": "E12",
+      "route": "C",
+      "count": 4,
+      "interval": 2.5
+    },
+    {
+      "t": 92,
+      "enemy": "E14",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    }
+  ],
+  "enemy_total": 34,
+  "scale": {
+    "hp": 1.54,
+    "atk": 1.45,
+    "def": 1.27
+  },
+  "npc_units": [
+    {
+      "id": "NPC_GRUSH",
+      "unit": "L_SPEAR_GRUSH",
+      "tile": [
+        8,
+        2
+      ],
+      "dir": "W",
+      "level": 35,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 706,
+    "gold": 494,
+    "drops": [
+      [
+        "T4_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10,
+    "scenario": "SC-08"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 4003
+}

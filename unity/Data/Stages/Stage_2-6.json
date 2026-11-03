@@ -1,0 +1,152 @@
+{
+  "id": "2-6",
+  "chapter": 2,
+  "type": "main",
+  "name": "거인의 통로",
+  "note": "거대 오크(E06, 중량 4)가 좁은 길을 메운다 — 저지 3 필요.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XXHHXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XXHHXXXXXHHXX",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 12,
+  "dp_regen": 0.7,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      5
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        5
+      ],
+      [
+        12,
+        5
+      ]
+    ],
+    "B": [
+      [
+        0,
+        3
+      ],
+      [
+        12,
+        3
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 11.0,
+      "enemy": "E01",
+      "route": "B",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 25,
+      "enemy": "E06",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 28,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 50,
+      "enemy": "E06",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 52,
+      "enemy": "E05",
+      "route": "A",
+      "count": 2,
+      "interval": 4.0
+    },
+    {
+      "t": 75,
+      "enemy": "E06",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 76,
+      "enemy": "E04",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 78,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 3.0
+    }
+  ],
+  "enemy_total": 20,
+  "scale": {
+    "hp": 1.15,
+    "atk": 1.12,
+    "def": 1.09
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 600,
+    "gold": 400,
+    "drops": [
+      [
+        "T2_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 2006
+}

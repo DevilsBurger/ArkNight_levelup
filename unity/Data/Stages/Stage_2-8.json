@@ -1,0 +1,297 @@
+{
+  "id": "2-8",
+  "chapter": 2,
+  "type": "main",
+  "name": "백골 기사단장",
+  "note": "돌진 보스. 2페이즈 DEF +50% → 술사 화력 필요. 소환물은 B 경로.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XXHHXXXXXHHXX",
+      "XGGGGGGGGGGGX",
+      "SPGGLLLLLGGPD",
+      "XGGGGGGGGGGGX",
+      "SGGGGGGGGGGGX",
+      "XXHHXXXXXHHXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 3,
+  "initial_dp": 15,
+  "dp_regen": 0.7,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      9,
+      4
+    ]
+  },
+  "sealed_tiles": [
+    [
+      4,
+      4
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      7,
+      4
+    ],
+    [
+      8,
+      4
+    ]
+  ],
+  "routes": {
+    "A": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 20,
+      "enemy": "B02",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 35,
+      "enemy": "E04",
+      "route": "B",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 50,
+      "enemy": "E05",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 65,
+      "enemy": "E04",
+      "route": "A",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 80,
+      "enemy": "E04",
+      "route": "B",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 95,
+      "enemy": "E04_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 96,
+      "enemy": "E05",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 110,
+      "enemy": "E04",
+      "route": "A",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 125,
+      "enemy": "E04",
+      "route": "B",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 140,
+      "enemy": "E05_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 141,
+      "enemy": "E04",
+      "route": "B",
+      "count": 2,
+      "interval": 2.0
+    },
+    {
+      "t": 155,
+      "enemy": "E04",
+      "route": "A",
+      "count": 2,
+      "interval": 2.0
+    }
+  ],
+  "enemy_total": 22,
+  "scale": {
+    "hp": 1.15,
+    "atk": 1.12,
+    "def": 1.09
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": {
+    "id": "B02",
+    "name": "백골 기사단장",
+    "route": "A",
+    "spawn_t": 20,
+    "phases": [
+      {
+        "hp_above": 0.5,
+        "sealed": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        "summon_every": 15,
+        "summon": [
+          "E04",
+          2
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "sealed": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ]
+        ],
+        "def_mult": 1.5,
+        "summon_every": 10,
+        "summon": [
+          "E04",
+          3
+        ],
+        "on_enter": [
+          "invuln_2s"
+        ]
+      }
+    ],
+    "enrage_unblocked_speed_mult": 2.0
+  },
+  "script": [],
+  "rewards": {
+    "xp": 690,
+    "gold": 450,
+    "drops": [
+      [
+        "T2_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 30,
+    "skill_point": 1,
+    "rank": "C",
+    "level_cap": 35
+  },
+  "unlock_scenario": {
+    "id": "SC-H04",
+    "condition": "hero_kill:B02 & stars:3",
+    "unit": "L_SPEAR_MORS",
+    "hint": "기사단장을 직접 쓰러뜨리고 ★3"
+  },
+  "challenge": {
+    "mods": [
+      "deploy_limit-2",
+      "dp_regen-30"
+    ]
+  },
+  "seed": 2008
+}
