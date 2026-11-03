@@ -65,7 +65,7 @@
       "t": 14.0,
       "enemy": "E09",
       "route": "B",
-      "count": 2,
+      "count": 1,
       "interval": 2.5
     },
     {
@@ -86,7 +86,7 @@
       "t": 47.0,
       "enemy": "E09",
       "route": "A",
-      "count": 2,
+      "count": 1,
       "interval": 2.5
     },
     {
@@ -104,7 +104,21 @@
       "interval": 2.5
     },
     {
-      "t": 85.0,
+      "t": 80.0,
+      "enemy": "E09",
+      "route": "B",
+      "count": 1,
+      "interval": 2.5
+    },
+    {
+      "t": 91.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 1,
+      "interval": 2.5
+    },
+    {
+      "t": 107.0,
       "enemy": "E11_elite",
       "route": "A",
       "count": 1,

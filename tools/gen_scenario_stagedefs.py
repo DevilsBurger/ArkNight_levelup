@@ -14,15 +14,25 @@ R1b = {"A": [[0, 6], [11, 6], [11, 4], [12, 4]], "B": [[0, 2], [11, 2], [11, 4],
 
 POOL = {1: ["E01", "E02", "E03"], 2: ["E04", "E01", "E05"], 3: ["E11", "E09", "E02"], 4: ["E14", "E12", "E13"], 5: ["E16", "E15", "E05"]}
 ELITE = {1: "E01_elite", 2: "E04_elite", 3: "E11_elite", 4: "E14_elite", 5: "E16_elite"}
+HEAVY = {"E09", "E14", "E15"}
 INIT_DP = {1: 10, 2: 12, 3: 15, 4: 18, 5: 20}; REGEN = {1: 0.7, 2: 0.7, 3: 0.75, 4: 0.8, 5: 0.85}; LIMIT = {1: 5, 2: 6, 3: 7, 4: 7, 5: 8}
 
-def auto_waves(ch, total, lanes, *, elite=1, t0=3.0, spacing=22.0, air_lane=None, air_count=0):
-    """적 풀에서 total 마리를 레인에 교대로 배정. 엘리트는 마지막 1/3 구간."""
+def auto_waves(ch, total, lanes, *, elite=1, t0=3.0, spacing=22.0, air_lane=None, air_count=0, hero_lane=None):
+    """적 풀에서 total 마리를 레인에 교대로 배정. 엘리트는 마지막 1/3 구간.
+    3경로 이상이면 중량급은 주인공 경로(hero_lane)로, 나머지는 다른 경로로 돌린다 — 레인과 적 종류가 고정 짝이 되어
+    주인공 없는 레인에만 중량급이 몰리는 것을 막는다(08 §9)."""
     pool = POOL[ch]; ws = []; left = total - elite - air_count; k = 0; t = t0
     spacing = spacing * (1.0 + 0.5 * (len(lanes) - 2))   # 경로가 많을수록 웨이브 간격을 벌린다 (DP 템포)
+    others = [l for l in lanes if l != hero_lane] or lanes
     while left > 0:
-        lane = lanes[k % len(lanes)]; eid = pool[k % len(pool)] if k % 3 != 2 else pool[0]
-        n = min(left, 3 if eid == pool[0] else 2)
+        eid = pool[k % len(pool)] if k % 3 != 2 else pool[0]
+        if len(lanes) >= 3 and hero_lane in lanes:
+            lane = hero_lane if eid in HEAVY else others[k % len(others)]
+        else:
+            lane = lanes[k % len(lanes)]
+        # 중량급(HP ≥ 3,500: 배신 헌터 · 오크 전사 · 사원 석상)은 한 마리씩 — 5~6장 편성의 반대편 레인 저지가 둘을 동시에 받으면 녹는다(08 §9)
+        if eid in HEAVY: n = min(left, 2 if eid == pool[0] else 1)
+        else: n = min(left, 3 if eid == pool[0] else 2)
         ws.append(W(t, eid, lane, n, 2.5)); left -= n; k += 1; t += spacing / len(lanes)
     for i in range(elite):
         ws.append(W(t + 5 + i * 10, ELITE[ch], lanes[i % len(lanes)], 1, 0))
@@ -72,12 +82,12 @@ add("SC06-2", "술사의 시험 II", 3, T3a, R2a, auto_waves(3, 24, ["A", "B"], 
 # SC-07 이탈자 (태오) — 3-6 후, 3연작
 add("SC07-1", "이탈자 I", 3, T3b, R2a, auto_waves(3, 20, ["A", "B"], elite=1), unit="L_SPECIAL_TAEO", scenario="SC-07", last=False,
     squad=["L_SPEAR_DOKYUNG", "L_SHIELD_MUJIN", "L_SPECIAL_KICK", "L_SNIPER_YUNCHAE", "L_MEDIC_HAYUL", "L_CASTER_YUNA"], hero=[7, 6], note="길드장의 비밀을 들고 도망친 태오. 추격전.")
-add("SC07-2", "이탈자 II", 3, T3e, R2c, auto_waves(3, 30, ["A", "B", "C"], elite=1), unit="L_SPECIAL_TAEO", scenario="SC-07", last=False,
+add("SC07-2", "이탈자 II", 3, T3e, R2c, auto_waves(3, 30, ["A", "B", "C"], elite=1, hero_lane="B"), unit="L_SPECIAL_TAEO", scenario="SC-07", last=False,
     squad=["L_SPEAR_DOKYUNG", "L_SHIELD_MUJIN", "L_SPECIAL_KICK", "L_SNIPER_YUNCHAE", "L_MEDIC_HAYUL", "L_CASTER_YUNA"], hero=[6, 4], note="3경로 추격.")
 add("SC07-3", "이탈자 III", 3, T3c, R3c, auto_waves(3, 26, ["A", "B", "C", "D"], elite=1), unit="L_SPECIAL_TAEO", scenario="SC-07", last=True,
     npc_tile=(9, 0), npc_dir="W", squad=["L_SPEAR_DOKYUNG", "L_SHIELD_MUJIN", "L_SPECIAL_KICK", "L_SNIPER_YUNCHAE", "L_MEDIC_HAYUL", "L_CASTER_YUNA"], hero=[6, 4], note="쾌속 재소집 퍼즐 — 태오 NPC가 4번째 길을 홀로 맡는다 → 합류.")
 # SC-08 오크의 맹세 (그루쉬) — 4-3 후, 2스테이지
-add("SC08-1", "오크의 맹세 I", 4, T4c, R2c, auto_waves(4, 24, ["A", "B", "C"], elite=1), unit="L_SPEAR_GRUSH", scenario="SC-08", last=False,
+add("SC08-1", "오크의 맹세 I", 4, T4c, R2c, auto_waves(4, 24, ["A", "B", "C"], elite=1, hero_lane="B"), unit="L_SPEAR_GRUSH", scenario="SC-08", last=False,
     squad=["L_SPEAR_DOKYUNG", "L_SHIELD_MUJIN", "L_SPECIAL_KICK", "L_SNIPER_YUNCHAE", "L_MEDIC_HAYUL", "L_CASTER_YUNA", "L_SPECIAL_TAEO"], hero=[6, 4], note="엘프에게서 오크 부족을 지킨다.")
 add("SC08-2", "오크의 맹세 II", 4, T4a, R2a, auto_waves(4, 30, ["A", "B"], elite=2, air_lane="F", air_count=6), unit="L_SPEAR_GRUSH", scenario="SC-08", last=True,
     npc_tile=(8, 2), npc_dir="W", squad=["L_SPEAR_DOKYUNG", "L_SHIELD_MUJIN", "L_SPECIAL_KICK", "L_SNIPER_YUNCHAE", "L_MEDIC_HAYUL", "L_CASTER_YUNA", "L_SPECIAL_TAEO"], routes_air=RA1, hero=[6, 6], note="그루쉬 NPC(저지 3)가 아래 길을 막는다 → 맹세.")
@@ -107,7 +117,9 @@ HID = [
 ]
 for sid, name, ch, rows, routes, total, unit, tile, d, squad, hero in HID:
     lanes = [k for k in routes if not k.startswith("P")]
-    add(sid, name, ch, rows, routes, auto_waves(ch, total, lanes, elite=1), unit=unit, scenario="SC-H" + sid[3:5], last=True, npc_tile=tile, npc_dir=d, squad=squad, hero=hero,
+    hero_lane = next((k for k in lanes if any(y0 == y1 == hero[1] and min(x0, x1) <= hero[0] <= max(x0, x1)
+                                            for (x0, y0), (x1, y1) in zip(routes[k], routes[k][1:]))), None)
+    add(sid, name, ch, rows, routes, auto_waves(ch, total, lanes, elite=1, hero_lane=hero_lane), unit=unit, scenario="SC-H" + sid[3:5], last=True, npc_tile=tile, npc_dir=d, squad=squad, hero=hero,
         note="숨은 합류 '낙인' 스테이지 — 대상이 NPC로 동행한다.")
 
 def main():

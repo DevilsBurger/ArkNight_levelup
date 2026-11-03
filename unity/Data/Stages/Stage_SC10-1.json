@@ -65,7 +65,7 @@
       "t": 14.0,
       "enemy": "E15",
       "route": "B",
-      "count": 2,
+      "count": 1,
       "interval": 2.5
     },
     {
@@ -86,7 +86,7 @@
       "t": 47.0,
       "enemy": "E15",
       "route": "A",
-      "count": 2,
+      "count": 1,
       "interval": 2.5
     },
     {
@@ -107,7 +107,7 @@
       "t": 80.0,
       "enemy": "E15",
       "route": "B",
-      "count": 2,
+      "count": 1,
       "interval": 2.5
     },
     {
@@ -125,7 +125,21 @@
       "interval": 2.5
     },
     {
-      "t": 118.0,
+      "t": 113.0,
+      "enemy": "E15",
+      "route": "A",
+      "count": 1,
+      "interval": 2.5
+    },
+    {
+      "t": 124.0,
+      "enemy": "E16",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 140.0,
       "enemy": "E16_elite",
       "route": "A",
       "count": 1,

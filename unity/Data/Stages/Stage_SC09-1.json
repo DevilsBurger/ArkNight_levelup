@@ -69,7 +69,7 @@
       "t": 3.0,
       "enemy": "E14",
       "route": "A",
-      "count": 3,
+      "count": 2,
       "interval": 2.5
     },
     {
@@ -83,14 +83,14 @@
       "t": 25.0,
       "enemy": "E14",
       "route": "A",
-      "count": 3,
+      "count": 2,
       "interval": 2.5
     },
     {
       "t": 36.0,
       "enemy": "E14",
       "route": "B",
-      "count": 3,
+      "count": 2,
       "interval": 2.5
     },
     {
@@ -104,11 +104,25 @@
       "t": 58.0,
       "enemy": "E14",
       "route": "B",
-      "count": 3,
+      "count": 2,
       "interval": 2.5
     },
     {
-      "t": 74.0,
+      "t": 69.0,
+      "enemy": "E14",
+      "route": "A",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 80.0,
+      "enemy": "E12",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 96.0,
       "enemy": "E14_elite",
       "route": "A",
       "count": 1,
