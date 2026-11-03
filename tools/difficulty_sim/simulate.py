@@ -39,6 +39,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--stages", default="all")
     ap.add_argument("--chapters", default="all")
+    ap.add_argument("--kind", default="all", help="all | main | scenario")
     ap.add_argument("--runs", type=int, default=300)
     ap.add_argument("--policies", default="S,A,B,C,D,E")
     ap.add_argument("--growth", default="G0,G1,G2")
@@ -54,6 +55,8 @@ def main(argv=None):
     if a.chapters != "all":
         want = {int(c) for c in a.chapters.split(",")}
         stages = [s for s in stages if s.chapter in want]
+    if a.kind != "all":
+        stages = [s for s in stages if (s.id.startswith("SC")) == (a.kind == "scenario")]
     ov = parse_set(a.set)
     jobs = []
     for sd in stages:

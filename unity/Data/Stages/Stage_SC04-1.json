@@ -1,0 +1,150 @@
+{
+  "id": "SC04-1",
+  "chapter": 2,
+  "type": "scenario",
+  "name": "저격수 I",
+  "note": "협회 파견이 끝났는데도 윤채는 남는다.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XXHHXXXXXHHXX",
+      "XXXXXXXXXXXXX",
+      "XXHHXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 12,
+  "dp_regen": 0.7,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 14.0,
+      "enemy": "E01",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 25.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 36.0,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 47.0,
+      "enemy": "E01",
+      "route": "A",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 58.0,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 69.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 80.0,
+      "enemy": "E01",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 96.0,
+      "enemy": "E04_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    }
+  ],
+  "enemy_total": 22,
+  "scale": {
+    "hp": 1.15,
+    "atk": 1.12,
+    "def": 1.09
+  },
+  "npc_units": [],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 312,
+    "gold": 225,
+    "drops": []
+  },
+  "first_clear": {
+    "gem": 0
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 2001,
+  "scenario": "SC-04",
+  "join_unit": "L_SNIPER_YUNCHAE",
+  "is_last": false
+}

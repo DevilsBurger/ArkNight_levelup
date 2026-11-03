@@ -1,6 +1,6 @@
 """StageDef JSON → 등가 모델 입력(레인 · 포스트 · 커버리지). 07 문서 §4.1"""
 from __future__ import annotations
-import json, math
+import json, math, re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -116,7 +116,7 @@ def load_stages(stage_dir: Path = STAGES_DIR, ids: set | None = None) -> list[St
     for p in sorted(stage_dir.glob("Stage_*.json")):
         sd = load_stage(p)
         if ids is None or sd.id in ids: out.append(sd)
-    out.sort(key=lambda s: tuple(int(v) for v in s.id.split("-")))
+    out.sort(key=lambda s: (s.chapter, s.id.startswith("SC"), [int(v) if v.isdigit() else v for v in re.split(r"[-]", s.id)]))
     return out
 
 

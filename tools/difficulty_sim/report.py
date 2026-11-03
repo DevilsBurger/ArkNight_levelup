@@ -16,7 +16,7 @@ def pct(x):
 
 def table_by_policy(rows, growth, metric="P_star3", tag="base"):
     pols = sorted({r["policy"] for r in rows if r["growth"] == growth and r["tag"] == tag}, key=lambda p: "SABCDE".index(p) if p in "SABCDE" else 9)
-    stages = sorted({r["stage"] for r in rows}, key=lambda s: tuple(int(v) for v in s.split("-")))
+    stages = sorted({r["stage"] for r in rows}, key=lambda s: (s.startswith("SC"), [v.zfill(4) for v in s.split("-")]))
     idx = {(r["stage"], r["policy"]): r for r in rows if r["growth"] == growth and r["tag"] == tag}
     out = ["| 스테이지 | " + " | ".join(pols) + " |", "| :-: | " + " | ".join(":-:" for _ in pols) + " |"]
     for s in stages:
@@ -26,7 +26,7 @@ def table_by_policy(rows, growth, metric="P_star3", tag="base"):
 
 def table_by_growth(rows, policy, metric="P_star3", tag="base"):
     gs = sorted({r["growth"] for r in rows if r["policy"] == policy and r["tag"] == tag})
-    stages = sorted({r["stage"] for r in rows}, key=lambda s: tuple(int(v) for v in s.split("-")))
+    stages = sorted({r["stage"] for r in rows}, key=lambda s: (s.startswith("SC"), [v.zfill(4) for v in s.split("-")]))
     idx = {(r["stage"], r["growth"]): r for r in rows if r["policy"] == policy and r["tag"] == tag}
     out = ["| 스테이지 | " + " | ".join(gs) + " |", "| :-: | " + " | ".join(":-:" for _ in gs) + " |"]
     for s in stages:
@@ -35,7 +35,7 @@ def table_by_growth(rows, policy, metric="P_star3", tag="base"):
 
 
 def table_detail(rows, policy, growth, tag="base"):
-    stages = sorted({r["stage"] for r in rows}, key=lambda s: tuple(int(v) for v in s.split("-")))
+    stages = sorted({r["stage"] for r in rows}, key=lambda s: (s.startswith("SC"), [v.zfill(4) for v in s.split("-")]))
     idx = {r["stage"]: r for r in rows if r["policy"] == policy and r["growth"] == growth and r["tag"] == tag}
     out = ["| 스테이지 | P_clear | P_★3 | 누수 | 넉다운 | 군단 이탈 | 재배치 | 권능 | 주인공 처치 비율 | DP 소비 | 처치 DP | 소집 | T(s) |",
            "| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |"]
@@ -49,7 +49,7 @@ def table_detail(rows, policy, growth, tag="base"):
 
 def table_tags(rows, policy, growth, metric="P_star3"):
     tags = sorted({r["tag"] for r in rows if r["policy"] == policy and r["growth"] == growth}, key=lambda t: (t != "base", t))
-    stages = sorted({r["stage"] for r in rows}, key=lambda s: tuple(int(v) for v in s.split("-")))
+    stages = sorted({r["stage"] for r in rows}, key=lambda s: (s.startswith("SC"), [v.zfill(4) for v in s.split("-")]))
     idx = {(r["stage"], r["tag"]): r for r in rows if r["policy"] == policy and r["growth"] == growth}
     out = ["| 스테이지 | " + " | ".join(tags) + " |", "| :-: | " + " | ".join(":-:" for _ in tags) + " |"]
     for s in stages:

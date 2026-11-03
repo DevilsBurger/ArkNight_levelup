@@ -1,0 +1,170 @@
+{
+  "id": "SC06-2",
+  "chapter": 3,
+  "type": "scenario",
+  "name": "술사의 시험 II",
+  "note": "고DEF 적을 유나의 마법이 뚫는다 → 합류.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XHHHXXXXXHHHX",
+      "XHHHXXXXXHHHX",
+      "XHHHXXXXXHHHX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 15,
+  "dp_regen": 0.75,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      2
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 14.0,
+      "enemy": "E09",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 25.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 36.0,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 47.0,
+      "enemy": "E09",
+      "route": "A",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 58.0,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 69.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 80.0,
+      "enemy": "E09",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 91.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 107.0,
+      "enemy": "E11_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    }
+  ],
+  "enemy_total": 24,
+  "scale": {
+    "hp": 1.33,
+    "atk": 1.27,
+    "def": 1.18
+  },
+  "npc_units": [
+    {
+      "id": "NPC_YUNA",
+      "unit": "L_CASTER_YUNA",
+      "tile": [
+        2,
+        4
+      ],
+      "dir": "E",
+      "level": 35,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 387,
+    "gold": 279,
+    "drops": []
+  },
+  "first_clear": {
+    "gem": 10,
+    "join": "L_CASTER_YUNA"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 3002,
+  "scenario": "SC-06",
+  "join_unit": "L_CASTER_YUNA",
+  "is_last": true
+}

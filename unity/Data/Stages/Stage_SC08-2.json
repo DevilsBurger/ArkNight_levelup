@@ -1,0 +1,202 @@
+{
+  "id": "SC08-2",
+  "chapter": 4,
+  "type": "scenario",
+  "name": "오크의 맹세 II",
+  "note": "그루쉬 NPC(저지 3)가 아래 길을 막는다 → 맹세.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XXHHXXXXXHHXX",
+      "SXXXXXXXXXXXD",
+      "XXHHXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {
+    "F": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ]
+  },
+  "lives": 5,
+  "initial_dp": 18,
+  "dp_regen": 0.8,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E14",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 14.0,
+      "enemy": "E12",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 25.0,
+      "enemy": "E14",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 36.0,
+      "enemy": "E14",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 47.0,
+      "enemy": "E12",
+      "route": "A",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 58.0,
+      "enemy": "E14",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 69.0,
+      "enemy": "E14",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 80.0,
+      "enemy": "E12",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 91.0,
+      "enemy": "E14",
+      "route": "A",
+      "count": 1,
+      "interval": 2.5
+    },
+    {
+      "t": 107.0,
+      "enemy": "E14_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 117.0,
+      "enemy": "E14_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 25,
+      "enemy": "E07",
+      "route": "F",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 49,
+      "enemy": "E07",
+      "route": "F",
+      "count": 3,
+      "interval": 2.0
+    }
+  ],
+  "enemy_total": 30,
+  "scale": {
+    "hp": 1.54,
+    "atk": 1.45,
+    "def": 1.27
+  },
+  "npc_units": [
+    {
+      "id": "NPC_GRUSH",
+      "unit": "L_SPEAR_GRUSH",
+      "tile": [
+        8,
+        2
+      ],
+      "dir": "W",
+      "level": 45,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 475,
+    "gold": 342,
+    "drops": []
+  },
+  "first_clear": {
+    "gem": 10,
+    "join": "L_SPEAR_GRUSH"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 4002,
+  "scenario": "SC-08",
+  "join_unit": "L_SPEAR_GRUSH",
+  "is_last": true
+}

@@ -1,0 +1,179 @@
+{
+  "id": "SC02-2",
+  "chapter": 1,
+  "type": "scenario",
+  "name": "방패 II",
+  "note": "주인공이 무진의 길을 대신 막아 준다 → 합류.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGGX",
+      "XXHHXXXXXHHPX",
+      "XXXXXXXXXXXPD",
+      "XXHHXXXXXHHPX",
+      "SGGGGGGGGGGGX",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 10,
+  "dp_regen": 0.7,
+  "deploy_limit": 5,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E01",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 12.0,
+      "enemy": "E02",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 21.0,
+      "enemy": "E01",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 30.0,
+      "enemy": "E01",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 39.0,
+      "enemy": "E02",
+      "route": "A",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 48.0,
+      "enemy": "E01",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 57.0,
+      "enemy": "E01",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 66.0,
+      "enemy": "E02",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 80.0,
+      "enemy": "E01_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    }
+  ],
+  "enemy_total": 22,
+  "scale": {
+    "hp": 1.0,
+    "atk": 1.0,
+    "def": 1.0
+  },
+  "npc_units": [
+    {
+      "id": "NPC_MUJIN",
+      "unit": "L_SHIELD_MUJIN",
+      "tile": [
+        8,
+        2
+      ],
+      "dir": "W",
+      "level": 12,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 250,
+    "gold": 180,
+    "drops": []
+  },
+  "first_clear": {
+    "gem": 10,
+    "join": "L_SHIELD_MUJIN"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 1002,
+  "scenario": "SC-02",
+  "join_unit": "L_SHIELD_MUJIN",
+  "is_last": true
+}

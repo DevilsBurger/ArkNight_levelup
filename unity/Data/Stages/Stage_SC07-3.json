@@ -1,0 +1,197 @@
+{
+  "id": "SC07-3",
+  "chapter": 3,
+  "type": "scenario",
+  "name": "이탈자 III",
+  "note": "쾌속 재소집 퍼즐 — 태오 NPC가 4번째 길을 홀로 맡는다 → 합류.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XHHXHHXHHXHHX",
+      "SGGGGGGGGGGPD",
+      "XHHXHHXHHXHHX",
+      "SGGGGGGGGGGPD",
+      "XHHXHHXHHXHHX",
+      "SGGGGGGGGGGPD"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 18,
+  "dp_regen": 0.75,
+  "deploy_limit": 7,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      4
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "C": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ],
+    "D": [
+      [
+        0,
+        0
+      ],
+      [
+        12,
+        0
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 14.0,
+      "enemy": "E09",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 25.0,
+      "enemy": "E11",
+      "route": "C",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 36.0,
+      "enemy": "E11",
+      "route": "D",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 47.0,
+      "enemy": "E09",
+      "route": "A",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 58.0,
+      "enemy": "E11",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 69.0,
+      "enemy": "E11",
+      "route": "C",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 80.0,
+      "enemy": "E09",
+      "route": "D",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 91.0,
+      "enemy": "E11",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 102.0,
+      "enemy": "E11",
+      "route": "B",
+      "count": 1,
+      "interval": 2.5
+    },
+    {
+      "t": 118.0,
+      "enemy": "E11_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    }
+  ],
+  "enemy_total": 26,
+  "scale": {
+    "hp": 1.33,
+    "atk": 1.27,
+    "def": 1.18
+  },
+  "npc_units": [
+    {
+      "id": "NPC_TAEO",
+      "unit": "L_SPECIAL_TAEO",
+      "tile": [
+        9,
+        0
+      ],
+      "dir": "W",
+      "level": 35,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 387,
+    "gold": 279,
+    "drops": []
+  },
+  "first_clear": {
+    "gem": 10,
+    "join": "L_SPECIAL_TAEO"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 3003,
+  "scenario": "SC-07",
+  "join_unit": "L_SPECIAL_TAEO",
+  "is_last": true
+}

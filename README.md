@@ -1,7 +1,7 @@
 # ARMY OF ONE (가칭) — 명일방주 방식 3D 탑다운 타워 디펜스 + 주인공 성장 RPG
 
 > 플랫폼: 모바일(iOS / Android), Landscape 고정 · 엔진: Unity 6 (URP + Cel Shading) · 아트: Synty SIMPLE 시리즈
-> 상태: 상세 설계 1차 (GDD 초안, 플레이테스트 전)
+> 상태: 상세 설계 1차 완료 (00~11 문서, 1~5장 + 참전 시나리오 StageDef 68, 난이도 시뮬레이션 2~3차 보정, 결정론 코어 스캐폴딩) · 다음: Unity 그레이박스
 
 ## 문서 맵
 
@@ -12,12 +12,16 @@
 | 02 | [게임 기획서 (GDD)](docs/02_게임기획서_GDD.md) | 전제 결정 D1~D14, 전장 · DP 경제 · 주인공(재배치 · 기세 · 권능 · 넉다운 · 스탯 · 스킬 트리) · 군단원(7클래스 템플릿 · 사거리 · 스킬 · 성장) · 적 10종 · 챕터 배율 · 스테이지 규칙 · StageDef 스키마 · 결정론 시뮬레이션 · 메타 요약 · 온보딩 · 검증 계획 |
 | 03 | [게임 흐름 · 구조 다이어그램](docs/03_게임_흐름_구조_다이어그램.md) | Mermaid 14종: 게임 구조 맵, 플레이어 여정, 일일 루프, 스테이지 흐름, 주인공 · 군단원 상태 머신, 인게임 자원 · 메타 경제, 군단원 획득, 성장 구조, 콘텐츠 · 챕터 구조, 전투 시퀀스, 시스템 아키텍처, 데이터 모델 |
 | 04 | [시나리오 · 챕터 · 스테이지](docs/04_시나리오_챕터_스테이지.md) | 서사 원칙, 세계관 바이블, 막 · 챕터 구조, 군단원 로스터 24, 참전 시나리오 10 · 숨은 합류 10 · 이벤트 4, 1~5장 40스테이지 표, 보스 5, 1장 StageDef 8종(`unity/Data/Stages/`), 컷씬 샘플, IP 체크리스트, 플레이타임 |
+| 06 | [HUD · UX 설계](docs/06_HUD_UX_설계.md) | 전투 HUD 레이아웃, 소집 · 재배치 조작 흐름, 피드백 · 적 식별 원칙, 로비 6화면, 낙인 시스템 창, 화면 전이, 결과 창("어디서 샜는가"), 온보딩 말풍선, 접근성 |
 | 07 | [난이도 시뮬레이션 계획](docs/07_난이도_시뮬레이션_계획.md) | 난이도 파라미터 인벤토리(주인공 · 군단원 · 편성 · 스테이지 · 적 · 정책), 상태 변수, 행동 정책 6종, 등가 모델 명세(레인 · 포스트 · DPS 흐름), 실험 설계, 목표 곡선, 검증 · 구현 구조 |
-| 08 | [난이도 시뮬레이션 결과](docs/08_난이도_시뮬레이션_결과.md) | 1차 실행 발견(1장 과도하게 쉬움 · StageDef 결함 · 보스 DPS 경주), 보정 1차, 정책 × 성장 승률표, 민감도 15축, 정책별 결과 모델링, 목표 편차, 한계 · 다음 보정 |
+| 08 | [난이도 시뮬레이션 결과](docs/08_난이도_시뮬레이션_결과.md) | 1장: 발견 F1~F7 · 보정 · 정책 × 성장 승률표 · 민감도 17축 · 목표 곡선 판정(전부 충족) · 결정 S1~S8. 2~5장(§8): 발견 F8~F19 · 1~3차 보정 · 승률표 · 민감도 · 판정 |
+| 09 | [데이터 · 밸런스 시트](docs/09_데이터_밸런스_시트.md) | `docs/data/*.csv` 8종(주인공 레벨 · 성장 상태 · 군단 템플릿 · 로스터 · 챕터별 적 · 스테이지 68 · 보스 · 규칙)의 생성 원본과 읽는 법 — `params.yaml` · StageDef 단일 원본 |
+| 10 | [기술 설계 문서 (TDD)](docs/10_기술_설계_문서_TDD.md) | 플랫폼 · 성능 예산(동시 유닛 60), 어셈블리 구조(Army.Core / Game / Tools), 결정론 코어(Fixed32 · 30Hz · 상태 해시 · 리플레이), 데이터 파이프라인, 저장 · 서비스, QA · CI, 마일스톤, `core/` 스캐폴딩 |
+| 11 | [비즈니스 모델 (BM)](docs/11_비즈니스_모델_BM.md) | 결정 B1~B10(가챠 · 이성 없음, 성장 재화 판매 금지), 재화, 수익원(스킨 · 낙인 패스 · 편의 상한 · 회상 패스 · 선택형 광고 · IAP), 젬 경제, KPI, UX 보호 원칙, 명일방주 · RUN BEANIE 대비, 로드맵 · 검증 |
 
-도구: `tools/mermaid_check/` — 문서 내 Mermaid 다이어그램 검증 · PNG 렌더링 · `tools/gen_ch1_stagedefs.py` · `tools/gen_ch2_5_stagedefs.py` — 1~5장 StageDef 생성(원본) · `tools/build_stage_index.py` — 인덱스 · `tools/stagedef_check.py` — StageDef 검증 · `tools/difficulty_sim/` — 난이도 시뮬레이터(등가 모델 · 정책 · 전수 실행 · 민감도)
+도구: `tools/mermaid_check/` — 문서 내 Mermaid 다이어그램 검증 · PNG 렌더링 · `tools/gen_ch1_stagedefs.py` · `tools/gen_ch2_5_stagedefs.py` · `tools/gen_scenario_stagedefs.py` — 1~5장 · 참전 시나리오 StageDef 생성(원본) · `tools/build_stage_index.py` — 인덱스 · `tools/stagedef_check.py` — StageDef 검증 · `tools/difficulty_sim/` — 난이도 시뮬레이터(등가 모델 · 정책 · 전수 실행 · 민감도 · 누수 로그 · 결과 문서 생성) · `tools/export_balance_sheets.py` · `tools/write_balance_doc.py` — 09 데이터 시트 생성 · `core/` — 결정론 전투 코어 C# 스캐폴딩(Army.Core, netstandard2.1, 컴파일 미검증)
 
-데이터: `unity/Data/Stages/Stage_{1..5}-*.json`(1~5장 40스테이지) · `unity/Data/Enemies.json`(적 17종 + 변형 13 · 보스 5) · `unity/Data/StageIndex.json`
+데이터: `unity/Data/Stages/Stage_{1..5}-*.json`(1~5장 40스테이지) · `Stage_SC*.json`(참전 시나리오 18 + 숨은 합류 10) · `unity/Data/Enemies.json`(적 17종 + 변형 13 · 보스 5) · `unity/Data/StageIndex.json`(68) · `docs/data/*.csv`(밸런스 시트 8종)
 
 ## 한 줄 요약
 

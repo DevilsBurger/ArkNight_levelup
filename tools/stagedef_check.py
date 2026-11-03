@@ -66,7 +66,7 @@ def check(path, enemy_ids):
 def main():
     ids = load_enemies()
     bad = 0
-    for p in sorted(glob.glob(os.path.join(ROOT, "Stages", "*.json")), key=lambda q: tuple(int(v) for v in os.path.basename(q)[6:-5].split("-"))):
+    for p in sorted(glob.glob(os.path.join(ROOT, "Stages", "*.json")), key=lambda q: (os.path.basename(q)[6:-5].startswith("SC"), [v.zfill(4) for v in os.path.basename(q)[6:-5].split("-")])):
         errs, stats = check(p, ids)
         print(("FAIL " if errs else "ok   ") + stats)
         for e in errs: print("     -", e)

@@ -1,0 +1,268 @@
+squads_scenario:
+  SC01-1:
+    hero: awakened
+    legion:
+    - DSP_SPEAR
+    - DSP_SNIPER
+    optional: []
+  SC02-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - DSP_SPEAR
+    - DSP_SNIPER
+    optional: []
+  SC02-2:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - DSP_SPEAR
+    - DSP_SNIPER
+    optional: []
+  SC03-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - DSP_SPEAR
+    - DSP_SNIPER
+    optional: []
+  SC04-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    optional: []
+  SC04-2:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    optional: []
+  SC05-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    optional: []
+  SC06-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    optional: []
+  SC06-2:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    optional: []
+  SC07-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    optional: []
+  SC07-2:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    optional: []
+  SC07-3:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    optional: []
+  SC08-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    optional: []
+  SC08-2:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    optional: []
+  SC09-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    - L_SPEAR_GRUSH
+    optional: []
+  SC09-2:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    - L_SPEAR_GRUSH
+    optional: []
+  SC10-1:
+    hero: awakened
+    legion:
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    - L_SPEAR_GRUSH
+    - L_SNIPER_EIR
+    optional: []
+  SC10-2:
+    hero: awakened
+    legion:
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    - L_SPEAR_GRUSH
+    - L_SNIPER_EIR
+    optional: []
+  SCH01-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - DSP_SPEAR
+    - DSP_SNIPER
+    optional: []
+  SCH02-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - DSP_SPEAR
+    - DSP_SNIPER
+    optional: []
+  SCH03-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    optional: []
+  SCH04-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    optional: []
+  SCH05-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    optional: []
+  SCH06-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    optional: []
+  SCH07-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    - L_SPEAR_GRUSH
+    optional: []
+  SCH08-1:
+    hero: awakened
+    legion:
+    - L_SPEAR_DOKYUNG
+    - L_SHIELD_MUJIN
+    - L_SPECIAL_KICK
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    optional: []
+  SCH09-1:
+    hero: awakened
+    legion:
+    - L_SHIELD_MUJIN
+    - L_SUPPORT_RIN
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    - L_SPEAR_GRUSH
+    - L_SNIPER_EIR
+    optional: []
+  SCH10-1:
+    hero: awakened
+    legion:
+    - L_SHIELD_MUJIN
+    - L_SUPPORT_RIN
+    - L_SNIPER_YUNCHAE
+    - L_MEDIC_HAYUL
+    - L_CASTER_YUNA
+    - L_SPECIAL_TAEO
+    - L_SPEAR_GRUSH
+    - L_SNIPER_EIR
+    optional: []

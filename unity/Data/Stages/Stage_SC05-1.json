@@ -1,0 +1,170 @@
+{
+  "id": "SC05-1",
+  "chapter": 2,
+  "type": "scenario",
+  "name": "구조대",
+  "note": "치유 사거리 안에 아군을 세우는 법.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XXHHXXXXXHHXX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XXHHXXXXXHHXX",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "routes_air": {},
+  "lives": 5,
+  "initial_dp": 12,
+  "dp_regen": 0.7,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      5
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        5
+      ],
+      [
+        12,
+        5
+      ]
+    ],
+    "B": [
+      [
+        0,
+        3
+      ],
+      [
+        12,
+        3
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 14.0,
+      "enemy": "E01",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 25.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 36.0,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 47.0,
+      "enemy": "E01",
+      "route": "A",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 58.0,
+      "enemy": "E04",
+      "route": "B",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 69.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 80.0,
+      "enemy": "E01",
+      "route": "B",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 91.0,
+      "enemy": "E04",
+      "route": "A",
+      "count": 2,
+      "interval": 2.5
+    },
+    {
+      "t": 107.0,
+      "enemy": "E04_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    }
+  ],
+  "enemy_total": 24,
+  "scale": {
+    "hp": 1.15,
+    "atk": 1.12,
+    "def": 1.09
+  },
+  "npc_units": [
+    {
+      "id": "NPC_HAYUL",
+      "unit": "L_MEDIC_HAYUL",
+      "tile": [
+        9,
+        6
+      ],
+      "dir": "S",
+      "level": 25,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [],
+  "boss": null,
+  "script": [],
+  "rewards": {
+    "xp": 312,
+    "gold": 225,
+    "drops": []
+  },
+  "first_clear": {
+    "gem": 10,
+    "join": "L_MEDIC_HAYUL"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 2001,
+  "scenario": "SC-05",
+  "join_unit": "L_MEDIC_HAYUL",
+  "is_last": true
+}

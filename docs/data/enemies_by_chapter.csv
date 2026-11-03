@@ -1,0 +1,176 @@
+enemy_id,name,kind,chapter,hp,atk,def,res,speed,weight,flying,ranged_tiles,arts,attack_interval,ability,first_stage
+E01,고블린,normal,1,1350,156,20,0,1.0,1,False,0,False,1.0,,1-1
+E01,고블린,normal,2,1552,175,22,0,1.0,1,False,0,False,1.0,,1-1
+E01,고블린,normal,3,1796,198,24,0,1.0,1,False,0,False,1.0,,1-1
+E01,고블린,normal,4,2079,226,25,0,1.0,1,False,0,False,1.0,,1-1
+E01,고블린,normal,5,2484,259,28,0,1.0,1,False,0,False,1.0,,1-1
+E02,고블린 궁수,normal,1,1050,182,10,0,0.9,1,False,2,False,1.5,ranged:2,1-3
+E02,고블린 궁수,normal,2,1208,204,11,0,0.9,1,False,2,False,1.5,ranged:2,1-3
+E02,고블린 궁수,normal,3,1396,231,12,0,0.9,1,False,2,False,1.5,ranged:2,1-3
+E02,고블린 궁수,normal,4,1617,264,13,0,0.9,1,False,2,False,1.5,ranged:2,1-3
+E02,고블린 궁수,normal,5,1932,302,14,0,0.9,1,False,2,False,1.5,ranged:2,1-3
+E03,고블린 돌격병,normal,1,2100,234,60,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E03,고블린 돌격병,normal,2,2415,262,65,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E03,고블린 돌격병,normal,3,2793,297,71,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E03,고블린 돌격병,normal,4,3234,339,76,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E03,고블린 돌격병,normal,5,3864,388,83,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E04,스켈레톤 병사,normal,1,2400,260,120,20,0.8,2,False,0,False,1.0,,2-1
+E04,스켈레톤 병사,normal,2,2760,291,131,20,0.8,2,False,0,False,1.0,,2-1
+E04,스켈레톤 병사,normal,3,3192,330,142,20,0.8,2,False,0,False,1.0,,2-1
+E04,스켈레톤 병사,normal,4,3696,377,152,20,0.8,2,False,0,False,1.0,,2-1
+E04,스켈레톤 병사,normal,5,4416,432,167,20,0.8,2,False,0,False,1.0,,2-1
+E05,스켈레톤 주술사,normal,1,1500,286,30,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E05,스켈레톤 주술사,normal,2,1725,320,33,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E05,스켈레톤 주술사,normal,3,1995,363,35,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E05,스켈레톤 주술사,normal,4,2310,415,38,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E05,스켈레톤 주술사,normal,5,2760,475,42,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E06,거대 오크,normal,1,6750,456,200,10,0.6,4,False,0,False,1.0,push_immune,2-6
+E06,거대 오크,normal,2,7762,511,218,10,0.6,4,False,0,False,1.0,push_immune,2-6
+E06,거대 오크,normal,3,8978,579,236,10,0.6,4,False,0,False,1.0,push_immune,2-6
+E06,거대 오크,normal,4,10395,661,254,10,0.6,4,False,0,False,1.0,push_immune,2-6
+E06,거대 오크,normal,5,12420,757,278,10,0.6,4,False,0,False,1.0,push_immune,2-6
+E07,박쥐 떼,normal,1,750,116,0,0,1.1,0,True,0,False,1.0,flying,4-1
+E07,박쥐 떼,normal,2,862,130,0,0,1.1,0,True,0,False,1.0,flying,4-1
+E07,박쥐 떼,normal,3,998,147,0,0,1.1,0,True,0,False,1.0,flying,4-1
+E07,박쥐 떼,normal,4,1155,168,0,0,1.1,0,True,0,False,1.0,flying,4-1
+E07,박쥐 떼,normal,5,1380,193,0,0,1.1,0,True,0,False,1.0,flying,4-1
+E08,좀비,normal,1,3300,208,40,60,0.5,2,False,0,False,1.0,revive_once_50,7-1
+E08,좀비,normal,2,3795,233,44,60,0.5,2,False,0,False,1.0,revive_once_50,7-1
+E08,좀비,normal,3,4389,264,47,60,0.5,2,False,0,False,1.0,revive_once_50,7-1
+E08,좀비,normal,4,5082,302,51,60,0.5,2,False,0,False,1.0,revive_once_50,7-1
+E08,좀비,normal,5,6072,345,56,60,0.5,2,False,0,False,1.0,revive_once_50,7-1
+E09,배신 헌터,normal,1,4200,416,150,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E09,배신 헌터,normal,2,4830,466,164,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E09,배신 헌터,normal,3,5586,528,177,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E09,배신 헌터,normal,4,6468,603,190,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E09,배신 헌터,normal,5,7728,691,208,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E10,정찰 드론,normal,1,1350,196,80,0,1.2,0,True,2,False,1.5,"flying,ranged:2",6-1
+E10,정찰 드론,normal,2,1552,220,87,0,1.2,0,True,2,False,1.5,"flying,ranged:2",6-1
+E10,정찰 드론,normal,3,1796,249,94,0,1.2,0,True,2,False,1.5,"flying,ranged:2",6-1
+E10,정찰 드론,normal,4,2079,284,102,0,1.2,0,True,2,False,1.5,"flying,ranged:2",6-1
+E10,정찰 드론,normal,5,2484,325,111,0,1.2,0,True,2,False,1.5,"flying,ranged:2",6-1
+E11,길드 용병,normal,1,2000,300,100,10,1.0,2,False,0,False,1.0,,3-1
+E11,길드 용병,normal,2,2300,336,109,10,1.0,2,False,0,False,1.0,,3-1
+E11,길드 용병,normal,3,2660,381,118,10,1.0,2,False,0,False,1.0,,3-1
+E11,길드 용병,normal,4,3080,435,127,10,1.0,2,False,0,False,1.0,,3-1
+E11,길드 용병,normal,5,3680,498,139,10,1.0,2,False,0,False,1.0,,3-1
+E12,엘프 사수,normal,1,1500,320,60,20,0.9,1,False,3,False,1.5,ranged:3,4-3
+E12,엘프 사수,normal,2,1725,358,65,20,0.9,1,False,3,False,1.5,ranged:3,4-3
+E12,엘프 사수,normal,3,1995,406,71,20,0.9,1,False,3,False,1.5,ranged:3,4-3
+E12,엘프 사수,normal,4,2310,464,76,20,0.9,1,False,3,False,1.5,ranged:3,4-3
+E12,엘프 사수,normal,5,2760,531,83,20,0.9,1,False,3,False,1.5,ranged:3,4-3
+E13,엘프 암살자,normal,1,2200,420,80,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E13,엘프 암살자,normal,2,2530,470,87,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E13,엘프 암살자,normal,3,2926,533,94,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E13,엘프 암살자,normal,4,3388,609,102,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E13,엘프 암살자,normal,5,4048,697,111,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E14,오크 전사,normal,1,3600,380,150,10,0.8,3,False,0,False,1.0,,4-1
+E14,오크 전사,normal,2,4140,426,164,10,0.8,3,False,0,False,1.0,,4-1
+E14,오크 전사,normal,3,4788,483,177,10,0.8,3,False,0,False,1.0,,4-1
+E14,오크 전사,normal,4,5544,551,190,10,0.8,3,False,0,False,1.0,,4-1
+E14,오크 전사,normal,5,6624,631,208,10,0.8,3,False,0,False,1.0,,4-1
+E15,사원 석상,normal,1,5000,300,350,0,0.5,4,False,0,False,1.0,push_immune,5-1
+E15,사원 석상,normal,2,5750,336,382,0,0.5,4,False,0,False,1.0,push_immune,5-1
+E15,사원 석상,normal,3,6650,381,413,0,0.5,4,False,0,False,1.0,push_immune,5-1
+E15,사원 석상,normal,4,7700,435,444,0,0.5,4,False,0,False,1.0,push_immune,5-1
+E15,사원 석상,normal,5,9200,498,486,0,0.5,4,False,0,False,1.0,push_immune,5-1
+E16,사원 기사,normal,1,4000,450,200,30,0.9,2,False,0,False,1.0,,5-5
+E16,사원 기사,normal,2,4600,504,218,30,0.9,2,False,0,False,1.0,,5-5
+E16,사원 기사,normal,3,5320,572,236,30,0.9,2,False,0,False,1.0,,5-5
+E16,사원 기사,normal,4,6160,652,254,30,0.9,2,False,0,False,1.0,,5-5
+E16,사원 기사,normal,5,7360,747,278,30,0.9,2,False,0,False,1.0,,5-5
+E17,제단 소환물,normal,1,1200,200,20,0,1.2,1,False,0,False,1.0,,5-3
+E17,제단 소환물,normal,2,1380,224,22,0,1.2,1,False,0,False,1.0,,5-3
+E17,제단 소환물,normal,3,1596,254,24,0,1.2,1,False,0,False,1.0,,5-3
+E17,제단 소환물,normal,4,1848,290,25,0,1.2,1,False,0,False,1.0,,5-3
+E17,제단 소환물,normal,5,2208,332,28,0,1.2,1,False,0,False,1.0,,5-3
+E01_elite,고블린 대장,elite,1,2700,218,26,0,1.0,1,False,0,False,1.0,,1-1
+E01_elite,고블린 대장,elite,2,3105,245,28,0,1.0,1,False,0,False,1.0,,1-1
+E01_elite,고블린 대장,elite,3,3591,277,31,0,1.0,1,False,0,False,1.0,,1-1
+E01_elite,고블린 대장,elite,4,4158,317,33,0,1.0,1,False,0,False,1.0,,1-1
+E01_elite,고블린 대장,elite,5,4968,363,36,0,1.0,1,False,0,False,1.0,,1-1
+E03_elite,하수도의 포식자,elite,1,4200,328,78,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E03_elite,하수도의 포식자,elite,2,4830,367,85,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E03_elite,하수도의 포식자,elite,3,5586,416,92,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E03_elite,하수도의 포식자,elite,4,6468,475,99,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E03_elite,하수도의 포식자,elite,5,7728,544,108,0,1.4,2,False,0,False,1.0,charge_first_hit_x2,1-5
+E01_scout,고블린 정찰병,normal,1,1050,156,20,0,1.8,1,False,0,False,1.0,,1-1
+E01_scout,고블린 정찰병,normal,2,1208,175,22,0,1.8,1,False,0,False,1.0,,1-1
+E01_scout,고블린 정찰병,normal,3,1396,198,24,0,1.8,1,False,0,False,1.0,,1-1
+E01_scout,고블린 정찰병,normal,4,1617,226,25,0,1.8,1,False,0,False,1.0,,1-1
+E01_scout,고블린 정찰병,normal,5,1932,259,28,0,1.8,1,False,0,False,1.0,,1-1
+E04_elite,스켈레톤 대장,elite,1,4800,364,156,20,0.8,2,False,0,False,1.0,,2-1
+E04_elite,스켈레톤 대장,elite,2,5520,408,170,20,0.8,2,False,0,False,1.0,,2-1
+E04_elite,스켈레톤 대장,elite,3,6384,462,184,20,0.8,2,False,0,False,1.0,,2-1
+E04_elite,스켈레톤 대장,elite,4,7392,528,198,20,0.8,2,False,0,False,1.0,,2-1
+E04_elite,스켈레톤 대장,elite,5,8832,604,217,20,0.8,2,False,0,False,1.0,,2-1
+E05_elite,대주술사,elite,1,3000,400,39,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E05_elite,대주술사,elite,2,3450,448,43,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E05_elite,대주술사,elite,3,3990,509,46,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E05_elite,대주술사,elite,4,4620,581,50,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E05_elite,대주술사,elite,5,5520,665,54,40,0.8,1,False,3,True,2.5,arts_ranged:3,2-3
+E09_elite,배신 헌터 간부,elite,1,8400,582,195,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E09_elite,배신 헌터 간부,elite,2,9660,652,213,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E09_elite,배신 헌터 간부,elite,3,11172,740,230,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E09_elite,배신 헌터 간부,elite,4,12936,844,248,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E09_elite,배신 헌터 간부,elite,5,15456,967,271,30,1.0,2,False,0,False,1.0,stealth_until_blocked,3-2
+E11_elite,용병 대장,elite,1,4000,420,130,10,1.0,2,False,0,False,1.0,,3-1
+E11_elite,용병 대장,elite,2,4600,470,142,10,1.0,2,False,0,False,1.0,,3-1
+E11_elite,용병 대장,elite,3,5320,533,153,10,1.0,2,False,0,False,1.0,,3-1
+E11_elite,용병 대장,elite,4,6160,609,165,10,1.0,2,False,0,False,1.0,,3-1
+E11_elite,용병 대장,elite,5,7360,697,181,10,1.0,2,False,0,False,1.0,,3-1
+E13_elite,암살자 대장,elite,1,4400,588,104,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E13_elite,암살자 대장,elite,2,5060,659,113,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E13_elite,암살자 대장,elite,3,5852,747,123,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E13_elite,암살자 대장,elite,4,6776,853,132,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E13_elite,암살자 대장,elite,5,8096,976,145,20,1.3,1,False,0,False,1.0,stealth_until_blocked,4-5
+E14_elite,오크 족장 호위,elite,1,7200,532,195,10,0.8,3,False,0,False,1.0,,4-1
+E14_elite,오크 족장 호위,elite,2,8280,596,213,10,0.8,3,False,0,False,1.0,,4-1
+E14_elite,오크 족장 호위,elite,3,9576,676,230,10,0.8,3,False,0,False,1.0,,4-1
+E14_elite,오크 족장 호위,elite,4,11088,771,248,10,0.8,3,False,0,False,1.0,,4-1
+E14_elite,오크 족장 호위,elite,5,13248,883,271,10,0.8,3,False,0,False,1.0,,4-1
+E16_elite,기사단 부장,elite,1,8000,630,260,30,0.9,2,False,0,False,1.0,,5-5
+E16_elite,기사단 부장,elite,2,9200,706,283,30,0.9,2,False,0,False,1.0,,5-5
+E16_elite,기사단 부장,elite,3,10640,800,307,30,0.9,2,False,0,False,1.0,,5-5
+E16_elite,기사단 부장,elite,4,12320,914,330,30,0.9,2,False,0,False,1.0,,5-5
+E16_elite,기사단 부장,elite,5,14720,1046,361,30,0.9,2,False,0,False,1.0,,5-5
+E07_swarm,박쥐 군단,normal,1,800,116,0,0,1.0,0,True,0,False,1.0,flying,4-1
+E07_swarm,박쥐 군단,normal,2,920,130,0,0,1.0,0,True,0,False,1.0,flying,4-1
+E07_swarm,박쥐 군단,normal,3,1064,147,0,0,1.0,0,True,0,False,1.0,flying,4-1
+E07_swarm,박쥐 군단,normal,4,1232,168,0,0,1.0,0,True,0,False,1.0,flying,4-1
+E07_swarm,박쥐 군단,normal,5,1472,193,0,0,1.0,0,True,0,False,1.0,flying,4-1
+E12_hidden,잠복 엘프 사수,normal,1,1500,320,60,20,0.9,1,False,3,False,1.5,"ranged:3,stealth_until_blocked",4-3
+E12_hidden,잠복 엘프 사수,normal,2,1725,358,65,20,0.9,1,False,3,False,1.5,"ranged:3,stealth_until_blocked",4-3
+E12_hidden,잠복 엘프 사수,normal,3,1995,406,71,20,0.9,1,False,3,False,1.5,"ranged:3,stealth_until_blocked",4-3
+E12_hidden,잠복 엘프 사수,normal,4,2310,464,76,20,0.9,1,False,3,False,1.5,"ranged:3,stealth_until_blocked",4-3
+E12_hidden,잠복 엘프 사수,normal,5,2760,531,83,20,0.9,1,False,3,False,1.5,"ranged:3,stealth_until_blocked",4-3
+B03_clone,길드장의 분신,normal,1,6000,500,200,30,0.9,2,False,0,False,1.0,stealth_until_blocked,3-2
+B03_clone,길드장의 분신,normal,2,6900,560,218,30,0.9,2,False,0,False,1.0,stealth_until_blocked,3-2
+B03_clone,길드장의 분신,normal,3,7980,635,236,30,0.9,2,False,0,False,1.0,stealth_until_blocked,3-2
+B03_clone,길드장의 분신,normal,4,9240,725,254,30,0.9,2,False,0,False,1.0,stealth_until_blocked,3-2
+B03_clone,길드장의 분신,normal,5,11040,830,278,30,0.9,2,False,0,False,1.0,stealth_until_blocked,3-2
+B01,하수도 군주,boss,1,40000,300,150,10,0.28,5,False,0,False,1.0,"summon:E01x2,smash_adjacent_100pct_every_3s,enrage_unblocked:2.0,reach_defense=fail",1-8
+B01,하수도 군주,boss,2,40000,300,150,10,0.28,5,False,0,False,1.0,"summon:E01x2,smash_adjacent_100pct_every_3s,enrage_unblocked:2.0,reach_defense=fail",1-8
+B01,하수도 군주,boss,3,40000,300,150,10,0.28,5,False,0,False,1.0,"summon:E01x2,smash_adjacent_100pct_every_3s,enrage_unblocked:2.0,reach_defense=fail",1-8
+B01,하수도 군주,boss,4,40000,300,150,10,0.28,5,False,0,False,1.0,"summon:E01x2,smash_adjacent_100pct_every_3s,enrage_unblocked:2.0,reach_defense=fail",1-8
+B01,하수도 군주,boss,5,40000,300,150,10,0.28,5,False,0,False,1.0,"summon:E01x2,smash_adjacent_100pct_every_3s,enrage_unblocked:2.0,reach_defense=fail",1-8
+B02,백골 기사단장,boss,1,48000,350,300,20,0.3,5,False,0,False,1.0,"charge_first_hit_x2,phase2_def_x1.5,enrage_unblocked:2.0,reach_defense=fail",2-8
+B02,백골 기사단장,boss,2,48000,350,300,20,0.3,5,False,0,False,1.0,"charge_first_hit_x2,phase2_def_x1.5,enrage_unblocked:2.0,reach_defense=fail",2-8
+B02,백골 기사단장,boss,3,48000,350,300,20,0.3,5,False,0,False,1.0,"charge_first_hit_x2,phase2_def_x1.5,enrage_unblocked:2.0,reach_defense=fail",2-8
+B02,백골 기사단장,boss,4,48000,350,300,20,0.3,5,False,0,False,1.0,"charge_first_hit_x2,phase2_def_x1.5,enrage_unblocked:2.0,reach_defense=fail",2-8
+B02,백골 기사단장,boss,5,48000,350,300,20,0.3,5,False,0,False,1.0,"charge_first_hit_x2,phase2_def_x1.5,enrage_unblocked:2.0,reach_defense=fail",2-8
+B03,배신 길드장,boss,1,55000,380,250,40,0.35,5,False,0,False,1.0,"stealth_until_blocked,summon:B03_clonex2,enrage_unblocked:2.0,reach_defense=fail",3-8
+B03,배신 길드장,boss,2,55000,380,250,40,0.35,5,False,0,False,1.0,"stealth_until_blocked,summon:B03_clonex2,enrage_unblocked:2.0,reach_defense=fail",3-8
+B03,배신 길드장,boss,3,55000,380,250,40,0.35,5,False,0,False,1.0,"stealth_until_blocked,summon:B03_clonex2,enrage_unblocked:2.0,reach_defense=fail",3-8
+B03,배신 길드장,boss,4,55000,380,250,40,0.35,5,False,0,False,1.0,"stealth_until_blocked,summon:B03_clonex2,enrage_unblocked:2.0,reach_defense=fail",3-8
+B03,배신 길드장,boss,5,55000,380,250,40,0.35,5,False,0,False,1.0,"stealth_until_blocked,summon:B03_clonex2,enrage_unblocked:2.0,reach_defense=fail",3-8
+B04,붉은 게이트 수호수,boss,1,80000,450,200,30,0.3,5,True,0,False,1.0,"phase_flying_toggle,summon:E07x3,reach_defense=fail",4-8
+B04,붉은 게이트 수호수,boss,2,80000,450,200,30,0.3,5,True,0,False,1.0,"phase_flying_toggle,summon:E07x3,reach_defense=fail",4-8
+B04,붉은 게이트 수호수,boss,3,80000,450,200,30,0.3,5,True,0,False,1.0,"phase_flying_toggle,summon:E07x3,reach_defense=fail",4-8
+B04,붉은 게이트 수호수,boss,4,80000,450,200,30,0.3,5,True,0,False,1.0,"phase_flying_toggle,summon:E07x3,reach_defense=fail",4-8
+B04,붉은 게이트 수호수,boss,5,80000,450,200,30,0.3,5,True,0,False,1.0,"phase_flying_toggle,summon:E07x3,reach_defense=fail",4-8
+B05,사원의 군단주,boss,1,100000,450,300,50,0.25,5,False,3,True,2.5,"arts_ranged:3,summon:E17x3,sealed_expand,enrage_unblocked:1.5,reach_defense=fail",5-8
+B05,사원의 군단주,boss,2,100000,450,300,50,0.25,5,False,3,True,2.5,"arts_ranged:3,summon:E17x3,sealed_expand,enrage_unblocked:1.5,reach_defense=fail",5-8
+B05,사원의 군단주,boss,3,100000,450,300,50,0.25,5,False,3,True,2.5,"arts_ranged:3,summon:E17x3,sealed_expand,enrage_unblocked:1.5,reach_defense=fail",5-8
+B05,사원의 군단주,boss,4,100000,450,300,50,0.25,5,False,3,True,2.5,"arts_ranged:3,summon:E17x3,sealed_expand,enrage_unblocked:1.5,reach_defense=fail",5-8
+B05,사원의 군단주,boss,5,100000,450,300,50,0.25,5,False,3,True,2.5,"arts_ranged:3,summon:E17x3,sealed_expand,enrage_unblocked:1.5,reach_defense=fail",5-8

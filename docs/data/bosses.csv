@@ -1,0 +1,6 @@
+boss_id,name,hp,atk,def,res,speed,attack_interval,abilities,stage
+B01,하수도 군주,40000,300,150,10,0.28,1.0,"summon:E01x2,smash_adjacent_100pct_every_3s,enrage_unblocked:2.0,reach_defense=fail",1-8
+B02,백골 기사단장,48000,350,300,20,0.3,1.0,"charge_first_hit_x2,phase2_def_x1.5,enrage_unblocked:2.0,reach_defense=fail",2-8
+B03,배신 길드장,55000,380,250,40,0.35,1.0,"stealth_until_blocked,summon:B03_clonex2,enrage_unblocked:2.0,reach_defense=fail",3-8
+B04,붉은 게이트 수호수,80000,450,200,30,0.3,1.0,"phase_flying_toggle,summon:E07x3,reach_defense=fail",4-8
+B05,사원의 군단주,100000,450,300,50,0.25,2.5,"arts_ranged:3,summon:E17x3,sealed_expand,enrage_unblocked:1.5,reach_defense=fail",5-8
