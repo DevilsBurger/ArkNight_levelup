@@ -3,18 +3,18 @@
   "chapter": 4,
   "type": "main",
   "name": "붉은 게이트 수호수",
-  "note": "비행 → 착지(33~66%) → 비행. 날 때는 사수 · 술사만 유효, 착지 30초 동안 주인공이 집중. 문이 열린다.",
+  "note": "비행 → 착지(33~66%) → 비행. 날 때는 전장 중앙 상공에서 선회(전진 없음)하며 사수 · 술사만 유효, 착지하면 봉인 구역에서 걸어 나와 주인공이 집중. 중앙 고지대 6칸이 선회 지점을 쏜다. 문이 열린다.",
   "grid": {
     "w": 13,
     "h": 8,
     "rows": [
       "XXXXXXXXXXXXX",
-      "XHHXXXXXXHHXX",
+      "XHHXXHHHXHHXX",
       "XGGGGGGGGGGGX",
       "SPGGLLLLLGGPD",
       "XGGGGGGGGGGGX",
       "SXXXXXXXXXXXD",
-      "XHHXXXXXXHHXX",
+      "XHHXXHHHXHHXX",
       "XXXXXXXXXXXXX"
     ]
   },
@@ -208,6 +208,7 @@
         ],
         "flying": true,
         "speed_mult": 0.0,
+        "hover_idx": 6,
         "summon_every": 15,
         "summon": [
           "E07",
@@ -283,6 +284,7 @@
         ],
         "flying": true,
         "speed_mult": 0.0,
+        "hover_idx": 6,
         "on_enter": [
           "invuln_2s"
         ],

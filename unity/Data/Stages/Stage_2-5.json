@@ -123,7 +123,7 @@
     {
       "t": 80,
       "enemy": "E04_elite",
-      "route": "B",
+      "route": "A",
       "count": 1,
       "interval": 0
     },
@@ -138,7 +138,7 @@
       "t": 85,
       "enemy": "E04",
       "route": "A",
-      "count": 3,
+      "count": 2,
       "interval": 3.0
     },
     {
@@ -149,7 +149,7 @@
       "interval": 1.5
     }
   ],
-  "enemy_total": 24,
+  "enemy_total": 23,
   "scale": {
     "hp": 1.15,
     "atk": 1.12,

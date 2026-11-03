@@ -245,7 +245,7 @@ class Sim:
         self.leaks = 0; self.knockdowns = 0; self.legion_deaths = 0; self.relocates = 0; self.ult_uses = 0
         self.hero_kills = 0; self.kills = 0; self.dp_spent = 0.0; self.dp_earned_kill = 0.0; self.fail = None
         self.next_decision = 0.0; self.deploys = 0; self.retreats = 0; self.skill_uses = 0; self.leak_log = []
-        self.traps_used = set()
+        self.traps_used = set(); self.economy_moves = 0
         self.spawned = 0
 
     # ---------- 배치
@@ -380,6 +380,8 @@ class Sim:
                     if u.alive and u.is_ground and u.kind != "civilian":
                         for lid, idx in u.lanes.items():
                             if idx in cov.get(lid, ()): score += 3.0
+                for e in self.enemies:   # 비행 보스(선회)는 사거리 안에 두는 것이 최우선
+                    if e.alive and e.st["is_boss"] and e.st["flying"] and int(e.p) in cov.get(e.lane, ()): score += 12.0
             if score > bscore: best, bscore, bfacing = t, score, f
         if best is None: return None
         if self.rng.random() >= self.pol.get("post_quality", 1.0):
@@ -481,7 +483,22 @@ class Sim:
                 if w <= 0: continue
                 if mode == "defensive" and (self.sd.lanes[lid].length - maxp) > pol.get("urgent_tiles", 6): continue
                 if w > bscore: best, bscore, bmax = lid, w, maxp
-            if best is None: return
+            if best is None:
+                # 경제 모드: 열린 위협이 없고 DP가 다음 카드 코스트보다 적으면 적이 많은 레인으로 가서 처치 DP를 번다
+                boss_alive = any(e.alive and e.st["is_boss"] for e in self.enemies)
+                lane_busy = bool(h.blocked) or any(not e.st["flying"] for lid in h.lanes for e in self.lane_enemies(lid))
+                if pol.get("economy_mode") and self.cards and not boss_alive and not lane_busy:
+                    need = min((c.current_cost(self.R["redeploy_mult"]) for c in self.cards if c.available), default=0)
+                    if need and self.dp < need:
+                        counts = {lid: sum(1 for e in self.lane_enemies(lid) if not e.st["flying"]) for lid in self.sd.lanes if not self.sd.lanes[lid].air}
+                        tgt = max(counts, key=counts.get) if counts else None
+                        here = max((counts.get(lid, 0) for lid in h.lanes), default=0)
+                        if tgt and counts[tgt] >= 2 and counts[tgt] > here + 1:
+                            safe = all(([u for u in self.ground_blockers(lid) if u is not h] or self.incoming_soon(lid, 12.0) == 0) for lid in h.lanes)
+                            if safe:
+                                maxp = max((e.p for e in self.lane_enemies(tgt) if e.blocked_by is None and not e.st["flying"]), default=-1)
+                                self.move_hero_to(tgt, maxp); self.economy_moves += 1
+                return
             if best in h.lanes and bmax < h.lanes[best]: return   # 이미 그 길목에 서 있음
             # 현재 자리의 위협: 저지 중 + 4칸 안으로 다가온 적만 센다 (먼 적은 아직 위협이 아니다)
             here_w = sum(KIND_W[e.st["kind"]] for e in h.blocked) + sum(KIND_W[e.st["kind"]] for lid in h.lanes for e in self.lane_enemies(lid) if e.blocked_by is None and 0 <= h.lanes[lid] - e.p <= 4)
@@ -861,6 +878,9 @@ class Sim:
             if "def_mult" in ph: boss.st["def"] = boss.st["def"] / boss.st.get("def_mult", 1.0) * ph["def_mult"]; boss.st["def_mult"] = ph["def_mult"]
             if "base_speed" not in boss.st: boss.st["base_speed"] = boss.st["speed"]
             boss.st["speed"] = boss.st["base_speed"] * ph.get("speed_mult", 1.0)   # 비행 선회 등
+            if "hover_idx" in ph and boss.st["flying"]:
+                if boss.blocked_by is not None: boss.blocked_by.blocked.remove(boss); boss.blocked_by = None
+                boss.p = max(boss.p, float(ph["hover_idx"]))   # 전장 중앙 상공에서 선회 (사거리 안으로)
             if "flying" in ph:
                 boss.st["flying"] = bool(ph["flying"])
                 if boss.st["flying"] and boss.blocked_by is not None:

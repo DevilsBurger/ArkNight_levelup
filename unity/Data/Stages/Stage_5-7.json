@@ -113,24 +113,24 @@
     },
     {
       "t": 30,
-      "enemy": "E16_elite",
+      "enemy": "E16",
       "route": "A",
-      "count": 1,
-      "interval": 0
+      "count": 2,
+      "interval": 3.0
     },
     {
       "t": 32,
       "enemy": "E16",
       "route": "B",
-      "count": 3,
+      "count": 2,
       "interval": 2.5
     },
     {
       "t": 35,
       "enemy": "E15",
       "route": "C",
-      "count": 2,
-      "interval": 4.0
+      "count": 1,
+      "interval": 0
     },
     {
       "t": 38,
@@ -150,8 +150,8 @@
       "t": 58,
       "enemy": "E05",
       "route": "A",
-      "count": 2,
-      "interval": 3.5
+      "count": 1,
+      "interval": 0
     },
     {
       "t": 60,
@@ -171,14 +171,14 @@
       "t": 64,
       "enemy": "E15",
       "route": "A",
-      "count": 2,
-      "interval": 4.0
+      "count": 1,
+      "interval": 0
     },
     {
       "t": 85,
       "enemy": "E16",
       "route": "B",
-      "count": 3,
+      "count": 2,
       "interval": 2.5
     },
     {
@@ -210,7 +210,7 @@
       "interval": 0
     }
   ],
-  "enemy_total": 35,
+  "enemy_total": 31,
   "scale": {
     "hp": 1.84,
     "atk": 1.66,

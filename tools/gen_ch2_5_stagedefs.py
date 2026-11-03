@@ -72,15 +72,15 @@ add(2, 3, "주술사의 방", T2a, R2a,
      W(55, "E01", "A", 4, 1.5), W(75, "E05", "A", 2, 4.0), W(78, "E04", "B", 2, 3.0), W(80, "E01", "B", 2, 1.5)],
     lives=5, deploy_limit=6, hero=[6, 2], note="마법 원거리(E05)가 고지대 군단원을 노린다 — 치유 필요.")
 add(2, 4, "뼈의 창고", T2c, R2c,
-    [W(3, "E04", "A", 3, 3.0), W(6, "E01", "B", 4, 2.0), W(10, "E04", "C", 2, 3.0), W(30, "E05", "A", 1, 0), W(35, "E04", "B", 3, 2.5),
-     W(40, "E01", "C", 4, 1.5), W(60, "E05", "C", 1, 0), W(62, "E04_elite", "B", 1, 0), W(65, "E04", "A", 3, 2.5), W(85, "E05", "B", 1, 0),
-     W(88, "E01", "A", 3, 1.5), W(90, "E04", "C", 2, 2.5)],
+    [W(3, "E04", "A", 3, 3.0), W(6, "E01", "B", 4, 2.0), W(10, "E04", "C", 2, 3.0), W(30, "E05", "A", 1, 0), W(35, "E04", "B", 2, 2.5),
+     W(40, "E01", "C", 3, 1.5), W(60, "E05", "C", 1, 0), W(62, "E04_elite", "B", 1, 0), W(65, "E04", "A", 2, 2.5), W(85, "E05", "B", 1, 0),
+     W(88, "E01", "A", 2, 1.5), W(90, "E04", "C", 1, 0)],
     lives=5, deploy_limit=6, initial_dp=12, hero=[6, 4],
     unlock={"id": "SC-H03", "condition": "hero_kill_all:E05", "unit": "L_SNIPER_BONE", "hint": "주술사를 전부 직접 쓰러뜨릴 것"},
     note="3경로. 주술사 전원을 주인공이 처치하면 H03(본).")
 add(2, 5, "구조 요청", T2b, R2b,
     [W(3, "E04", "A", 3, 3.0), W(8, "E05", "B", 1, 0), W(30, "E04", "B", 3, 2.5), W(35, "E01", "A", 4, 1.5), W(55, "E05", "A", 2, 3.5),
-     W(60, "E04", "B", 3, 3.0), W(80, "E04_elite", "B", 1, 0), W(82, "E05", "B", 1, 0), W(85, "E04", "A", 3, 3.0), W(88, "E01", "A", 3, 1.5)],
+     W(60, "E04", "B", 3, 3.0), W(80, "E04_elite", "A", 1, 0), W(82, "E05", "B", 1, 0), W(85, "E04", "A", 2, 3.0), W(88, "E01", "A", 3, 1.5)],
     lives=5, deploy_limit=6, hero=[5, 6], npc=[npc("NPC_HAYUL", "L_MEDIC_HAYUL", (6, 3), "N", 20)],
     first_clear={"gem": 10, "scenario": "SC-05"}, note="고립된 구조대의 하율 NPC가 치유한다 → SC-05.")
 add(2, 6, "거인의 통로", T2d, R2d,
@@ -89,8 +89,8 @@ add(2, 6, "거인의 통로", T2d, R2d,
     lives=5, deploy_limit=6, initial_dp=12, hero=[6, 5], note="거대 오크(E06, 중량 4)가 좁은 길을 메운다 — 저지 3 필요.")
 add(2, 7, "세 갈래 길", T2c2, R2c2,
     [W(3, "E01", "A", 4, 1.5), W(6, "E04", "B", 3, 3.0), W(10, "E04", "C", 2, 3.0), W(30, "E05", "A", 1, 0), W(33, "E06", "B", 1, 0),
-     W(36, "E01", "C", 4, 1.5), W(55, "E04", "A", 3, 2.5), W(58, "E05", "C", 2, 3.5), W(62, "E04_elite", "B", 1, 0), W(80, "E06", "C", 1, 0),
-     W(82, "E04", "A", 2, 3.0), W(85, "E01", "B", 3, 1.5), W(100, "E05_elite", "A", 1, 0), W(102, "E04", "B", 2, 3.0)],
+     W(36, "E01", "C", 4, 1.5), W(55, "E04", "A", 2, 2.5), W(58, "E05", "C", 2, 3.5), W(62, "E04_elite", "B", 1, 0), W(80, "E04", "C", 2, 3.0),
+     W(82, "E04", "A", 2, 3.0), W(85, "E01", "B", 3, 1.5), W(102, "E04", "B", 2, 3.0)],
     lives=5, deploy_limit=7, initial_dp=12, hero=[6, 6], note="B가 C의 방어 지점으로 합류(통로). 군단 8명이 처음 다 필요하다.")
 add(2, 8, "백골 기사단장", TB, RB,
     [W(3, "E04", "A", 3, 3.0), W(20, "B02", "A", 1, 0), W(35, "E04", "B", 2, 2.0), W(50, "E05", "B", 1, 0), W(65, "E04", "A", 2, 2.0),
@@ -146,7 +146,7 @@ add(3, 5, "길드 창고", T3d, R3d,
     lives=5, deploy_limit=7, initial_dp=12, hero=[7, 4], note="봉인(L) · 통로(P) 혼합. 낙인 연구 자료 발견.")
 add(3, 6, "이탈자", T3e, R2c,
     [W(3, "E11", "A", 4, 2.0), W(6, "E09", "B", 1, 0), W(10, "E11", "C", 3, 2.0), W(30, "E09_elite", "A", 1, 0), W(32, "E11", "B", 3, 1.8),
-     W(35, "E02", "C", 2, 2.5), W(55, "E09", "A", 1, 0), W(58, "E09_elite", "C", 1, 0), W(60, "E11", "B", 3, 1.8), W(80, "E09", "B", 1, 0),
+     W(35, "E02", "C", 2, 2.5), W(55, "E09", "A", 1, 0), W(58, "E09_elite", "B", 1, 0), W(59, "E09", "C", 1, 0), W(60, "E11", "B", 2, 1.8), W(80, "E09", "B", 1, 0),
      W(82, "E11", "A", 3, 1.8), W(85, "E11", "C", 3, 1.8)],
     lives=5, deploy_limit=7, initial_dp=12, hero=[6, 4], npc=[npc("NPC_TAEO", "L_SPECIAL_TAEO", (9, 2), "W", 25)],
     first_clear={"gem": 10, "scenario": "SC-07"}, note="태오 NPC(쾌속 재소집)가 아래 길을 맡는다 → SC-07.")
@@ -181,7 +181,7 @@ T4f = ["SXXXXXXXXXXXD", "SGGGGGGGGGGPD", "XXHHXXXXXHHXX", "XXXXXXXXXXXXX", "XXHH
 RA2 = {"F1": [[0, 7], [12, 7]], "F2": [[0, 1], [12, 1]]}
 T4g = ["XXXXXXXXXXXXX", "SGGAAGGGGGGPD", "XHHXXXXXXHHXX", "SGGGGGAAGGGPD", "XHHXXXXXXHHXX", "SGGGGGGGGAAPD", "SXXXXXXXXXXXD", "XXXXXXXXXXXXX"]
 RA3 = {"F": [[0, 1], [12, 1]]}
-T4h = ["XXXXXXXXXXXXX", "XHHXXXXXXHHXX", "XGGGGGGGGGGGX", "SPGGLLLLLGGPD", "XGGGGGGGGGGGX", "SXXXXXXXXXXXD", "XHHXXXXXXHHXX", "XXXXXXXXXXXXX"]
+T4h = ["XXXXXXXXXXXXX", "XHHXXHHHXHHXX", "XGGGGGGGGGGGX", "SPGGLLLLLGGPD", "XGGGGGGGGGGGX", "SXXXXXXXXXXXD", "XHHXXHHHXHHXX", "XXXXXXXXXXXXX"]
 R4h = {"A": [[0, 4], [12, 4]]}; RA4 = {"F": [[0, 2], [12, 2]]}
 
 add(4, 1, "붉은 문", T4a, R2a,
@@ -228,12 +228,12 @@ add(4, 8, "붉은 게이트 수호수", T4h, R4h,
      W(155, "E07_swarm", "F", 4, 1.5), W(170, "E14", "A", 2, 3.0), W(185, "E07", "F", 3, 1.5)],
     routes_air=RA4, lives=3, deploy_limit=8, initial_dp=15, hero=[9, 4], sealed=SEAL5,
     boss={"id": "B04", "name": "붉은 게이트 수호수", "route": "A", "spawn_t": 20,
-          "phases": [{"hp_above": 0.66, "sealed": SEAL5, "flying": True, "speed_mult": 0.0, "summon_every": 15, "summon": ["E07", 3]},
+          "phases": [{"hp_above": 0.66, "sealed": SEAL5, "flying": True, "speed_mult": 0.0, "hover_idx": 6, "summon_every": 15, "summon": ["E07", 3]},
                      {"hp_above": 0.33, "sealed": SEAL5, "flying": False, "speed_mult": 1.0, "on_enter": ["invuln_2s"], "summon_every": 15, "summon": ["E07", 3]},
-                     {"hp_above": 0.0, "sealed": SEAL7, "flying": True, "speed_mult": 0.0, "on_enter": ["invuln_2s"], "summon_every": 10, "summon": ["E07_swarm", 4]}]},
+                     {"hp_above": 0.0, "sealed": SEAL7, "flying": True, "speed_mult": 0.0, "hover_idx": 6, "on_enter": ["invuln_2s"], "summon_every": 10, "summon": ["E07_swarm", 4]}]},
     first_clear={"gem": 30, "skill_point": 1, "level_cap": 45},
     challenge={"mods": ["deploy_limit-2", "enemy_hp+30"]},
-    note="비행 → 착지(33~66%) → 비행. 날 때는 사수 · 술사만 유효, 착지 30초 동안 주인공이 집중. 문이 열린다.")
+    note="비행 → 착지(33~66%) → 비행. 날 때는 전장 중앙 상공에서 선회(전진 없음)하며 사수 · 술사만 유효, 착지하면 봉인 구역에서 걸어 나와 주인공이 집중. 중앙 고지대 6칸이 선회 지점을 쏜다. 문이 열린다.")
 
 # ======================================================================= 5장 군단주 — 고대 사원
 T5a = ["XXXXXXXXXXXXX", "SGGGGGGGGGGPD", "XXHHXLLXXHHXX", "XXXXXLLXXXXXX", "XXHHXLLXXHHXX", "SGGGGGGGGGGPD", "XXXXXXXXXXXXX", "XXXXXXXXXXXXX"]
@@ -264,9 +264,9 @@ add(5, 4, "무녀", T5a, R2a,
     lives=5, deploy_limit=7, initial_dp=12, hero=[6, 6], npc=[npc("NPC_RIN", "L_SUPPORT_RIN", (9, 3), "N", 45)],
     first_clear={"gem": 10, "scenario": "SC-10"}, note="린 NPC의 지원 버프. 낙인을 알아본다 → SC-10 (1막 미스터리 첫 단서).")
 add(5, 5, "수호자들", T4c, R2c,
-    [W(3, "E16", "A", 3, 3.0), W(6, "E16", "B", 3, 3.0), W(10, "E16", "C", 3, 3.0), W(30, "E16_elite", "A", 1, 0), W(32, "E15", "B", 2, 4.0),
-     W(35, "E05", "C", 3, 3.5), W(55, "E16", "A", 4, 2.5), W(58, "E16_elite", "B", 1, 0), W(60, "E16", "C", 4, 2.5), W(80, "E15", "A", 2, 4.0),
-     W(83, "E16", "B", 4, 2.5), W(86, "E16_elite", "C", 1, 0), W(100, "E05", "A", 3, 3.5), W(102, "E16", "B", 3, 3.0), W(104, "E16", "C", 3, 3.0)],
+    [W(3, "E16", "A", 3, 3.0), W(6, "E16", "B", 3, 3.0), W(10, "E16", "C", 2, 3.0), W(30, "E16_elite", "A", 1, 0), W(32, "E15", "B", 2, 4.0),
+     W(35, "E05", "C", 2, 3.5), W(55, "E16", "A", 3, 2.5), W(58, "E16_elite", "B", 1, 0), W(60, "E16", "C", 2, 2.5), W(80, "E15", "A", 2, 4.0),
+     W(83, "E16", "B", 3, 2.5), W(86, "E16_elite", "C", 1, 0), W(100, "E05", "A", 2, 3.5), W(102, "E16", "B", 3, 3.0), W(104, "E16", "C", 2, 3.0)],
     lives=5, deploy_limit=8, initial_dp=12, hero=[6, 4], note="인간형 엘리트(사원 기사) 다수. 3경로.")
 add(5, 6, "석상 정원", T5f, R5f,
     [W(3, "E15", "A", 2, 4.0), W(6, "E16", "B", 3, 3.0), W(25, "E17", "P1", 4, 1.0), W(30, "E15", "B", 3, 4.0), W(33, "E05", "A", 3, 3.5),
@@ -276,9 +276,9 @@ add(5, 6, "석상 정원", T5f, R5f,
     unlock={"id": "SC-H10", "condition": "deploy_on:L,3", "unit": "L_SHIELD_ATLAS", "hint": "봉인 타일에 군단원 3명 이상을 소집"},
     note="봉인 + 제단 소환 혼합 [H10 아틀라스].")
 add(5, 7, "군단주의 문", T5g, R5g,
-    [W(3, "E16", "A", 3, 3.0), W(5, "E15", "B", 2, 4.0), W(8, "E16", "C", 2, 3.0), W(10, "E05", "D", 2, 3.5), W(30, "E16_elite", "A", 1, 0),
-     W(32, "E16", "B", 3, 2.5), W(35, "E15", "C", 2, 4.0), W(38, "E16", "D", 2, 2.5), W(58, "E05", "A", 2, 3.5), W(60, "E16_elite", "C", 1, 0),
-     W(62, "E16", "D", 2, 2.5), W(64, "E15", "A", 2, 4.0), W(85, "E16", "B", 3, 2.5), W(90, "E05", "C", 2, 3.5),
+    [W(3, "E16", "A", 3, 3.0), W(5, "E15", "B", 2, 4.0), W(8, "E16", "C", 2, 3.0), W(10, "E05", "D", 2, 3.5), W(30, "E16", "A", 2, 3.0),
+     W(32, "E16", "B", 2, 2.5), W(35, "E15", "C", 1, 0), W(38, "E16", "D", 2, 2.5), W(58, "E05", "A", 1, 0), W(60, "E16_elite", "C", 1, 0),
+     W(62, "E16", "D", 2, 2.5), W(64, "E15", "A", 1, 0), W(85, "E16", "B", 2, 2.5), W(90, "E05", "C", 2, 3.5),
      W(92, "E16", "A", 3, 3.0), W(112, "E16", "C", 2, 3.0), W(114, "E16_elite", "B", 1, 0)],
     lives=5, deploy_limit=8, initial_dp=15, hero=[6, 6], note="4경로 · 방어 2. 1막 기믹 종합, 런칭 최고 난도 일반 스테이지.")
 add(5, 8, "사원의 군단주", TB, RB,

@@ -116,6 +116,13 @@
     {
       "t": 58,
       "enemy": "E09_elite",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 59,
+      "enemy": "E09",
       "route": "C",
       "count": 1,
       "interval": 0
@@ -124,7 +131,7 @@
       "t": 60,
       "enemy": "E11",
       "route": "B",
-      "count": 3,
+      "count": 2,
       "interval": 1.8
     },
     {

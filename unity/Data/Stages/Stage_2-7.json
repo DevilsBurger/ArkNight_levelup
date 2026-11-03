@@ -118,7 +118,7 @@
       "t": 55,
       "enemy": "E04",
       "route": "A",
-      "count": 3,
+      "count": 2,
       "interval": 2.5
     },
     {
@@ -137,10 +137,10 @@
     },
     {
       "t": 80,
-      "enemy": "E06",
+      "enemy": "E04",
       "route": "C",
-      "count": 1,
-      "interval": 0
+      "count": 2,
+      "interval": 3.0
     },
     {
       "t": 82,
@@ -157,13 +157,6 @@
       "interval": 1.5
     },
     {
-      "t": 100,
-      "enemy": "E05_elite",
-      "route": "A",
-      "count": 1,
-      "interval": 0
-    },
-    {
       "t": 102,
       "enemy": "E04",
       "route": "B",
@@ -171,7 +164,7 @@
       "interval": 3.0
     }
   ],
-  "enemy_total": 30,
+  "enemy_total": 29,
   "scale": {
     "hp": 1.15,
     "atk": 1.12,
