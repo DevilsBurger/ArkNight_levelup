@@ -1,0 +1,13 @@
+{
+  "name": "mermaid-check",
+  "private": true,
+  "description": "docs/*.md 안의 ```mermaid 블록을 실제 Mermaid 파서·렌더러로 검증하고 PNG로 렌더링한다.",
+  "scripts": {
+    "validate": "node validate.js",
+    "render": "node render_all.js"
+  },
+  "dependencies": {
+    "mermaid": "11.4.1",
+    "playwright": "1.49.1"
+  }
+}
