@@ -1,2 +1,5 @@
 tools/mermaid_check/node_modules/
 tools/mermaid_check/out/
+tools/difficulty_sim/out/
+__pycache__/
+*.pyc

@@ -106,15 +106,16 @@ rows_14 = [
     "SGGGGGGGGGGGX",
     "XXHHXXXXXHHGX",
     "XXXXXXXXXXXGX",
-    "XXHHXXXXXXXGD",
+    "XXHHXXXXXXXPD",
     "XXXXXXXXXXXGX",
     "XXHHXXXXXHHGX",
     "SGGGGGGGGGGGX",
 ]
 STAGES.append(stage("1-4", "하수도 교차로", rows_14,
     {"A": [[0, 6], [11, 6], [11, 3], [12, 3]], "B": [[0, 0], [11, 0], [11, 3], [12, 3]]},
-    [W(3, "E01", "A", 4, 2.0), W(15, "E01", "B", 4, 2.0), W(35, "E01", "A", 5, 1.8), W(42, "E02", "A", 1, 0),
-     W(50, "E01", "B", 4, 1.8), W(57, "E02", "B", 1, 0), W(75, "E01_elite", "A", 1, 0), W(76, "E01", "B", 3, 1.5)],
+    [W(3, "E01", "A", 4, 2.0), W(10, "E01", "B", 4, 2.0), W(22, "E01", "A", 3, 2.0), W(35, "E01", "A", 5, 1.8), W(38, "E01", "B", 4, 1.8),
+     W(42, "E02", "A", 1, 0), W(45, "E02", "B", 1, 0), W(60, "E01", "B", 4, 1.5), W(63, "E02", "B", 1, 0),
+     W(75, "E01_elite", "A", 1, 0), W(76, "E01", "B", 3, 1.5), W(78, "E01", "A", 3, 1.5)],
     lives=5, deploy_limit=4, hero=[8, 6],
     npc=[{"id": "CIV_01", "unit": "CIVILIAN", "tile": [5, 0], "dir": "E", "level": 1, "role": "survivor"}],
     dispatch=["DSP_SPEAR", "DSP_SNIPER"],
@@ -122,7 +123,7 @@ STAGES.append(stage("1-4", "하수도 교차로", rows_14,
             {"t": 12, "event": "tutorial", "key": "two_routes_hero_cannot_hold_both"}],
     rewards={"xp": 450, "gold": 250, "drops": [["T1_core", 0.5]]},
     unlock={"id": "SC-H01", "condition": "npc_alive:CIV_01", "unit": "L_SUPPORT_JOY", "hint": "생존자를 끝까지 지킬 것"},
-    note="R1 첫 적용. 생존자(민간인) NPC가 B 경로 위에 있다. 끝까지 살리면 숨은 합류 H01(조이)."))
+    note="R1 첫 적용. 두 경로가 만나는 (11,3)은 통로(P)라 주인공 혼자 양쪽을 막을 수 없다. 생존자(민간인) NPC가 B 경로 위에 있다. 끝까지 살리면 숨은 합류 H01(조이)."))
 
 # ---------- 1-5 방패: 고지대 · 사수 · 돌진병, 분기 경로 ----------
 rows_15 = [
@@ -138,7 +139,8 @@ rows_15 = [
 STAGES.append(stage("1-5", "방패", rows_15,
     {"A": [[0, 4], [2, 4], [2, 6], [12, 6]], "B": [[0, 4], [2, 4], [2, 2], [12, 2]]},
     [W(3, "E01", "A", 4, 2.0), W(12, "E01", "B", 4, 2.0), W(30, "E03", "A", 2, 3.0), W(40, "E01", "B", 5, 1.8),
-     W(60, "E01", "A", 4, 1.8), W(67, "E03", "A", 1, 0), W(75, "E03", "B", 2, 3.0)],
+     W(50, "E01", "A", 4, 1.5), W(60, "E01", "A", 4, 1.8), W(67, "E03", "A", 1, 0), W(75, "E03", "B", 2, 3.0),
+     W(85, "E01", "B", 3, 1.5), W(88, "E03", "B", 1, 0), W(90, "E01", "A", 3, 1.5)],
     lives=5, deploy_limit=5, hero=[4, 6],
     npc=[{"id": "NPC_MUJIN", "unit": "L_SHIELD_MUJIN", "tile": [4, 2], "dir": "W", "level": 12, "role": "companion"}],
     dispatch=["DSP_SPEAR", "DSP_SNIPER"],
@@ -162,8 +164,8 @@ rows_16 = [
 STAGES.append(stage("1-6", "깊은 곳", rows_16,
     {"A": [[0, 6], [11, 6], [11, 4], [12, 4]], "B": [[0, 2], [11, 2], [11, 4], [12, 4]]},
     [W(3, "E01", "A", 5, 2.0), W(10, "E01", "B", 5, 2.0), W(30, "E01_elite", "A", 1, 0), W(31, "E02", "A", 2, 3.0),
-     W(40, "E03", "B", 2, 3.0), W(60, "E03_elite", "A", 1, 0), W(62, "E01", "B", 5, 1.5), W(70, "E02", "B", 2, 3.0),
-     W(90, "E01_elite", "A", 1, 0), W(90, "E01_elite", "B", 1, 0)],
+     W(40, "E03", "B", 2, 3.0), W(45, "E02", "A", 3, 2.5), W(60, "E03_elite", "A", 1, 0), W(62, "E01", "B", 5, 1.5), W(70, "E02", "B", 2, 3.0),
+     W(90, "E01_elite", "A", 1, 0), W(90, "E01_elite", "B", 1, 0), W(100, "E03", "A", 2, 3.0), W(102, "E02", "B", 2, 3.0)],
     lives=5, deploy_limit=5, hero=[6, 6],
     dispatch=["DSP_SPEAR", "DSP_SNIPER"],
     script=[{"t": 0, "event": "unlock", "key": "ult_flash_slash"},
@@ -176,7 +178,7 @@ STAGES.append(stage("1-6", "깊은 곳", rows_16,
 # ---------- 1-7 예속: 교차 경로 · 정찰병 · 숨은 합류 안내 ----------
 rows_17 = [
     "XXXXXXXXXXXXX",
-    "SGGGGGGGGGGPD",
+    "SPGGGGGGGGGPD",
     "XGXXHHHHHXXGX",
     "XGGGGGGGGGGGX",
     "XGXXHHHHHXXGX",
@@ -196,7 +198,7 @@ STAGES.append(stage("1-7", "예속", rows_17,
             {"t": -1, "event": "system_window", "key": "hidden_join_hint_reveal"}],
     rewards={"xp": 600, "gold": 300, "drops": [["T1_core", 0.6], ["T1_shard", 0.4]]},
     first_clear={"gem": 10, "scenario": "SC-03"},
-    note="C 경로가 위에서 시작해 아래 방어 지점으로 건너간다. 정찰병 킥(빠른 적)이 등장하고 클리어 후 SC-03 예속(킥). 결과 창에서 1-4 · 1-6의 숨은 조건을 공개한다."))
+    note="C 경로가 위에서 시작해 아래 방어 지점으로 건너간다. A · C가 겹치는 (1,6)은 통로(P). 정찰병 킥(빠른 적)이 등장하고 클리어 후 SC-03 예속(킥). 결과 창에서 1-4 · 1-6의 숨은 조건을 공개한다."))
 
 # ---------- 1-8 하수도 군주: 보스 · 페이즈 · 봉인 타일 ----------
 rows_18 = [
@@ -205,8 +207,8 @@ rows_18 = [
     "XGGGGGGGGGGGX",
     "SPGGLLLLLGGPD",
     "XGGGGGGGGGGGX",
+    "SGGGGGGGGGGGX",
     "XXHHXXXXXHHXX",
-    "XXXXXXXXXXXXX",
     "XXXXXXXXXXXXX",
 ]
 boss_18 = {
@@ -216,12 +218,14 @@ boss_18 = {
         {"hp_above": 0.0, "sealed": [[3, 4], [4, 4], [5, 4], [6, 4], [7, 4], [8, 4], [9, 4]], "summon_every": 10, "summon": ["E01", 2],
          "on_enter": ["invuln_2s", "roar_push_1"]},
     ],
+    "enrage_unblocked_speed_mult": 2.0,
 }
 STAGES.append(stage("1-8", "하수도 군주", rows_18,
-    {"A": [[0, 4], [12, 4]]},
+    {"A": [[0, 4], [12, 4]], "B": [[0, 2], [11, 2], [11, 4], [12, 4]]},
     [W(3, "E01", "A", 4, 2.0), W(20, "B01", "A", 1, 0),
-     W(35, "E01", "A", 2, 1.0), W(50, "E01", "A", 2, 1.0), W(65, "E01", "A", 2, 1.0),
-     W(80, "E01", "A", 2, 1.0), W(95, "E01", "A", 2, 1.0), W(110, "E01", "A", 2, 1.0)],
+     W(35, "E01", "B", 2, 1.0), W(50, "E01", "B", 3, 1.0), W(65, "E01", "A", 2, 1.0),
+     W(80, "E01", "B", 3, 1.0), W(95, "E01_elite", "B", 1, 0), W(96, "E01", "B", 2, 1.0), W(110, "E01", "A", 2, 1.0), W(125, "E01", "B", 3, 1.0),
+     W(140, "E01_elite", "B", 1, 0), W(141, "E01", "B", 3, 1.0), W(155, "E01", "A", 3, 1.0)],
     lives=3, initial_dp=15, deploy_limit=6, hero=[2, 4],
     sealed=[[4, 4], [5, 4], [6, 4], [7, 4], [8, 4]],
     dispatch=["DSP_SPEAR", "DSP_SNIPER"],
@@ -232,7 +236,7 @@ STAGES.append(stage("1-8", "하수도 군주", rows_18,
     rewards={"xp": 900, "gold": 500, "drops": [["T1_core", 1.0], ["T2_core", 0.3]]},
     first_clear={"gem": 30, "skill_point": 1, "rank": "D", "level_cap": 25},
     challenge={"mods": ["deploy_limit-2", "dp_regen-30"]},
-    note="보스가 느리게 전진하며 15s마다 고블린을 소환한다. 봉인 타일(중앙 5칸)에는 주인공이 설 수 없어 군단이 중앙을 맡는다. 50% 페이즈 전환 시 봉인이 양쪽 1칸씩 넓어진다. 보스가 방어 지점에 닿으면 즉시 실패."))
+    note="보스가 느리게 전진하며 15s마다 고블린을 소환한다. 저지되지 않은 동안은 속도 ×2(광폭화)라 주인공이 보스를 떠나면 비싸다. 소환물 대부분은 아래 소환 경로(B)로 나와 보스를 막는 주인공이 처리할 수 없다(군단 필요). 봉인 타일(중앙 5칸)에는 주인공이 설 수 없다. 50% 페이즈 전환 시 봉인이 양쪽 1칸씩 넓어진다. 보스가 방어 지점에 닿으면 즉시 실패."))
 
 def main():
     os.makedirs(OUT, exist_ok=True)

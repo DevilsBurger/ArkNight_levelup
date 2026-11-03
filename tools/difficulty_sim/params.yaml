@@ -1,0 +1,117 @@
+# 난이도 시뮬레이션 전역 파라미터 — 02 GDD 수치에서 파생. [시뮬] 표시 수치는 여기서 바꾸고 GDD에 되돌려 쓴다.
+sim:
+  dt: 0.5                 # 등가 모델 시간 해상도(s). 결정론 코어(30 Hz)가 아니라 흐름 근사
+  end_grace: 400          # 마지막 스폰 후 최대 대기(s) — 넘기면 교착으로 간주(실패). 보스전은 길어서 넉넉히
+  initial_sp_ratio: 0.3   # 소집 직후 스킬 SP (필요 SP 대비)
+
+rules:
+  dp_cap: 99
+  dp_regen_default: 0.7
+  hero_kill_dp: {normal: 1, elite: 2, boss: 5}
+  sp_per_kill: {normal: 1, elite: 2, boss: 5}
+  refund: 0.5
+  redeploy_mult: [1.0, 1.5, 2.0]
+  death_cooldown_mult: 2.0
+  min_damage_ratio: 0.05
+  natural_sp_per_s: 1.0
+  attack_sp_per_hit: 1.0
+
+hero:
+  pre:  {hp: 1000, atk: 180, def: 80,  res: 0,  block: 1, interval: 1.0, range_front: 1, max_targets: 1}
+  base: {hp: 3300, atk: 800, def: 150, res: 10, block: 3, interval: 0.9, range_front: 1, max_targets: 5}
+  level_growth: 0.035     # stat(L) = base × (1 + g(L−1))
+  relocate_cd: 8.0
+  relocate_time: 0.4
+  knockdown: 10.0
+  revive_hp: 0.30
+  momentum: {per_stack_atk: 0.03, per_stack_speed: 0.03, max: 10, decay_after: 5.0, decay_every: 5.0}
+  ult_flash: {sp: 20, atk_mult: 3.0, tiles: 5, stun: 1.0}
+  stat_points_per_level: 3
+  stat_effects:
+    str_atk: 0.015
+    vit_hp: 0.02
+    def_def: 0.02
+    def_res: 0.25
+    agi_interval: 0.004
+    agi_interval_cap: 0.30
+    agi_cd: 0.05
+    agi_cd_cap: 3.0
+    cmd_dp: 0.02
+    cmd_legion: 0.0025
+    cmd_legion_cap: 0.25
+  tree:
+    musang1: {range_front: 2}
+    musang2: {kill_heal: 0.05}
+    musang3: {momentum_max: 15}
+    bulgul1: {hp_mult: 1.2}
+    bulgul2: {knockdown: 6.0}
+    bulgul3: {block_add: 1}
+
+# 클래스 템플릿 (★4 · 각성 0 · Lv.1) — GDD §6.2 · §6.4
+classes:
+  shield:  {hp: 1500, atk: 220, def: 280, res: 10, block: 3, cost: 16, redeploy: 70, interval: 1.2, range: R1, dmg: phys, pos: G,
+            skill: {name: 철벽, charge: natural, sp: 30, mode: manual, dur: 10, def_mult: 2.0, block_add: 1}}
+  spear:   {hp: 1100, atk: 380, def: 150, res: 0,  block: 2, cost: 14, redeploy: 70, interval: 1.0, range: R1, dmg: phys, pos: G,
+            skill: {name: 강타, charge: attack, sp: 5, mode: auto, bonus_mult: 1.5}}
+  sniper:  {hp: 700,  atk: 300, def: 90,  res: 0,  block: 1, cost: 12, redeploy: 70, interval: 1.0, range: R3, dmg: phys, pos: H, prio: flying,
+            skill: {name: 속사, charge: natural, sp: 25, mode: manual, dur: 10, interval_mult: 0.5}}
+  caster:  {hp: 650,  atk: 360, def: 60,  res: 10, block: 1, cost: 18, redeploy: 70, interval: 1.6, range: R3, dmg: arts, pos: H,
+            skill: {name: 폭렬, charge: natural, sp: 30, mode: manual, aoe_mult: 2.0}}
+  medic:   {hp: 700,  atk: 220, def: 80,  res: 0,  block: 1, cost: 15, redeploy: 70, interval: 2.0, range: R3, dmg: heal, pos: H,
+            skill: {name: 응급, charge: natural, sp: 20, mode: manual, heal_pct: 0.25}}
+  support: {hp: 750,  atk: 200, def: 80,  res: 15, block: 1, cost: 14, redeploy: 70, interval: 1.4, range: R4, dmg: arts, pos: H, slow: 0.2,
+            skill: {name: 둔화, charge: natural, sp: 25, mode: manual, dur: 8, slow: 0.4}}
+  special: {hp: 800,  atk: 300, def: 100, res: 0,  block: 1, cost: 10, redeploy: 18, interval: 0.9, range: R1, dmg: phys, pos: G,
+            skill: {name: 급습, mode: passive, dur: 5, atk_mult: 1.5}}
+  civilian: {hp: 600, atk: 0, def: 0, res: 0, block: 0, cost: 0, redeploy: 0, interval: 1.0, range: R0, dmg: none, pos: G}
+
+legion:
+  level_growth: 0.03
+  awaken_mult: [1.0, 1.2, 1.4]
+  rarity_mult: {3: 0.85, 4: 1.0, 5: 1.12, 6: 1.25}
+  rarity_cost_add: {3: -2, 4: 0, 5: 1, 6: 3}
+  skill_rank_mult: 0.05   # 랭크당 주 수치 +5%
+  max_level: {0: 30, 1: 50, 2: 70}
+
+units:
+  L_SPEAR_DOKYUNG:  {class: spear,   rarity: 3}
+  L_SHIELD_MUJIN:   {class: shield,  rarity: 4}
+  L_SPECIAL_KICK:   {class: special, rarity: 3}
+  L_SUPPORT_JOY:    {class: support, rarity: 3}
+  L_SPEAR_GROL:     {class: spear,   rarity: 4, block: 3}
+  L_SNIPER_YUNCHAE: {class: sniper,  rarity: 4}
+  L_MEDIC_HAYUL:    {class: medic,   rarity: 4}
+  DSP_SPEAR:        {class: spear,   rarity: 3, fixed_level: 10}
+  DSP_SNIPER:       {class: sniper,  rarity: 3, fixed_level: 10}
+  CIVILIAN:         {class: civilian, rarity: 3, fixed_level: 1}
+
+# 사거리 템플릿 (오른쪽 = 전방, (dx, dy)) — GDD §6.3
+ranges:
+  R0: []
+  R1: [[0, 0], [1, 0]]
+  R3: [[1, -1], [2, -1], [1, 0], [2, 0], [3, 0], [1, 1], [2, 1]]
+  R3p: [[1, -1], [2, -1], [3, -1], [1, 0], [2, 0], [3, 0], [4, 0], [1, 1], [2, 1], [3, 1]]
+  R4: [[-1, -1], [0, -1], [1, -1], [-1, 0], [0, 0], [1, 0], [2, 0], [-1, 1], [0, 1], [1, 1]]
+
+enemies:
+  source: ../../unity/Data/Enemies.json
+  variant_mult: {elite: {hp: 2.0, atk: 1.4, def: 1.3}}
+  attack_interval: 1.0
+  civilian_attack: true
+
+# 성장 상태 (장비 조합에 해당) — 1장 기준
+growth_states:
+  G0: {name: 하한,  hero_level: 7,  stats: {str: 9, vit: 6, agi: 3},        tree: [musang1],                       legion_level: 10, awaken: 0, skill_rank: 1, include_optional: false}   # 파밍 없이 참전 시나리오 일부를 건너뛴 저성장 (자연 성장은 1-8 시점 Lv.9)
+  G1: {name: 권장,  hero_level: 10, stats: {str: 14, vit: 8, agi: 5},       tree: [musang1],                       legion_level: 15, awaken: 0, skill_rank: 3, include_optional: false}
+  G2: {name: 상한,  hero_level: 15, stats: {str: 20, vit: 12, agi: 10},     tree: [musang1, musang2, musang3],     legion_level: 30, awaken: 0, skill_rank: 4, include_optional: true}
+
+# 스테이지별 기본 편성 (진행 순서상 보유 가능한 군단원) — 04 문서 §4.2
+squads:
+  "1-1": {hero: pre,      legion: [DSP_SPEAR, DSP_SNIPER], optional: []}
+  "1-2": {hero: pre,      legion: [DSP_SPEAR, DSP_SNIPER], optional: []}
+  "1-3": {hero: awakened, legion: [], optional: []}
+  "1-4": {hero: awakened, legion: [L_SPEAR_DOKYUNG, DSP_SPEAR, DSP_SNIPER], optional: []}
+  "1-5": {hero: awakened, legion: [L_SPEAR_DOKYUNG, DSP_SPEAR, DSP_SNIPER], optional: []}
+  "1-6": {hero: awakened, legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, DSP_SPEAR, DSP_SNIPER], optional: [L_SUPPORT_JOY]}
+  "1-7": {hero: awakened, legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, DSP_SPEAR, DSP_SNIPER], optional: [L_SUPPORT_JOY, L_SPEAR_GROL]}
+  "1-8": {hero: awakened, legion: [L_SPEAR_DOKYUNG, L_SHIELD_MUJIN, L_SPECIAL_KICK, DSP_SPEAR, DSP_SNIPER], optional: [L_SUPPORT_JOY, L_SPEAR_GROL]}

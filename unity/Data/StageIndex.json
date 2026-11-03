@@ -32,7 +32,7 @@
       "id": "1-4",
       "name": "하수도 교차로",
       "file": "Stage_1-4.json",
-      "enemy_total": 23,
+      "enemy_total": 34,
       "lives": 5,
       "deploy_limit": 4,
       "routes": 2
@@ -41,7 +41,7 @@
       "id": "1-5",
       "name": "방패",
       "file": "Stage_1-5.json",
-      "enemy_total": 22,
+      "enemy_total": 33,
       "lives": 5,
       "deploy_limit": 5,
       "routes": 2
@@ -50,7 +50,7 @@
       "id": "1-6",
       "name": "깊은 곳",
       "file": "Stage_1-6.json",
-      "enemy_total": 25,
+      "enemy_total": 32,
       "lives": 5,
       "deploy_limit": 5,
       "routes": 2
@@ -68,10 +68,10 @@
       "id": "1-8",
       "name": "하수도 군주",
       "file": "Stage_1-8.json",
-      "enemy_total": 17,
+      "enemy_total": 30,
       "lives": 3,
       "deploy_limit": 6,
-      "routes": 1
+      "routes": 2
     }
   ]
 }

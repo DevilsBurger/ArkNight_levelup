@@ -3,7 +3,7 @@
   "chapter": 1,
   "type": "main",
   "name": "하수도 교차로",
-  "note": "R1 첫 적용. 생존자(민간인) NPC가 B 경로 위에 있다. 끝까지 살리면 숨은 합류 H01(조이).",
+  "note": "R1 첫 적용. 두 경로가 만나는 (11,3)은 통로(P)라 주인공 혼자 양쪽을 막을 수 없다. 생존자(민간인) NPC가 B 경로 위에 있다. 끝까지 살리면 숨은 합류 H01(조이).",
   "grid": {
     "w": 13,
     "h": 8,
@@ -12,7 +12,7 @@
       "SGGGGGGGGGGGX",
       "XXHHXXXXXHHGX",
       "XXXXXXXXXXXGX",
-      "XXHHXXXXXXXGD",
+      "XXHHXXXXXXXPD",
       "XXXXXXXXXXXGX",
       "XXHHXXXXXHHGX",
       "SGGGGGGGGGGGX"
@@ -77,10 +77,17 @@
       "interval": 2.0
     },
     {
-      "t": 15,
+      "t": 10,
       "enemy": "E01",
       "route": "B",
       "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 22,
+      "enemy": "E01",
+      "route": "A",
+      "count": 3,
       "interval": 2.0
     },
     {
@@ -91,6 +98,13 @@
       "interval": 1.8
     },
     {
+      "t": 38,
+      "enemy": "E01",
+      "route": "B",
+      "count": 4,
+      "interval": 1.8
+    },
+    {
       "t": 42,
       "enemy": "E02",
       "route": "A",
@@ -98,14 +112,21 @@
       "interval": 0
     },
     {
-      "t": 50,
+      "t": 45,
+      "enemy": "E02",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 60,
       "enemy": "E01",
       "route": "B",
       "count": 4,
-      "interval": 1.8
+      "interval": 1.5
     },
     {
-      "t": 57,
+      "t": 63,
       "enemy": "E02",
       "route": "B",
       "count": 1,
@@ -124,9 +145,16 @@
       "route": "B",
       "count": 3,
       "interval": 1.5
+    },
+    {
+      "t": 78,
+      "enemy": "E01",
+      "route": "A",
+      "count": 3,
+      "interval": 1.5
     }
   ],
-  "enemy_total": 23,
+  "enemy_total": 34,
   "scale": {
     "hp": 1.0,
     "atk": 1.0,

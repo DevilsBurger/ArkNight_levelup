@@ -1,24 +1,187 @@
 {
-  "note": "02 GDD §7.2 베이스 10종 (1장 기준값) + 변형 · 보스. 변형 규칙(§7.3): elite = HP×2.0 ATK×1.4 DEF×1.3, DP +2, SP +2.",
+  "note": "02 GDD §7.2 베이스 10종 — 시뮬레이션 1차 보정(08 문서): GDD 초기값 대비 HP ×1.5, ATK ×1.3. 변형 규칙(§7.3): elite = HP×2.0 ATK×1.4 DEF×1.3, DP +2, SP +2. 보스 B01은 HP 40,000 · ATK 300 · 속도 0.28로 재설계.",
   "bases": [
-    {"id": "E01", "name": "고블린", "hp": 900, "atk": 120, "def": 20, "res": 0, "speed": 1.0, "weight": 1, "flying": false, "ability": null, "first": "1-1"},
-    {"id": "E02", "name": "고블린 궁수", "hp": 700, "atk": 140, "def": 10, "res": 0, "speed": 0.9, "weight": 1, "flying": false, "ability": "ranged:2", "first": "1-3"},
-    {"id": "E03", "name": "고블린 돌격병", "hp": 1400, "atk": 180, "def": 60, "res": 0, "speed": 1.4, "weight": 2, "flying": false, "ability": "charge_first_hit_x2", "first": "1-5"},
-    {"id": "E04", "name": "스켈레톤 병사", "hp": 1600, "atk": 200, "def": 120, "res": 20, "speed": 0.8, "weight": 2, "flying": false, "ability": null, "first": "2-1"},
-    {"id": "E05", "name": "스켈레톤 주술사", "hp": 1000, "atk": 220, "def": 30, "res": 40, "speed": 0.8, "weight": 1, "flying": false, "ability": "arts_ranged:3", "first": "2-3"},
-    {"id": "E06", "name": "거대 오크", "hp": 4500, "atk": 350, "def": 200, "res": 10, "speed": 0.6, "weight": 4, "flying": false, "ability": "push_immune", "first": "2-6"},
-    {"id": "E07", "name": "박쥐 떼", "hp": 500, "atk": 90, "def": 0, "res": 0, "speed": 1.6, "weight": 0, "flying": true, "ability": "flying", "first": "4-1"},
-    {"id": "E08", "name": "좀비", "hp": 2200, "atk": 160, "def": 40, "res": 60, "speed": 0.5, "weight": 2, "flying": false, "ability": "revive_once_50", "first": "7-1"},
-    {"id": "E09", "name": "배신 헌터", "hp": 2800, "atk": 320, "def": 150, "res": 30, "speed": 1.0, "weight": 2, "flying": false, "ability": "stealth_until_blocked", "first": "3-2"},
-    {"id": "E10", "name": "정찰 드론", "hp": 900, "atk": 150, "def": 80, "res": 0, "speed": 1.5, "weight": 0, "flying": true, "ability": "flying,ranged:2", "first": "6-1"}
+    {
+      "id": "E01",
+      "name": "고블린",
+      "hp": 1350,
+      "atk": 156,
+      "def": 20,
+      "res": 0,
+      "speed": 1.0,
+      "weight": 1,
+      "flying": false,
+      "ability": null,
+      "first": "1-1"
+    },
+    {
+      "id": "E02",
+      "name": "고블린 궁수",
+      "hp": 1050,
+      "atk": 182,
+      "def": 10,
+      "res": 0,
+      "speed": 0.9,
+      "weight": 1,
+      "flying": false,
+      "ability": "ranged:2",
+      "first": "1-3"
+    },
+    {
+      "id": "E03",
+      "name": "고블린 돌격병",
+      "hp": 2100,
+      "atk": 234,
+      "def": 60,
+      "res": 0,
+      "speed": 1.4,
+      "weight": 2,
+      "flying": false,
+      "ability": "charge_first_hit_x2",
+      "first": "1-5"
+    },
+    {
+      "id": "E04",
+      "name": "스켈레톤 병사",
+      "hp": 2400,
+      "atk": 260,
+      "def": 120,
+      "res": 20,
+      "speed": 0.8,
+      "weight": 2,
+      "flying": false,
+      "ability": null,
+      "first": "2-1"
+    },
+    {
+      "id": "E05",
+      "name": "스켈레톤 주술사",
+      "hp": 1500,
+      "atk": 286,
+      "def": 30,
+      "res": 40,
+      "speed": 0.8,
+      "weight": 1,
+      "flying": false,
+      "ability": "arts_ranged:3",
+      "first": "2-3"
+    },
+    {
+      "id": "E06",
+      "name": "거대 오크",
+      "hp": 6750,
+      "atk": 456,
+      "def": 200,
+      "res": 10,
+      "speed": 0.6,
+      "weight": 4,
+      "flying": false,
+      "ability": "push_immune",
+      "first": "2-6"
+    },
+    {
+      "id": "E07",
+      "name": "박쥐 떼",
+      "hp": 750,
+      "atk": 116,
+      "def": 0,
+      "res": 0,
+      "speed": 1.6,
+      "weight": 0,
+      "flying": true,
+      "ability": "flying",
+      "first": "4-1"
+    },
+    {
+      "id": "E08",
+      "name": "좀비",
+      "hp": 3300,
+      "atk": 208,
+      "def": 40,
+      "res": 60,
+      "speed": 0.5,
+      "weight": 2,
+      "flying": false,
+      "ability": "revive_once_50",
+      "first": "7-1"
+    },
+    {
+      "id": "E09",
+      "name": "배신 헌터",
+      "hp": 4200,
+      "atk": 416,
+      "def": 150,
+      "res": 30,
+      "speed": 1.0,
+      "weight": 2,
+      "flying": false,
+      "ability": "stealth_until_blocked",
+      "first": "3-2"
+    },
+    {
+      "id": "E10",
+      "name": "정찰 드론",
+      "hp": 1350,
+      "atk": 196,
+      "def": 80,
+      "res": 0,
+      "speed": 1.5,
+      "weight": 0,
+      "flying": true,
+      "ability": "flying,ranged:2",
+      "first": "6-1"
+    }
   ],
   "variants": [
-    {"id": "E01_elite", "base": "E01", "variant": "elite", "name": "고블린 대장", "dp": 2, "sp": 2},
-    {"id": "E03_elite", "base": "E03", "variant": "elite", "name": "하수도의 포식자", "dp": 2, "sp": 2},
-    {"id": "E01_scout", "base": "E01", "variant": "weapon", "name": "고블린 정찰병", "override": {"hp": 700, "speed": 1.8}, "dp": 1, "sp": 1}
+    {
+      "id": "E01_elite",
+      "base": "E01",
+      "variant": "elite",
+      "name": "고블린 대장",
+      "dp": 2,
+      "sp": 2
+    },
+    {
+      "id": "E03_elite",
+      "base": "E03",
+      "variant": "elite",
+      "name": "하수도의 포식자",
+      "dp": 2,
+      "sp": 2
+    },
+    {
+      "id": "E01_scout",
+      "base": "E01",
+      "variant": "weapon",
+      "name": "고블린 정찰병",
+      "override": {
+        "hp": 1050,
+        "speed": 1.8
+      },
+      "dp": 1,
+      "sp": 1
+    }
   ],
   "bosses": [
-    {"id": "B01", "name": "하수도 군주", "hp": 25000, "atk": 450, "def": 150, "res": 10, "speed": 0.35, "weight": 5, "flying": false,
-     "abilities": ["summon:E01x2", "smash_adjacent_100pct_every_3s", "reach_defense=fail"], "dp": 5, "sp_per_phase": 5, "stage": "1-8"}
+    {
+      "id": "B01",
+      "name": "하수도 군주",
+      "hp": 40000,
+      "atk": 300,
+      "def": 150,
+      "res": 10,
+      "speed": 0.28,
+      "weight": 5,
+      "flying": false,
+      "abilities": [
+        "summon:E01x2",
+        "smash_adjacent_100pct_every_3s",
+        "enrage_unblocked:2.0",
+        "reach_defense=fail"
+      ],
+      "dp": 5,
+      "sp_per_phase": 5,
+      "stage": "1-8"
+    }
   ]
 }
