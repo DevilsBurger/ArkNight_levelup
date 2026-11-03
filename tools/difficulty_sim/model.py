@@ -231,10 +231,15 @@ class Sim:
         # 카드
         legion = list(self.squad.get("legion", []))
         if self.growth.get("include_optional"):
-            merged = legion + [u for u in self.squad.get("optional", []) if u not in legion]
-            order = {uid: i for i, uid in enumerate(merged)}
-            merged.sort(key=lambda uid: (-P["units"][uid].get("rarity", 4), order[uid]))
-            legion = merged[:8]
+            # 숨은 · 이벤트 합류는 같은 클래스의 더 낮은 희귀도 유닛만 교체 (편성의 클래스 구성 유지), 자리가 남으면 추가
+            for uid in self.squad.get("optional", []):
+                if uid in legion: continue
+                cls = P["units"][uid]["class"]; rar = P["units"][uid].get("rarity", 4)
+                same = [b for b in legion if P["units"][b]["class"] == cls and P["units"][b].get("rarity", 4) < rar and "fixed_level" not in P["units"][b]]
+                if same:
+                    weakest = min(same, key=lambda b: P["units"][b].get("rarity", 4)); legion[legion.index(weakest)] = uid
+                elif len(legion) < 8:
+                    legion.append(uid)
         if self.pol.get("deploy") == "none": legion = []
         self.cards = [Card(build_unit_stats(P, uid, self.growth, self.hero_stats.get("cmd_legion", 0.0), self.ov)) for uid in legion]
         self.scripts = [s for s in sd.script if s.get("event") == "npc_down"]
@@ -487,7 +492,7 @@ class Sim:
                 # 경제 모드: 열린 위협이 없고 DP가 다음 카드 코스트보다 적으면 적이 많은 레인으로 가서 처치 DP를 번다
                 boss_alive = any(e.alive and e.st["is_boss"] for e in self.enemies)
                 lane_busy = bool(h.blocked) or any(not e.st["flying"] for lid in h.lanes for e in self.lane_enemies(lid))
-                if pol.get("economy_mode") and self.cards and not boss_alive and not lane_busy:
+                if pol.get("economy_mode") and len(self.cards) >= pol.get("economy_min_cards", 6) and not boss_alive and not lane_busy:
                     need = min((c.current_cost(self.R["redeploy_mult"]) for c in self.cards if c.available), default=0)
                     if need and self.dp < need:
                         counts = {lid: sum(1 for e in self.lane_enemies(lid) if not e.st["flying"]) for lid in self.sd.lanes if not self.sd.lanes[lid].air}
