@@ -1,0 +1,260 @@
+{
+  "id": "1-8",
+  "chapter": 1,
+  "type": "main",
+  "name": "하수도 군주",
+  "note": "보스가 느리게 전진하며 15s마다 고블린을 소환한다. 봉인 타일(중앙 5칸)에는 주인공이 설 수 없어 군단이 중앙을 맡는다. 50% 페이즈 전환 시 봉인이 양쪽 1칸씩 넓어진다. 보스가 방어 지점에 닿으면 즉시 실패.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XXHHXXXXXXXXX",
+      "XGGGGGGGGGGGX",
+      "SPGGLLLLLGGPD",
+      "XGGGGGGGGGGGX",
+      "XXHHXXXXXHHXX",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "lives": 3,
+  "initial_dp": 15,
+  "dp_regen": 0.7,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      2,
+      4
+    ]
+  },
+  "sealed_tiles": [
+    [
+      4,
+      4
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      7,
+      4
+    ],
+    [
+      8,
+      4
+    ]
+  ],
+  "routes": {
+    "A": [
+      [
+        0,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 20,
+      "enemy": "B01",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 35,
+      "enemy": "E01",
+      "route": "A",
+      "count": 2,
+      "interval": 1.0
+    },
+    {
+      "t": 50,
+      "enemy": "E01",
+      "route": "A",
+      "count": 2,
+      "interval": 1.0
+    },
+    {
+      "t": 65,
+      "enemy": "E01",
+      "route": "A",
+      "count": 2,
+      "interval": 1.0
+    },
+    {
+      "t": 80,
+      "enemy": "E01",
+      "route": "A",
+      "count": 2,
+      "interval": 1.0
+    },
+    {
+      "t": 95,
+      "enemy": "E01",
+      "route": "A",
+      "count": 2,
+      "interval": 1.0
+    },
+    {
+      "t": 110,
+      "enemy": "E01",
+      "route": "A",
+      "count": 2,
+      "interval": 1.0
+    }
+  ],
+  "enemy_total": 17,
+  "scale": {
+    "hp": 1.0,
+    "atk": 1.0,
+    "def": 1.0
+  },
+  "npc_units": [],
+  "dispatch_units": [
+    "DSP_SPEAR",
+    "DSP_SNIPER"
+  ],
+  "boss": {
+    "id": "B01",
+    "name": "하수도 군주",
+    "route": "A",
+    "spawn_t": 20,
+    "phases": [
+      {
+        "hp_above": 0.5,
+        "sealed": [
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        "summon_every": 15,
+        "summon": [
+          "E01",
+          2
+        ]
+      },
+      {
+        "hp_above": 0.0,
+        "sealed": [
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            4
+          ]
+        ],
+        "summon_every": 10,
+        "summon": [
+          "E01",
+          2
+        ],
+        "on_enter": [
+          "invuln_2s",
+          "roar_push_1"
+        ]
+      }
+    ]
+  },
+  "script": [
+    {
+      "t": 0,
+      "event": "cutscene",
+      "key": "ch1_boss_intro"
+    },
+    {
+      "t": 20,
+      "event": "tutorial",
+      "key": "boss_sealed_tiles_hero_cannot_enter"
+    },
+    {
+      "t": -1,
+      "event": "cutscene",
+      "key": "ch1_boss_clear_rank_up_D"
+    }
+  ],
+  "rewards": {
+    "xp": 900,
+    "gold": 500,
+    "drops": [
+      [
+        "T1_core",
+        1.0
+      ],
+      [
+        "T2_core",
+        0.3
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 30,
+    "skill_point": 1,
+    "rank": "D",
+    "level_cap": 25
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-2",
+      "dp_regen-30"
+    ]
+  },
+  "seed": 1008
+}

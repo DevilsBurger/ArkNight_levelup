@@ -1,0 +1,180 @@
+{
+  "id": "1-5",
+  "chapter": 1,
+  "type": "main",
+  "name": "방패",
+  "note": "출현 지점 하나가 통로(P)에서 두 갈래로 갈라진다. 주인공은 한쪽만 막을 수 있다. 무진이 아래 길을 지킨다. 클리어 후 SC-02 방패(무진).",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XXGGGGGGGGGPD",
+      "XXPXHHHHHXXXX",
+      "SPPXHXXXHXXXX",
+      "XXPXHHHHHXXXX",
+      "XXGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "lives": 5,
+  "initial_dp": 10,
+  "dp_regen": 0.7,
+  "deploy_limit": 5,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      4,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 12,
+      "enemy": "E01",
+      "route": "B",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 30,
+      "enemy": "E03",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 40,
+      "enemy": "E01",
+      "route": "B",
+      "count": 5,
+      "interval": 1.8
+    },
+    {
+      "t": 60,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 1.8
+    },
+    {
+      "t": 67,
+      "enemy": "E03",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 75,
+      "enemy": "E03",
+      "route": "B",
+      "count": 2,
+      "interval": 3.0
+    }
+  ],
+  "enemy_total": 22,
+  "scale": {
+    "hp": 1.0,
+    "atk": 1.0,
+    "def": 1.0
+  },
+  "npc_units": [
+    {
+      "id": "NPC_MUJIN",
+      "unit": "L_SHIELD_MUJIN",
+      "tile": [
+        4,
+        2
+      ],
+      "dir": "W",
+      "level": 12,
+      "role": "companion"
+    }
+  ],
+  "dispatch_units": [
+    "DSP_SPEAR",
+    "DSP_SNIPER"
+  ],
+  "boss": null,
+  "script": [
+    {
+      "t": 0,
+      "event": "tutorial",
+      "key": "sniper_on_highground_covers_both_lanes"
+    },
+    {
+      "t": 28,
+      "event": "tutorial",
+      "key": "charger_enemy_first_hit_x2"
+    }
+  ],
+  "rewards": {
+    "xp": 500,
+    "gold": 250,
+    "drops": [
+      [
+        "T1_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10,
+    "scenario": "SC-02"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 1005
+}

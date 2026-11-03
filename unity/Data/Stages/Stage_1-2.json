@@ -1,0 +1,146 @@
+{
+  "id": "1-2",
+  "chapter": 1,
+  "type": "main",
+  "name": "오판",
+  "note": "C급 판정이 오판. 도경이 쓰러지고(30s) 엘리트가 나타난다. 귀환 · 재소집을 가르친다.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "XXXHHHXHHHXXX",
+      "XXGGGGGGGGGXX",
+      "XGGGGGGGGGGGX",
+      "SPGGGGGGGGGPD",
+      "XGGGGGGGGGGGX",
+      "XXGGGGGGGGGXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "lives": 10,
+  "initial_dp": 10,
+  "dp_regen": 0.7,
+  "deploy_limit": 3,
+  "hero": {
+    "mode": "pre_awakening",
+    "default_tile": [
+      7,
+      3
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        3
+      ],
+      [
+        12,
+        3
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 18,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 34,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 1.5
+    },
+    {
+      "t": 52,
+      "enemy": "E01_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    }
+  ],
+  "enemy_total": 13,
+  "scale": {
+    "hp": 1.0,
+    "atk": 1.0,
+    "def": 1.0
+  },
+  "npc_units": [
+    {
+      "id": "NPC_MUJIN",
+      "unit": "L_SHIELD_MUJIN",
+      "tile": [
+        5,
+        3
+      ],
+      "dir": "W",
+      "level": 10
+    },
+    {
+      "id": "NPC_DOKYUNG",
+      "unit": "L_SPEAR_DOKYUNG",
+      "tile": [
+        8,
+        3
+      ],
+      "dir": "W",
+      "level": 8
+    }
+  ],
+  "dispatch_units": [
+    "DSP_SPEAR",
+    "DSP_SNIPER"
+  ],
+  "boss": null,
+  "script": [
+    {
+      "t": 0,
+      "event": "tutorial",
+      "key": "auto_skill"
+    },
+    {
+      "t": 30,
+      "event": "npc_down",
+      "unit": "NPC_DOKYUNG"
+    },
+    {
+      "t": 31,
+      "event": "tutorial",
+      "key": "retreat_and_resummon"
+    },
+    {
+      "t": 50,
+      "event": "cutscene",
+      "key": "ch1_elite_appears"
+    }
+  ],
+  "rewards": {
+    "xp": 350,
+    "gold": 150,
+    "drops": []
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 1002
+}

@@ -1,0 +1,191 @@
+{
+  "id": "1-4",
+  "chapter": 1,
+  "type": "main",
+  "name": "하수도 교차로",
+  "note": "R1 첫 적용. 생존자(민간인) NPC가 B 경로 위에 있다. 끝까지 살리면 숨은 합류 H01(조이).",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGGX",
+      "XXHHXXXXXHHGX",
+      "XXXXXXXXXXXGX",
+      "XXHHXXXXXXXGD",
+      "XXXXXXXXXXXGX",
+      "XXHHXXXXXHHGX",
+      "SGGGGGGGGGGGX"
+    ]
+  },
+  "lives": 5,
+  "initial_dp": 10,
+  "dp_regen": 0.7,
+  "deploy_limit": 4,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      8,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        11,
+        6
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        12,
+        3
+      ]
+    ],
+    "B": [
+      [
+        0,
+        0
+      ],
+      [
+        11,
+        0
+      ],
+      [
+        11,
+        3
+      ],
+      [
+        12,
+        3
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 15,
+      "enemy": "E01",
+      "route": "B",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 35,
+      "enemy": "E01",
+      "route": "A",
+      "count": 5,
+      "interval": 1.8
+    },
+    {
+      "t": 42,
+      "enemy": "E02",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 50,
+      "enemy": "E01",
+      "route": "B",
+      "count": 4,
+      "interval": 1.8
+    },
+    {
+      "t": 57,
+      "enemy": "E02",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 75,
+      "enemy": "E01_elite",
+      "route": "A",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 76,
+      "enemy": "E01",
+      "route": "B",
+      "count": 3,
+      "interval": 1.5
+    }
+  ],
+  "enemy_total": 23,
+  "scale": {
+    "hp": 1.0,
+    "atk": 1.0,
+    "def": 1.0
+  },
+  "npc_units": [
+    {
+      "id": "CIV_01",
+      "unit": "CIVILIAN",
+      "tile": [
+        5,
+        0
+      ],
+      "dir": "E",
+      "level": 1,
+      "role": "survivor"
+    }
+  ],
+  "dispatch_units": [
+    "DSP_SPEAR",
+    "DSP_SNIPER"
+  ],
+  "boss": null,
+  "script": [
+    {
+      "t": 0,
+      "event": "tutorial",
+      "key": "manual_skill"
+    },
+    {
+      "t": 12,
+      "event": "tutorial",
+      "key": "two_routes_hero_cannot_hold_both"
+    }
+  ],
+  "rewards": {
+    "xp": 450,
+    "gold": 250,
+    "drops": [
+      [
+        "T1_core",
+        0.5
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10
+  },
+  "unlock_scenario": {
+    "id": "SC-H01",
+    "condition": "npc_alive:CIV_01",
+    "unit": "L_SUPPORT_JOY",
+    "hint": "생존자를 끝까지 지킬 것"
+  },
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 1004
+}

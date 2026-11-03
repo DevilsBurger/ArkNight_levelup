@@ -1,0 +1,215 @@
+{
+  "id": "1-7",
+  "chapter": 1,
+  "type": "main",
+  "name": "예속",
+  "note": "C 경로가 위에서 시작해 아래 방어 지점으로 건너간다. 정찰병 킥(빠른 적)이 등장하고 클리어 후 SC-03 예속(킥). 결과 창에서 1-4 · 1-6의 숨은 조건을 공개한다.",
+  "grid": {
+    "w": 13,
+    "h": 8,
+    "rows": [
+      "XXXXXXXXXXXXX",
+      "SGGGGGGGGGGPD",
+      "XGXXHHHHHXXGX",
+      "XGGGGGGGGGGGX",
+      "XGXXHHHHHXXGX",
+      "SGGGGGGGGGGPD",
+      "XXXXXXXXXXXXX",
+      "XXXXXXXXXXXXX"
+    ]
+  },
+  "lives": 5,
+  "initial_dp": 10,
+  "dp_regen": 0.7,
+  "deploy_limit": 6,
+  "hero": {
+    "mode": "awakened",
+    "default_tile": [
+      6,
+      6
+    ]
+  },
+  "sealed_tiles": [],
+  "routes": {
+    "A": [
+      [
+        0,
+        6
+      ],
+      [
+        12,
+        6
+      ]
+    ],
+    "B": [
+      [
+        0,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ],
+    "C": [
+      [
+        0,
+        6
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        11,
+        4
+      ],
+      [
+        11,
+        2
+      ],
+      [
+        12,
+        2
+      ]
+    ]
+  },
+  "waves": [
+    {
+      "t": 3,
+      "enemy": "E01",
+      "route": "A",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 8,
+      "enemy": "E01",
+      "route": "B",
+      "count": 4,
+      "interval": 2.0
+    },
+    {
+      "t": 25,
+      "enemy": "E02",
+      "route": "C",
+      "count": 3,
+      "interval": 3.0
+    },
+    {
+      "t": 35,
+      "enemy": "E01",
+      "route": "A",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 38,
+      "enemy": "E02",
+      "route": "A",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 45,
+      "enemy": "E01_scout",
+      "route": "B",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 47,
+      "enemy": "E01",
+      "route": "B",
+      "count": 3,
+      "interval": 2.0
+    },
+    {
+      "t": 65,
+      "enemy": "E01_elite",
+      "route": "C",
+      "count": 1,
+      "interval": 0
+    },
+    {
+      "t": 66,
+      "enemy": "E02",
+      "route": "C",
+      "count": 2,
+      "interval": 3.0
+    },
+    {
+      "t": 80,
+      "enemy": "E02",
+      "route": "A",
+      "count": 3,
+      "interval": 2.5
+    },
+    {
+      "t": 82,
+      "enemy": "E01",
+      "route": "B",
+      "count": 4,
+      "interval": 1.5
+    }
+  ],
+  "enemy_total": 30,
+  "scale": {
+    "hp": 1.0,
+    "atk": 1.0,
+    "def": 1.0
+  },
+  "npc_units": [],
+  "dispatch_units": [
+    "DSP_SPEAR",
+    "DSP_SNIPER"
+  ],
+  "boss": null,
+  "script": [
+    {
+      "t": 0,
+      "event": "tutorial",
+      "key": "crossing_route"
+    },
+    {
+      "t": 44,
+      "event": "cutscene",
+      "key": "ch1_scout_kick"
+    },
+    {
+      "t": -1,
+      "event": "system_window",
+      "key": "hidden_join_hint_reveal"
+    }
+  ],
+  "rewards": {
+    "xp": 600,
+    "gold": 300,
+    "drops": [
+      [
+        "T1_core",
+        0.6
+      ],
+      [
+        "T1_shard",
+        0.4
+      ]
+    ]
+  },
+  "first_clear": {
+    "gem": 10,
+    "scenario": "SC-03"
+  },
+  "unlock_scenario": null,
+  "challenge": {
+    "mods": [
+      "deploy_limit-1",
+      "enemy_hp+30"
+    ]
+  },
+  "seed": 1007
+}

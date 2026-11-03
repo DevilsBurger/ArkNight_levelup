@@ -1,0 +1,77 @@
+{
+  "chapter": 1,
+  "stages": [
+    {
+      "id": "1-1",
+      "name": "짐꾼",
+      "file": "Stage_1-1.json",
+      "enemy_total": 8,
+      "lives": 10,
+      "deploy_limit": 3,
+      "routes": 1
+    },
+    {
+      "id": "1-2",
+      "name": "오판",
+      "file": "Stage_1-2.json",
+      "enemy_total": 13,
+      "lives": 10,
+      "deploy_limit": 3,
+      "routes": 1
+    },
+    {
+      "id": "1-3",
+      "name": "낙인",
+      "file": "Stage_1-3.json",
+      "enemy_total": 18,
+      "lives": 5,
+      "deploy_limit": 0,
+      "routes": 2
+    },
+    {
+      "id": "1-4",
+      "name": "하수도 교차로",
+      "file": "Stage_1-4.json",
+      "enemy_total": 23,
+      "lives": 5,
+      "deploy_limit": 4,
+      "routes": 2
+    },
+    {
+      "id": "1-5",
+      "name": "방패",
+      "file": "Stage_1-5.json",
+      "enemy_total": 22,
+      "lives": 5,
+      "deploy_limit": 5,
+      "routes": 2
+    },
+    {
+      "id": "1-6",
+      "name": "깊은 곳",
+      "file": "Stage_1-6.json",
+      "enemy_total": 25,
+      "lives": 5,
+      "deploy_limit": 5,
+      "routes": 2
+    },
+    {
+      "id": "1-7",
+      "name": "예속",
+      "file": "Stage_1-7.json",
+      "enemy_total": 30,
+      "lives": 5,
+      "deploy_limit": 6,
+      "routes": 3
+    },
+    {
+      "id": "1-8",
+      "name": "하수도 군주",
+      "file": "Stage_1-8.json",
+      "enemy_total": 17,
+      "lives": 3,
+      "deploy_limit": 6,
+      "routes": 1
+    }
+  ]
+}
