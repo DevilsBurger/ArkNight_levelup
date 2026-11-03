@@ -3,7 +3,7 @@ import re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from report import load, table_by_policy, table_by_growth, table_detail, table_tags
-doc = Path(sys.argv[3]); rows = load(sys.argv[1]); sw = load(sys.argv[2])
+doc = Path(sys.argv[3]); rows = [r for r in load(sys.argv[1]) if r['stage'].startswith('1-')]; sw = load(sys.argv[2])
 s = doc.read_text(encoding="utf-8")
 st = ['1-1', '1-2', '1-3', '1-4', '1-5', '1-6', '1-7', '1-8']
 def g(pol, grow, stage, k): return float(next(r for r in rows if r['policy'] == pol and r['growth'] == grow and r['stage'] == stage)[k])

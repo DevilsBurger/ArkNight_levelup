@@ -20,6 +20,10 @@ def load_params(path: Path | None = None) -> dict:
         P = yaml.safe_load(f)
     P["units"].update(P.get("units_more", {}))
     P["squads"].update({k: dict(hero="awakened", **v) for k, v in P.get("squads_more", {}).items()})
+    sc = HERE / "squads_scenario.yaml"
+    if sc.exists():
+        with open(sc, encoding="utf-8") as f:
+            P["squads"].update(yaml.safe_load(f).get("squads_scenario", {}))
     return P
 
 
@@ -231,15 +235,12 @@ class Sim:
         # 카드
         legion = list(self.squad.get("legion", []))
         if self.growth.get("include_optional"):
-            # 숨은 · 이벤트 합류는 같은 클래스의 더 낮은 희귀도 유닛만 교체 (편성의 클래스 구성 유지), 자리가 남으면 추가
+            # 숨은 · 이벤트 합류는 편성에 자리가 남을 때만 뒤에 추가한다 (교체 없음).
+            # 같은 클래스의 낮은 희귀도 카드를 고희귀도로 바꾸는 교체는 개막 코스트를 올려 3-6 · 3-7 · 5-1에서
+            # ★3를 30~60%p 떨어뜨렸다 — 싼 개막 카드가 수치보다 중요하다 (08 F19). 편성 최적화는 정책 범위 밖.
             for uid in self.squad.get("optional", []):
-                if uid in legion: continue
-                cls = P["units"][uid]["class"]; rar = P["units"][uid].get("rarity", 4)
-                same = [b for b in legion if P["units"][b]["class"] == cls and P["units"][b].get("rarity", 4) < rar and "fixed_level" not in P["units"][b]]
-                if same:
-                    weakest = min(same, key=lambda b: P["units"][b].get("rarity", 4)); legion[legion.index(weakest)] = uid
-                elif len(legion) < 8:
-                    legion.append(uid)
+                if uid in legion or len(legion) >= 8: continue
+                legion.append(uid)
         if self.pol.get("deploy") == "none": legion = []
         self.cards = [Card(build_unit_stats(P, uid, self.growth, self.hero_stats.get("cmd_legion", 0.0), self.ov)) for uid in legion]
         self.scripts = [s for s in sd.script if s.get("event") == "npc_down"]
